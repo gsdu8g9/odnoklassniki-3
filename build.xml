@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project name="testbox" default="all" basedir=".">
+
+	<property name="bin" location="bin" />
+	<property name="src" location="src" />
+	<property name="tests" location="tests" />
+	<property name="lib" location="lib" />
+	<property name="lib-ant" location="lib-ant" />
+
+	<property name="testbox.jar" location="testbox.jar" />
+	
+	<!-- NOTE: Don't use "location" property but only "value"-->
+	<property name="selenium-server.jar" value="selenium-server-standalone-2.41.0.jar" />
+
+	<path id="libs">
+		<fileset dir="${lib}" includes="**/*.jar" />
+		<pathelement path="${bin}" />
+	</path>
+
+	<path id="ant.libs">
+		<fileset dir="${lib-ant}" includes="**/*.jar" />
+	</path>
+
+	<taskdef name="one-jar" classname="com.simontuffs.onejar.ant.OneJarTask" classpathref="ant.libs" />
+
+    <fail message="Unsupported Java version: ${java.version}. Make sure that the version of the Java compiler is 1.6"> 
+        <condition> 
+            <not> 
+                <or> 
+                    <contains string="${java.version}" substring="1.6" casesensitive="false" /> 
+                    <contains string="${java.version}" substring="1.7" casesensitive="false" /> 
+                </or> 
+            </not> 
+        </condition> 
+    </fail> 
+
+	<target name="all" depends="compile,jar" />
+
+	<target name="clean">
+        <delete dir="${bin}" failonerror="true" />
+        <delete file="${testbox.jar}" failonerror="true" />
+	</target>
+
+	<target name="prepare">
+		<mkdir dir="${bin}" />
+	</target>
+
+	<target name="resources">
+		<copy todir="${bin}" includeEmptyDirs="false">
+			<fileset dir="${src}" excludes="**/*.java" />
+		</copy>
+	</target>
+
+	<target name="compile" depends="clean,prepare,resources">
+		<javac destdir="${bin}" classpathref="libs" debug="true" includeantruntime="true">
+			<src path="${src}" />
+			<src path="${tests}" />
+		</javac>
+	</target>
+
+	<target name="jar" depends="compile">
+		<fail message="Selenium JAR ${lib}/${selenium-server.jar} not found">
+			<condition>
+				<not>
+					<available file="${lib}/${selenium-server.jar}"/>
+				</not>
+			</condition>
+		</fail>
+		<one-jar destfile="${testbox.jar}">
+			<manifest>
+				<attribute name="One-Jar-Main-Class" value="ru.odnoklassniki.tests.runner.Testbox" />
+				<attribute name="Class-Path" value="${selenium-server.jar}" />
+			</manifest>
+			<main>
+				<fileset dir="${bin}" />
+			</main>
+			<lib>
+				<fileset file="${lib}/*.jar" excludes="${selenium-server.jar}" />
+			</lib>
+			<!-- Put META-INF on the top otherwise TEstNG can't find it -->
+			<fileset dir="${src}">
+				<include name="META-INF/**" />
+			</fileset>
+		</one-jar>
+	</target>
+
+</project>
