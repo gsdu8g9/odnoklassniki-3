@@ -45,8 +45,13 @@
 	</target>
 
     <target name="test" depends="compile">
-    	<testng classpathref="libs" outputDir="${testng.report.dir}">
+    	<testng 
+    		classpathref="libs" 
+    		outputDir="${testng.report.dir}"
+    		useDefaultListeners="false"
+    		listeners="org.uncommons.reportng.HTMLReporter">
     	    <classfileset dir="${bin}" includes="**/*.class" />
+    		<sysproperty key="org.uncommons.reportng.title" value="Odnoklassniki Test Report"/>
     	</testng>
     </target>
 	

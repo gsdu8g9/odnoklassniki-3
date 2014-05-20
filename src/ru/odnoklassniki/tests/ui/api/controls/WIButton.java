@@ -1,6 +1,5 @@
 package ru.odnoklassniki.tests.ui.api.controls;
 
-import static ru.odnoklassniki.tests.ui.api.Messages.TEST_EXPECTED_ENABLED;
 import static ru.odnoklassniki.tests.ui.api.Messages.TEST_EXPECTED_VISIBLE;
 
 import org.testng.Assert;
@@ -32,7 +31,7 @@ public class WIButton extends WIElement {
 	public static class Submit extends WIButton {
 
 		public Submit(IWIRoad aRoad, Locale aName) {
-			super(aRoad, "//input[@type='submit' and @value='" + aName.getValue() + "']", aName.getValue());
+			super(aRoad, "//input[@type='submit' and @value='" + aName.getValue() + "']", aName.getName());
 		}
 		
 	}

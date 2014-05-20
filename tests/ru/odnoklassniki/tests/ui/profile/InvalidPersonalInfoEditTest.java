@@ -1,8 +1,12 @@
 package ru.odnoklassniki.tests.ui.profile;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import ru.odnoklassniki.tests.ui.api.WIBrowser;
@@ -10,11 +14,22 @@ import ru.odnoklassniki.tests.ui.api.WIBrowserFactory;
 import ru.odnoklassniki.tests.ui.api.dialog.WIProfilePersoanlDialog;
 import ru.odnoklassniki.tests.ui.api.locale.Locale;
 
-
 public class InvalidPersonalInfoEditTest {
 	
 	WIBrowser b;
 	WIProfilePersoanlDialog d;
+	
+	static final String INVALID_SYMBOLS = "~`!@#$%^&*_=+\\|[{]}:\"'<>?/"; 
+	static final String CORRECT_SYMBOLS = "()-"; 
+	
+	@DataProvider(name = "symbols")
+	public Iterator<Object[]> createData() {
+		ArrayList<Object[]> data = new ArrayList<Object[]>();
+		for (char c : INVALID_SYMBOLS.toCharArray()) {
+			data.add(new Object[] { c });
+		}
+		return data.iterator();
+	}
 	
 	@BeforeClass()
 	public void setup() {
@@ -43,6 +58,15 @@ public class InvalidPersonalInfoEditTest {
 		d.inpName.propError.assertValue(Locale.ERR_SPECIFY_NAME);
 	}
 
+	@Test(dataProvider = "symbols")
+	public void testSymbolName(char symbol) {
+		d.go();
+		d.inpName.setValue("Иван" + symbol);
+		d.btnSave.click();
+		d.inpName.propError.waitVisible();
+		d.inpName.propError.assertValue(Locale.ERR_USE_ALPHA_ONLY);
+	}
+
 	@Test
 	public void testEmptySurame() {
 		d.go();
@@ -50,6 +74,15 @@ public class InvalidPersonalInfoEditTest {
 		d.btnSave.click();
 		d.inpSurname.propError.waitVisible();
 		d.inpSurname.propError.assertValue(Locale.ERR_SPECIFY_SURNAME);
+	}
+	
+	@Test(dataProvider = "symbols")
+	public void testSymbolSurame(char symbol) {
+		d.go();
+		d.inpSurname.setValue("Иванов" + symbol);
+		d.btnSave.click();
+		d.inpSurname.propError.waitVisible();
+		d.inpSurname.propError.assertValue(Locale.ERR_USE_ALPHA_ONLY);
 	}
 	
 	@Test
