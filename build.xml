@@ -5,12 +5,16 @@
 	<property name="src" location="src" />
 	<property name="tests" location="tests" />
 	<property name="lib" location="lib" />
+    
+	<property name="testng.report.dir" location="test-output" />
 
 	<property name="testbox.jar" location="testbox.jar" />
 	
 	<!-- NOTE: Don't use "location" property but only "value"-->
 	<property name="selenium-server.jar" value="selenium-server-standalone-2.41.0.jar" />
 
+	<taskdef resource="testngtasks" classpath="${lib}/testng-6.5.1.jar"/>
+	
 	<path id="libs">
 		<fileset dir="${lib}" includes="**/*.jar" />
 		<pathelement path="${bin}" />
@@ -41,9 +45,9 @@
 	</target>
 
     <target name="test" depends="compile">
-    	<java classname="ru.odnoklassniki.tests.runner.Testbox" classpathref="libs" fork="true">
-    		<arg value="-start-selenium"/>
-    	</java>
+    	<testng classpathref="libs" outputDir="${testng.report.dir}">
+    	    <classfileset dir="${bin}" includes="**/*.class" />
+    	</testng>
     </target>
 	
 </project>
