@@ -1,11 +1,11 @@
 package ru.odnoklassniki.tests.ui.api.dialog;
 
 import ru.odnoklassniki.tests.ui.api.common.IWIRoad;
+import ru.odnoklassniki.tests.ui.api.controls.WIButton;
 import ru.odnoklassniki.tests.ui.api.controls.input.WISelectorInput;
 import ru.odnoklassniki.tests.ui.api.controls.input.WITextInput;
 import ru.odnoklassniki.tests.ui.api.controls.property.WITextProperty;
 import ru.odnoklassniki.tests.ui.api.locale.Locale;
-import ru.odnoklassniki.ui.api.controls.WIButton;
 
 
 public class WIProfilePersoanlDialog extends WIDialog {

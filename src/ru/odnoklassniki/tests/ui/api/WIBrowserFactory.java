@@ -1,10 +1,9 @@
 package ru.odnoklassniki.tests.ui.api;
 
-import static ru.odnoklassniki.tests.ui.api.Messages.ERR_SELENIUM_INVALID_URL2;
-import static ru.odnoklassniki.tests.ui.api.Messages.ERR_SELENIUM_INVALID_URL2;
 import static ru.odnoklassniki.tests.ui.api.Messages.ERR_FAILED_CLOSE_BROWSER;
 import static ru.odnoklassniki.tests.ui.api.Messages.ERR_FAILED_START_SELENIUM_SERVER;
 import static ru.odnoklassniki.tests.ui.api.Messages.ERR_INVALID_URL2;
+import static ru.odnoklassniki.tests.ui.api.Messages.ERR_SELENIUM_INVALID_URL2;
 
 import java.io.File;
 import java.net.URL;
@@ -19,7 +18,6 @@ import ru.odnoklassniki.tests.common.LogFactory;
 import ru.odnoklassniki.tests.common.Utils;
 import ru.odnoklassniki.tests.runner.Testbox;
 import ru.odnoklassniki.tests.ui.api.locale.Text;
-
 
 public class WIBrowserFactory {
 

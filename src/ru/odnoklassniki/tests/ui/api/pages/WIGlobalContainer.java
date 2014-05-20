@@ -1,10 +1,10 @@
 package ru.odnoklassniki.tests.ui.api.pages;
 
 import ru.odnoklassniki.tests.ui.api.common.IWIRoad;
+import ru.odnoklassniki.tests.ui.api.controls.WIContainer;
+import ru.odnoklassniki.tests.ui.api.controls.WIMenuItem;
 import ru.odnoklassniki.tests.ui.api.controls.property.WIUsernameProperty;
 import ru.odnoklassniki.tests.ui.api.locale.Locale;
-import ru.odnoklassniki.ui.api.controls.WIContainer;
-import ru.odnoklassniki.ui.api.controls.WIMenuItem;
 
 
 public class WIGlobalContainer extends WIContainer {

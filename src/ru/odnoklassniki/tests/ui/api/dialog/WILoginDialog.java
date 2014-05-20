@@ -6,9 +6,9 @@ import static ru.odnoklassniki.tests.ui.api.Requirements.argumentNotNull;
 import static ru.odnoklassniki.tests.ui.api.locale.Locale.BTN_LOGIN;
 import ru.odnoklassniki.tests.common.Utils;
 import ru.odnoklassniki.tests.ui.api.common.IWIRoad;
+import ru.odnoklassniki.tests.ui.api.controls.WIButton;
 import ru.odnoklassniki.tests.ui.api.controls.input.WITextInput;
 import ru.odnoklassniki.tests.ui.api.locale.Text;
-import ru.odnoklassniki.ui.api.controls.WIButton;
 
 
 public class WILoginDialog extends WIDialog {

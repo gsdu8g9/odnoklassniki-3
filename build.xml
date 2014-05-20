@@ -16,10 +16,6 @@
 		<pathelement path="${bin}" />
 	</path>
 
-	<path id="ant.libs">
-		<fileset dir="${lib-ant}" includes="**/*.jar" />
-	</path>
-
 	<target name="all" depends="compile" />
 
 	<target name="clean">
@@ -44,4 +40,10 @@
 		</javac>
 	</target>
 
+    <target name="test" depends="compile">
+    	<java classname="ru.odnoklassniki.tests.runner.Testbox" classpathref="libs" fork="true">
+    		<arg value="-start-selenium"/>
+    	</java>
+    </target>
+	
 </project>

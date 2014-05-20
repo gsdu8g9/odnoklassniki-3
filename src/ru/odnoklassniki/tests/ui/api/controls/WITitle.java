@@ -1,4 +1,4 @@
-package ru.odnoklassniki.ui.api.controls;
+package ru.odnoklassniki.tests.ui.api.controls;
 
 import ru.odnoklassniki.tests.ui.api.common.IWIRoad;
 import ru.odnoklassniki.tests.ui.api.controls.property.WITextProperty;

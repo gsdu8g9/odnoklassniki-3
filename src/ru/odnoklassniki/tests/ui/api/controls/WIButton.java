@@ -1,4 +1,4 @@
-package ru.odnoklassniki.ui.api.controls;
+package ru.odnoklassniki.tests.ui.api.controls;
 
 import static ru.odnoklassniki.tests.ui.api.Messages.TEST_EXPECTED_ENABLED;
 import static ru.odnoklassniki.tests.ui.api.Messages.TEST_EXPECTED_VISIBLE;

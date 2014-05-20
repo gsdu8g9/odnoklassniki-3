@@ -1,8 +1,8 @@
 package ru.odnoklassniki.tests.ui.api.dialog;
 
 import ru.odnoklassniki.tests.ui.api.common.IWIRoad;
+import ru.odnoklassniki.tests.ui.api.controls.WIContainer;
 import ru.odnoklassniki.tests.ui.api.locale.Locale;
-import ru.odnoklassniki.ui.api.controls.WIContainer;
 
 
 public class WIDialog extends WIContainer {

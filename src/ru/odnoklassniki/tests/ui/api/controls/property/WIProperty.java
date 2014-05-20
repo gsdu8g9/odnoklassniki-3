@@ -8,7 +8,7 @@ import org.testng.Assert;
 
 import ru.odnoklassniki.tests.common.Time;
 import ru.odnoklassniki.tests.ui.api.common.IWIRoad;
-import ru.odnoklassniki.ui.api.controls.WIElement;
+import ru.odnoklassniki.tests.ui.api.controls.WIElement;
 
 import com.thoughtworks.selenium.Wait;
 
