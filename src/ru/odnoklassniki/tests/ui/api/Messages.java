@@ -11,20 +11,10 @@ public enum Messages implements IMessage {
 	LOCALE_NOT_FOUND("Locale not found '%s'", "Add correspondinf property file"),
 	LOCALE_UNDEFINED("Locale is undefined", "Define locale first"),
 	
-	
-	ERR_SELENIUM_INVALID_URL2(
-			"Invalid Selenium URL %s"),
-	ERR_INVALID_URL2(
-			"Invalid URL %s"),
-
-	ERR_FAILED_START_SELENIUM_SERVER(
-			"Faield start Selenium Server"),
-	ERR_FAILED_CLOSE_BROWSER(
-			"Faield close browser"),
-	ERR_ARGUMENT_IS_NULL(
-			"Argument %s must not be null", "Fix code"),
-	ERR_ARGUMENT_IS_EMPTY(
-			"Argument %s must not be empty", "Fix code"),
+	ERR_FAILED_START_SELENIUM_SERVER("Faield start Selenium Server"),
+	ERR_FAILED_CLOSE_BROWSER("Faield close browser"),
+	ERR_ARGUMENT_IS_NULL("Argument %s must not be null", "Fix code"),
+	ERR_ARGUMENT_IS_EMPTY("Argument %s must not be empty", "Fix code"),
 
 	TEST_EXPECTED_VISIBLE("Expected visible %s"), 
 	TEST_EXPECTED_INVISIBLE("Expected invisible %s"), 

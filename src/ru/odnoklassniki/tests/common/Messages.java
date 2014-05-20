@@ -3,6 +3,7 @@ package ru.odnoklassniki.tests.common;
 public enum Messages implements IMessage {
 
 	FAILED_FORMAT_STRING("Failed format string \"%s\" because of %s:%s", null),
+	INVALID_URL1("Invalid URL %s://%s:%s/%s"),
 	INVALID_URL2("Invalid URL %s");
 
 	private String problem;

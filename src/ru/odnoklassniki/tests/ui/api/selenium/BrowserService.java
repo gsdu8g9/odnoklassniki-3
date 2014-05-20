@@ -1,7 +1,5 @@
 package ru.odnoklassniki.tests.ui.api.selenium;
 
-import static ru.odnoklassniki.tests.common.Messages.INVALID_URL2;
-
 import java.io.File;
 import java.net.URL;
 import java.util.List;
@@ -14,7 +12,6 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 import ru.odnoklassniki.tests.common.Scenario;
 import ru.odnoklassniki.tests.common.Utils;
-
 
 /**
  * Class BrowserService cooperates functionality of two techniques - Selenium
@@ -38,23 +35,10 @@ public class BrowserService implements Selenium2, WebDriver {
 		capabilities.setBrowserName("firefox");
 		m_selenium = new DefaultSelenium2(aHost, aPort, aBrowser, aUrl);
 		m_selenium.start();
-//		m_webdriver = new RemoteWebDriver(new SeleneseCommandExecutor(
-//				m_selenium), capabilities);
-
-		// DesiredCapabilities capabilities = new DesiredCapabilities();
-		// capabilities.setBrowserName("firefox");
-		// CommandExecutor executor = new SeleneseCommandExecutor(
-		// WIBrowserFactory.getSeleniumURL(),
-		// WIBrowserFactory.getOvmManagerBaseURL(), capabilities);
-		// m_webdriver = new RemoteWebDriver(executor, capabilities);
-		// m_selenium = new WebDriverBackedSelenium2(m_webdriver,
-		// WIBrowserFactory
-		// .getOvmManagerBaseURL().toString());
-
 	}
 	
 	public String getCurrentBase() {
-		URL url = Utils.getURL(getCurrentUrl(), INVALID_URL2);
+		URL url = Utils.getURL(getCurrentUrl());
 		String result = url.getProtocol() + "://" + url.getHost();
 		if (url.getPort() != -1) {
 			result += ":" + url.getPort();

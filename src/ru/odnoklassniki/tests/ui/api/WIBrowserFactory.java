@@ -2,8 +2,6 @@ package ru.odnoklassniki.tests.ui.api;
 
 import static ru.odnoklassniki.tests.ui.api.Messages.ERR_FAILED_CLOSE_BROWSER;
 import static ru.odnoklassniki.tests.ui.api.Messages.ERR_FAILED_START_SELENIUM_SERVER;
-import static ru.odnoklassniki.tests.ui.api.Messages.ERR_INVALID_URL2;
-import static ru.odnoklassniki.tests.ui.api.Messages.ERR_SELENIUM_INVALID_URL2;
 
 import java.io.File;
 import java.net.URL;
@@ -27,15 +25,16 @@ public class WIBrowserFactory {
 	private static final String SELENIUM_PORT = System.getProperty("selenium.port", "" + RemoteControlConfiguration.getDefaultPort());
 	private static final String SELENIUM_LOG = System.getProperty("selenium.log");
 	private static final String SELENIUM_BROWSER = System.getProperty("selenium.browser", "*firefox");
+	private static final String SELENIUM_TIMEOUT = System.getProperty("selenium.timeout", "30000");
 
-	private static boolean useEmbededSeleniumServer = false;
+	private static boolean useEmbededSeleniumServer = System.getProperty("selenium.embedded", "true").equals("true");
 	private static boolean isSeleniumRunning = false;
 	private static URL seleniumUrl;
 	private static SeleniumServer server;
-	private static final List<WIBrowser> createdBrowsers = new ArrayList<WIBrowser>();
+	private static final List<WIBrowser> browsers = new ArrayList<WIBrowser>();
 
-	public static URL getSeleniumURL() {
-		return seleniumUrl == null ? seleniumUrl = Utils.getURL(SELENIUM_URL, ERR_SELENIUM_INVALID_URL2) : seleniumUrl;
+	private static URL getSeleniumURL() {
+		return seleniumUrl == null ? seleniumUrl = Utils.getURL(SELENIUM_URL) : seleniumUrl;
 	}
 
 	private static void startEmbededSeleniumServer() {
@@ -91,7 +90,7 @@ public class WIBrowserFactory {
 	}
 
 	public static WIBrowser getNewBrowser(String url) {
-		return getNewBrowser(Utils.getURL(url, ERR_INVALID_URL2));		
+		return getNewBrowser(Utils.getURL(url));		
 	}
 	
 	public static WIBrowser getNewBrowser(URL aUrl) {
@@ -101,30 +100,18 @@ public class WIBrowserFactory {
 				startEmbededSeleniumServer();
 				isSeleniumRunning = true;
 			}
-		} else {
-			// TODO Add port listening check
-			// If Selenium is inaccessible print human readable error
 		}
 
 		URL baseUrl = Utils.getURL(aUrl.getProtocol(), aUrl.getHost(),
-				aUrl.getPort(), "", ERR_SELENIUM_INVALID_URL2);
+				aUrl.getPort(), "");
 
-		// TODO Add new browser to collection to be able close all of them
 		WIBrowser browser = new WIBrowser(getSeleniumURL().getHost(),
 				getSeleniumURL().getPort(), SELENIUM_BROWSER,
 				baseUrl.toString());
-		// getOvmManagerBaseURL().toString());
 
-		createdBrowsers.add(browser);
+		browsers.add(browser);
 
-		// Since combination of Selenium and WebDriver is used it's unnecessary
-		// to start browser because of WebDriver opens it by itself
-		// Uncomment this code for debug purpose only
-		// browser.start();
-
-		// Default timeout is 10 seconds but sometimes it not enough (may be due to network issues)
-		// so lets increase it up to 30 seconds
-		browser.setTimeout(System.getProperty("selenium.timeout", "30000"));
+		browser.setTimeout(SELENIUM_TIMEOUT);
 		
 		// Highlight all HTML elements during work to get visual control of
 		// executed operations
@@ -140,19 +127,19 @@ public class WIBrowserFactory {
 	}
 
 	public static void closeAll() {
-		for (int i = 0; i < createdBrowsers.size(); i++) {
+		for (int i = 0; i < browsers.size(); i++) {
 			try {
-				createdBrowsers.get(i).close();
+				browsers.get(i).close();
 			} catch (Exception e) {
 				log.error(ERR_FAILED_CLOSE_BROWSER.getProblem());
 			} finally {
-				createdBrowsers.remove(i--);
+				browsers.remove(i--);
 			}
 		}
 	}
 	
 	public static List<WIBrowser> getBrowsers() {
-		return createdBrowsers;
+		return browsers;
 	}
 
 	private WIBrowserFactory() {

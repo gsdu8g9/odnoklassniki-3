@@ -1,6 +1,8 @@
 package ru.odnoklassniki.tests.common;
 
 import static ru.odnoklassniki.tests.common.Messages.FAILED_FORMAT_STRING;
+import static ru.odnoklassniki.tests.common.Messages.INVALID_URL1;
+import static ru.odnoklassniki.tests.common.Messages.INVALID_URL2;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
@@ -201,20 +203,20 @@ public class Utils {
 		}
 	}
 
-	public static URL getURL(String url, IMessage errorMessage) {
+	public static URL getURL(String url) {
 		try {
 			return new URL(url);
 		} catch (MalformedURLException e) {
-			throw new TestboxException(errorMessage, url);
+			throw new TestboxException(INVALID_URL2, url);
 		}
 	}
 
 	public static URL getURL(String protocol, String host, int port,
-			String path, IMessage errorMessage) {
+			String path) {
 		try {
 			return new URL(protocol, host, port, path);
 		} catch (MalformedURLException e) {
-			throw new TestboxException(errorMessage, protocol, host, port, path);
+			throw new TestboxException(INVALID_URL1, protocol, host, port, path);
 		}
 	}
 
