@@ -9,7 +9,7 @@ import ru.odnoklassniki.tests.ui.api.locale.Locale;
 
 public class WIProfilePage extends WIPage {
 
-	public final WIMenuItem mnuPersonalInfo = WIMenuItem.Link(this, Locale.LINK_PROFILE_PERSONAL);
+	public final WIMenuItem mnuPersonalInfo = WIMenuItem.Link(this, Locale.LINK_EDIT_PROFILE);
 	
 	public final WIProfilePersoanlDialog dlgPersonalInfo = new WIProfilePersoanlDialog(mnuPersonalInfo.getRoad());
 	

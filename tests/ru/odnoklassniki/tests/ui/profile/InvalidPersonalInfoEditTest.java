@@ -19,8 +19,8 @@ public class InvalidPersonalInfoEditTest {
 	@BeforeClass()
 	public void setup() {
 		b = WIBrowserFactory.getNewBrowser("http://www.odnoklassniki.ru");
-//		b.login("dummy_user1@mail.ru", "pwd123456");
-		b.login("dummy_user123", "pwd123456");
+		b.login("dummy_user1@mail.ru", "pwd123456");
+//		b.login("dummy_user123", "pwd123456");
 		d = b.getProfile().dlgPersonalInfo; 
 	}
 	
