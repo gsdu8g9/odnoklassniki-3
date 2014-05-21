@@ -51,8 +51,6 @@ public class Testbox {
 		return tmpFolder;
 	}
 
-	// TODO Print testing progress
-	// TODO Add to log test start and status	
 	public static void main(String[] args) throws IOException {
 		Thread.setDefaultUncaughtExceptionHandler(new Handler());
 

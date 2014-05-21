@@ -1,12 +1,15 @@
 package ru.odnoklassniki.tests.runner.listeners;
 
+import org.testng.IInvokedMethod;
+import org.testng.IInvokedMethodListener;
+import org.testng.ITestContext;
+import org.testng.ITestListener;
 import org.testng.ITestNGMethod;
 import org.testng.ITestResult;
-import org.testng.TestListenerAdapter;
 
 import ru.odnoklassniki.tests.common.Loggers;
 
-public class TextReporter extends TestListenerAdapter {
+public class TextReporter implements ITestListener, IInvokedMethodListener {
 
 	private String getTestName(ITestResult result) {
 		ITestNGMethod method = result.getMethod();
@@ -14,8 +17,15 @@ public class TextReporter extends TestListenerAdapter {
 	}
 	
 	@Override
+	public void onStart(ITestContext context) {
+	}
+	
+	@Override
+	public void onFinish(ITestContext context) {
+	}
+	
+	@Override
 	public void onTestStart(ITestResult result) { 		
-		Loggers.framework.info("====== " + getTestName(result) + " ======");
 	}
 
 	@Override
@@ -34,6 +44,19 @@ public class TextReporter extends TestListenerAdapter {
 	public void onTestSuccess(ITestResult result) {
 		System.out.println(" PASSED : " + getTestName(result));
 		Loggers.framework.info("====== " + getTestName(result) + " [PASSED] ======");
+	}
+
+	@Override
+	public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
+	}
+
+	@Override
+	public void afterInvocation(IInvokedMethod arg0, ITestResult result) {
+	}
+
+	@Override
+	public void beforeInvocation(IInvokedMethod arg0, ITestResult result) {
+		Loggers.framework.info("====== " + getTestName(result) + " ======");
 	}
 
 }
