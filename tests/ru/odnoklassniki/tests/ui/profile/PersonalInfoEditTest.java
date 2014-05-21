@@ -20,7 +20,7 @@ public class PersonalInfoEditTest {
 		NAME("Иван", "Петр"),
 		SURNAME("Иванов", "Петров"),
 		BIRTH_DAY("2", "3"),
-		BIRTH_MONTH(Text.MONTH_APRIL.getValue(), Text.MONTH_MAY.getValue()),
+		BIRTH_MONTH(Text.APRIL.getValue(), Text.MAY.getValue()),
 		BIRTH_YEAR("2006", "2007"),
 		CITY("Санкт-Петербург, Россия", "г. Кронштадт (Санкт-Петербург г), Россия"),
 		BIRTH_CITY("Москва, Россия", "г. Зеленоград (Москва г), Россия");
