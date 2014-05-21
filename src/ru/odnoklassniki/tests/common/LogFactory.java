@@ -1,5 +1,7 @@
 package ru.odnoklassniki.tests.common;
 
+import static ru.odnoklassniki.tests.common.Messages.FAILED_READ_LOG_CONFIG;
+
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
@@ -7,6 +9,8 @@ import org.apache.log4j.xml.DOMConfigurator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
+
+import ru.odnoklassniki.tests.runner.TestboxException;
 
 public class LogFactory {
 
@@ -23,7 +27,7 @@ public class LogFactory {
 				);
 			DOMConfigurator.configure(doc.getDocumentElement());
 		} catch (Exception e) {
-			throw new RuntimeException(e);
+			throw new TestboxException(FAILED_READ_LOG_CONFIG, e);
 		}
 	}
 	

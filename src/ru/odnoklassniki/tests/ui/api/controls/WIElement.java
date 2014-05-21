@@ -1,19 +1,11 @@
 package ru.odnoklassniki.tests.ui.api.controls;
 
-import static ru.odnoklassniki.tests.ui.api.Messages.LOG_ELEMENT_ACCESSIBLE;
 import static ru.odnoklassniki.tests.ui.api.Messages.LOG_ELEMENT_INVISIBLE;
-import static ru.odnoklassniki.tests.ui.api.Messages.LOG_ELEMENT_IS_INACCESSIBLE;
 import static ru.odnoklassniki.tests.ui.api.Messages.LOG_ELEMENT_VISIBLE;
-import static ru.odnoklassniki.tests.ui.api.Messages.LOG_ELEMENT_WAIT_ACCESSIBLE;
-import static ru.odnoklassniki.tests.ui.api.Messages.LOG_ELEMENT_WAIT_INACCESSIBLE;
 import static ru.odnoklassniki.tests.ui.api.Messages.LOG_ELEMENT_WAIT_INVISIBLE;
-import static ru.odnoklassniki.tests.ui.api.Messages.LOG_ELEMENT_WAIT_INVISIBLE_FOR;
 import static ru.odnoklassniki.tests.ui.api.Messages.LOG_ELEMENT_WAIT_VISIBLE;
-import static ru.odnoklassniki.tests.ui.api.Messages.TEST_EXPECTED_ACCESSIBLE;
-import static ru.odnoklassniki.tests.ui.api.Messages.TEST_EXPECTED_DISAPPEAR;
 import static ru.odnoklassniki.tests.ui.api.Messages.TEST_EXPECTED_INVISIBLE;
 import static ru.odnoklassniki.tests.ui.api.Messages.TEST_EXPECTED_VISIBLE;
-import static ru.odnoklassniki.tests.ui.api.Messages.TEST_UNEXPECTED_ACCESSIBLE;
 
 import org.testng.Assert;
 
@@ -40,10 +32,10 @@ public class WIElement implements IWIRoad {
 
 		@Override
 		public final void go() {
-			if (isAccessible())
+			if (isVisible())
 				return;
 			super.go();
-			waitAccessible();
+			waitVisible();
 		}
 
 	}
@@ -165,11 +157,6 @@ public class WIElement implements IWIRoad {
 		return false;
 	}
 
-	// FIXME Remove isAccessible
-	public boolean isAccessible() {
-		return isVisible();
-	}
-	
 	public void assertVisible() {
 		if (!isVisible()) {
 			Assert.fail(TEST_EXPECTED_VISIBLE.getProblem(this));
@@ -202,68 +189,6 @@ public class WIElement implements IWIRoad {
 			}
 		}.wait(TEST_EXPECTED_INVISIBLE.getProblem(this));
 		Scenario.ui.info(LOG_ELEMENT_INVISIBLE.getProblem(this));
-	}
-
-	public void waitInvisibleFor(long period) {
-		if (
-				new Wait() {
-					@Override
-					public boolean until() {
-						return isVisible();
-					}
-				}.waitSilent(period)) 
-		{
-			Assert.fail(LOG_ELEMENT_WAIT_INVISIBLE_FOR.getProblem(this, period / 1000));
-		}
-	}
-	
-	public boolean isVisibleFor(long period) {
-		return 
-				new Wait() {
-					@Override
-					public boolean until() {
-						return isVisible();
-					}
-				}.waitSilent(period); 
-	}
-	
-	public void waitAccessible() {
-		Scenario.ui.info(LOG_ELEMENT_WAIT_ACCESSIBLE.getProblem(this));
-		new Wait() {
-			@Override
-			public boolean until() {
-				return isAccessible();
-			}
-		}.wait(TEST_EXPECTED_ACCESSIBLE.getProblem(this));
-		Scenario.ui.info(LOG_ELEMENT_ACCESSIBLE.getProblem(this));
-	}
-
-	public void waitInaccessible() {
-		Scenario.ui.info(LOG_ELEMENT_WAIT_INACCESSIBLE.getProblem(this));
-		new Wait() {
-			@Override
-			public boolean until() {
-				return !isAccessible();
-			}
-		}.wait(TEST_UNEXPECTED_ACCESSIBLE.getProblem(this));
-		Scenario.ui.info(LOG_ELEMENT_IS_INACCESSIBLE.getProblem(this));
-	}
-
-	public void waitVisibleAndInvisible(long timeoutToShow, long timeoutToHide) {
-		if (new Wait() {
-				public boolean until() {
-					return isVisible();
-				}
-			}.waitSilent(timeoutToShow)) 
-		{
-			if (!new Wait() {
-				public boolean until() {
-					return !isVisible();
-				}
-			}.waitSilent(timeoutToHide)) {
-				Assert.fail(TEST_EXPECTED_DISAPPEAR.getProblem(this, (int)(timeoutToHide / 1000)));
-			}
-		}
 	}
 
 }

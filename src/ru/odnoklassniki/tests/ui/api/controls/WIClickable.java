@@ -4,7 +4,6 @@ import ru.odnoklassniki.tests.common.Scenario;
 import ru.odnoklassniki.tests.ui.api.common.IWIRoad;
 import ru.odnoklassniki.tests.ui.api.common.WIDefaultRoad;
 
-
 public class WIClickable extends WIElement {
 
 	public static class Road extends WIDefaultRoad {
@@ -33,8 +32,6 @@ public class WIClickable extends WIElement {
 	
 	public void click() {
 		go();
-		// Simple "click" doesn't work here
-//		getBrowser().clickAt(getGlobalID(), "1,1");
 		getBrowser().click(getGlobalID());
 		Scenario.ui.info("Click " + this);
 	}

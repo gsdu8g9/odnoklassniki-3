@@ -184,4 +184,13 @@ public class PersonalInfoEditTest {
 		d.inpBirthCity.assertValue(newValue);
 	}
 	
+	@Test
+	public void testEmptyBirthCity() {
+		d.inpBirthCity.setValue("");
+		d.save();
+		
+		d.go();
+		d.inpBirthCity.assertValue("");
+	}
+	
 }

@@ -10,17 +10,15 @@ import ru.odnoklassniki.tests.ui.api.controls.WIButton;
 import ru.odnoklassniki.tests.ui.api.controls.input.WITextInput;
 import ru.odnoklassniki.tests.ui.api.locale.LocaleManager;
 
-
 public class WILoginDialog extends WIDialog {
 
-	public final WITextInput inpUsername = new WITextInput(this,
-			"field_email", "Username");
-	
-	public final WITextInput inpPassword = new WITextInput(this,
-			"field_password", "Password");
+	// TODO Use human oriended xpath
+	public final WITextInput inpUsername = new WITextInput(this, "field_email", "Username");
+
+	public final WITextInput inpPassword = new WITextInput(this, "field_password", "Password");
 
 	public final WIButton btnLogin = new WIButton.Submit(this, BTN_LOGIN);
-	
+
 	public WILoginDialog(IWIRoad road) {
 		super(road, "//*[@class='anonym_login']", "Login");
 	}
@@ -33,18 +31,18 @@ public class WILoginDialog extends WIDialog {
 		argumentNotNull(aName, "name");
 		argumentNotNull(aPassword, "password");
 
-		waitAccessible();
+		waitVisible();
 		inpUsername.setValue(aName);
 		inpPassword.setValue(aPassword);
 		btnLogin.click();
 		Utils.pause(Seconds(3), "FIXME Selenium crashes", ui);
 		waitInvisible();
-		
+
 		// After login locale can be changed depends on user's settings
 		LocaleManager.autoDetect(getBrowser());
-		
-		// Login is successful if page shows username property 
-		getBrowser().getGlobalContainer().proUsername.waitAccessible();
+
+		// Login is successful if page shows username property
+		getBrowser().getGlobalContainer().proUsername.waitVisible();
 	}
 
 }

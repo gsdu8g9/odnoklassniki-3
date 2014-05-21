@@ -30,14 +30,6 @@ public abstract class WIProperty<T> extends WIElement {
 		Assert.assertEquals(getValue(), value, this + " value");
 	}
 	
-	public void assertAccessible() {
-		Assert.assertTrue(this.isAccessible(), this + " expected to be accessible");
-	}
-
-	public void assertInaccessible() {
-		Assert.assertTrue(!this.isAccessible(), this + " expected to be inaccessible");
-	}
-
 	public void assertVisible() {
 		Assert.assertTrue(this.isVisible(), this + " expected to be visible");
 	}

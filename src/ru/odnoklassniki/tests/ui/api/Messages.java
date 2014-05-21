@@ -11,7 +11,7 @@ public enum Messages implements IMessage {
 	LOCALE_NOT_FOUND("Locale not found '%s'", "Add correspondinf property file"),
 	LOCALE_UNDEFINED("Locale is undefined", "Define locale first"),
 	
-	ERR_FAILED_START_SELENIUM_SERVER("Faield start Selenium Server"),
+	ERR_FAILED_START_SELENIUM_SERVER("Faield start Selenium Server, %s"),
 	ERR_FAILED_CLOSE_BROWSER("Faield close browser"),
 	ERR_ARGUMENT_IS_NULL("Argument %s must not be null", "Fix code"),
 	ERR_ARGUMENT_IS_EMPTY("Argument %s must not be empty", "Fix code"),
@@ -32,12 +32,8 @@ public enum Messages implements IMessage {
 
 	LOG_ELEMENT_VISIBLE("%s is visible"),
 	LOG_ELEMENT_INVISIBLE("%s is invisible"),
-	LOG_ELEMENT_ACCESSIBLE("%s is accessible"),
-	LOG_ELEMENT_IS_INACCESSIBLE("%s is inaccessible"),
 	LOG_ELEMENT_WAIT_VISIBLE("Waiting for %s to become visible..."),
 	LOG_ELEMENT_WAIT_INVISIBLE("Waiting for %s to become invisible..."),
-	LOG_ELEMENT_WAIT_ACCESSIBLE("Waiting for %s to become accessible..."),
-	LOG_ELEMENT_WAIT_INACCESSIBLE("Waiting for %s to become inaccessible..."),
 	LOG_ELEMENT_WAIT_INVISIBLE_FOR("Waiting for %s is invisible for %d seconds..."),
 	
 	LOG_SELECTOR_SETVALUE("Select \"%2$s\" at %1$s"),

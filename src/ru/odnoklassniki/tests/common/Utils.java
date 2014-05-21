@@ -1,13 +1,16 @@
 package ru.odnoklassniki.tests.common;
 
-import static ru.odnoklassniki.tests.common.Messages.*;
+import static ru.odnoklassniki.tests.common.Messages.FAILED_CREATE_PATH;
+import static ru.odnoklassniki.tests.common.Messages.FAILED_DELETE_PATH;
+import static ru.odnoklassniki.tests.common.Messages.FAILED_FORMAT_STRING;
+import static ru.odnoklassniki.tests.common.Messages.FAILED_PARSE_DATE;
+import static ru.odnoklassniki.tests.common.Messages.FAILED_WRITE_FILE;
 import static ru.odnoklassniki.tests.common.Messages.INVALID_URL1;
 import static ru.odnoklassniki.tests.common.Messages.INVALID_URL2;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -51,15 +54,14 @@ public class Utils {
 			}
 		}
 		if (!folder.delete()) {
-			// log.error("Failed delete " + folder);
-			throw new RuntimeException("Failed delete " + folder);
+			throw new TestboxException(FAILED_DELETE_PATH, folder);
 		}
 		return folder;
 	}
 
 	public static void mkdirs(File folder) {
 		if (!folder.mkdirs()) {
-			throw new RuntimeException("Failed create directories " + folder);
+			throw new TestboxException(FAILED_CREATE_PATH, folder);
 		}
 	}
 
@@ -75,7 +77,6 @@ public class Utils {
 		}
 	}
 
-	// FIXME Use Java 7 libs instead
 	public static void copy(InputStream is, File file) {
 		try {
 			FileOutputStream fos = new FileOutputStream(file);
@@ -88,7 +89,7 @@ public class Utils {
 			file.setExecutable(true);
 			file.setReadable(true);
 		} catch (Exception e) {
-			throw new RuntimeException("Failed write file \"" + file + "\"", e);
+			throw new TestboxException(FAILED_WRITE_FILE, file, e);
 		}
 	}
 
@@ -105,29 +106,13 @@ public class Utils {
 				fos.close();
 			}
 		} catch (IOException e) {
-			throw new RuntimeException("Failed write file \"" + file + "\"", e);
+			throw new TestboxException(FAILED_WRITE_FILE, file, e);
 		}
 	}
 
 	public static void setText(OutputStream stream, String text)
 			throws IOException {
 		copy(new ByteArrayInputStream(text.getBytes()), stream);
-	}
-
-	public static String getText(File file) {
-		try {
-			FileInputStream fis = new FileInputStream(file);
-			String text;
-			try {
-				text = getText(fis);
-			} finally {
-				fis.close();
-			}
-			return text;
-		} catch (IOException e) {
-			// FIXME Use TestboxException
-			throw new RuntimeException("Failed read file \"" + file + "\"", e);
-		}
 	}
 
 	public static String getText(InputStream in) throws IOException {
@@ -147,9 +132,6 @@ public class Utils {
 		}
 	}
 
-	public static void replaceAll(File file, String regex, String replacement) {
-		setText(file, getText(file).replaceAll(regex, replacement));
-	}
 
 	public static String toXPath(String locator) {
 		// Locator is xpath
@@ -256,7 +238,7 @@ public class Utils {
 		try {
 			return String.format(format, params);
 		} catch (Exception e) {
-			throw new TestboxException(FAILED_FORMAT_STRING, format, e.getClass().getSimpleName(), e.getMessage());
+			throw new TestboxException(FAILED_FORMAT_STRING, format, e);
 		}
 	}
 	
@@ -265,7 +247,7 @@ public class Utils {
 		try {
 			return df.parse(text);
 		} catch (ParseException e) {
-			throw new TestboxException(FAILED_PARSE_DATE, df, text, e.getClass().getSimpleName(), e.getMessage());
+			throw new TestboxException(FAILED_PARSE_DATE, text, format, e);
 		}
 	}
    

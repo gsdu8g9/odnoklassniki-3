@@ -91,4 +91,22 @@ public class PersonalInfoInvalidEditTest {
 		d.inpCity.propError.assertValue(Text.ERR_SPECIFY_CITY);
 	}
 	
+	@Test
+	public void testUnknownCity() {
+		d.go();
+		d.inpCity.setValue("foo");
+		d.btnSave.click();
+		d.inpCity.propError.waitVisible();
+		d.inpCity.propError.assertValue(Text.ERR_CHOOSE_CITY_FROM_LIST);
+	}
+	
+	@Test
+	public void testUnknownBirthCity() {
+		d.go();
+		d.inpCity.setValue("bar");
+		d.btnSave.click();
+		d.inpCity.propError.waitVisible();
+		d.inpCity.propError.assertValue(Text.ERR_CHOOSE_CITY_FROM_LIST);
+	}
+	
 }

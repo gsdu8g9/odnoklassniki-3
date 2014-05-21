@@ -18,6 +18,9 @@ public enum Text {
 	MALE,
 	FEMALE,
 	
+	LABEL_USERNAME,
+	LABEL_PASSWORD,
+	
 	BTN_LOGIN,
 	BTN_SAVE,
 	BTN_CANCEL,
