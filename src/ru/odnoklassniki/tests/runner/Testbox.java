@@ -29,8 +29,7 @@ public class Testbox {
 			}
 			if (e instanceof TestboxException) {
 				TestboxException te = (TestboxException) e;
-				System.err.println("   ERROR: " + te.getProblem());
-				System.err.println("SOLUTION: " + (te.getSolution() == null ? "N/A" : te.getSolution()));
+				System.err.println("ERROR: " + te.getMessage());
 				if (te.getCause() != null) {
 					System.err.println("   CAUSE:");
 					te.getCause().printStackTrace(System.err);

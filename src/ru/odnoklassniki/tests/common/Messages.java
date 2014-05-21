@@ -12,30 +12,15 @@ public enum Messages implements IMessage {
 	FAILED_DELETE_PATH("Failed delete %s, %s"),
 	FAILED_CREATE_PATH("Failed create directories %s, %s");
 
-	private String problem;
-	private String solution;
+	private String message;
 
-	Messages(String problem) {
-		this.problem = problem;
-	}
-
-	Messages(String problem, String solution) {
-		this.problem = problem;
-		this.solution = solution;
+	Messages(String message) {
+		this.message = message;
 	}
 
 	@Override
-	public String getProblem(Object... params) {
-		return format(problem, params);
-	}
-
-	@Override
-	public String getSolution(Object... params) {
-		return format(solution, params);
-	}
-
-	public static String format(String text, Object... params) {
-		return Utils.format(text, params);
+	public String getValue(Object... params) {
+		return Utils.format(message, params);
 	}
 
 }

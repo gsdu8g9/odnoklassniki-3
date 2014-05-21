@@ -1,20 +1,21 @@
 package ru.odnoklassniki.tests.ui.api;
 
 import ru.odnoklassniki.tests.common.IMessage;
+import ru.odnoklassniki.tests.common.Utils;
 
 public enum Messages implements IMessage {
 
 	INVALID_LOCALE("Invalid browser locale value '%s'"),
 	
 	FAILED_READ_PROPERTIES("Failed read properties %s"),
-	PROPERTY_UNDEFINED("Property not found %s (%s)", "Fix property file and try again"),
-	LOCALE_NOT_FOUND("Locale not found '%s'", "Add correspondinf property file"),
-	LOCALE_UNDEFINED("Locale is undefined", "Define locale first"),
+	PROPERTY_UNDEFINED("Property not found %s (%s)"),
+	LOCALE_NOT_FOUND("Locale not found '%s'"),
+	LOCALE_UNDEFINED("Locale is undefined"),
 	
 	ERR_FAILED_START_SELENIUM_SERVER("Faield start Selenium Server, %s"),
 	ERR_FAILED_CLOSE_BROWSER("Faield close browser"),
-	ERR_ARGUMENT_IS_NULL("Argument %s must not be null", "Fix code"),
-	ERR_ARGUMENT_IS_EMPTY("Argument %s must not be empty", "Fix code"),
+	ERR_ARGUMENT_IS_NULL("Argument %s must not be null"),
+	ERR_ARGUMENT_IS_EMPTY("Argument %s must not be empty"),
 	ERR_ARGUMENT_NO_SIZE("Argument %s has no size"),
 
 	TEST_VALUE("Input %s value"),
@@ -27,6 +28,8 @@ public enum Messages implements IMessage {
 	TEST_CHECKED("Expected %s checked"),
 	TEST_UNCHECKED("Expected %s unchecked"),
 
+	LOG_CLICK("Click %s"),
+	LOG_TYPE("Type \"%s\" at %s"),	
 	LOG_ELEMENT_VISIBLE("%s is visible"),
 	LOG_ELEMENT_INVISIBLE("%s is invisible"),
 	LOG_ELEMENT_WAIT_VISIBLE("Waiting for %s to become visible..."),
@@ -36,28 +39,21 @@ public enum Messages implements IMessage {
 	
 	LOG_CHECKBOX_CHECK("Check %s"),
 	LOG_CHECKBOX_UNCHECK("Uncheck %s"),
+	
+	LOG_SET_LOCALE("Set locale %s"),
+	LOG_OPEN_BROWSER("Open browser %s"),	
+	LOG_CLOSE_BROWSER("Close browser")
 	;
 	
-	private String m_problem;
-	private String m_solution;
+	private String message;
 
-	Messages(String problem) {
-		m_problem = problem;
-	}
-
-	Messages(String problem, String solution) {
-		m_problem = problem;
-		m_solution = solution; 
+	Messages(String message) {
+		this.message = message;
 	}
 
 	@Override
-	public String getProblem(Object... params) {
-		return ru.odnoklassniki.tests.common.Messages.format(m_problem, params);
+	public String getValue(Object... params) {
+		return Utils.format(message, params);
 	}
 
-	@Override
-	public String getSolution(Object... params) {
-		return ru.odnoklassniki.tests.common.Messages.format(m_solution, params);
-	}
-	
 }

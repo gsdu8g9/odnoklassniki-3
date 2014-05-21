@@ -1,5 +1,6 @@
 package ru.odnoklassniki.tests.ui.api.locale;
 
+import static ru.odnoklassniki.tests.ui.api.Messages.*;
 import static ru.odnoklassniki.tests.ui.api.Messages.FAILED_READ_PROPERTIES;
 import static ru.odnoklassniki.tests.ui.api.Messages.INVALID_LOCALE;
 import static ru.odnoklassniki.tests.ui.api.Messages.LOCALE_NOT_FOUND;
@@ -56,7 +57,7 @@ public class LocaleManager {
 	
 	public static void setLocale(String locale) {
 		propCurrent = getProperties(locale); 		
-		Loggers.ui.debug("Set locale " + locale);
+		Loggers.ui.debug(LOG_SET_LOCALE.getValue(locale));
 	}
 	
 	public static Properties getDefault() {

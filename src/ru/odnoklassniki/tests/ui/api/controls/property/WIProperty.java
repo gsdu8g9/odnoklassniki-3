@@ -45,7 +45,7 @@ public abstract class WIProperty<T> extends WIElement {
             public boolean until() {
                 return aValue.equals(getValue());
             }
-        }.wait(TEST_EXPECTED_VALUE.getProblem(this, aValue), timeout.toMilliseconds());
+        }.wait(TEST_EXPECTED_VALUE.getValue(this, aValue), timeout.toMilliseconds());
 	}
 
 	public void waitNoValue(Time timeout, final T aValue) {
@@ -55,7 +55,7 @@ public abstract class WIProperty<T> extends WIElement {
             public boolean until() {
                 return !aValue.equals(getValue());
             }
-        }.wait(TEST_UNEXPECTED_VALUE.getProblem(this, aValue), timeout.toMilliseconds());
+        }.wait(TEST_UNEXPECTED_VALUE.getValue(this, aValue), timeout.toMilliseconds());
 	}
 
 }

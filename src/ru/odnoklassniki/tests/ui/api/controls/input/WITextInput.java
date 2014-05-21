@@ -1,8 +1,8 @@
 package ru.odnoklassniki.tests.ui.api.controls.input;
 
+import static ru.odnoklassniki.tests.ui.api.Messages.LOG_TYPE;
 import ru.odnoklassniki.tests.common.Loggers;
 import ru.odnoklassniki.tests.ui.api.common.IWIRoad;
-
 
 public class WITextInput extends WIInput<String> {
 
@@ -12,7 +12,7 @@ public class WITextInput extends WIInput<String> {
 
 	@Override
 	public void setValue(String aValue) {
-		Loggers.ui.info("Type \"" + aValue + "\" at " + this);
+		Loggers.ui.info(LOG_TYPE.getValue(aValue, this));
 		getBrowser().type(getGlobalID(), aValue);
 	}
 

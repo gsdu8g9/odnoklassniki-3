@@ -37,8 +37,8 @@ public class WIProfilePersoanlDialog extends WIDialog {
 	public final WISelectorInput inpBirthMonth = new WISelectorInput(this, "field_bmonth", "Birth Month");
 	public final WISelectorInput inpBirthYear = new WISelectorInput(this, "field_byear", "Birth Year");
 
-	public final WIGenderInput inpMale = new WIGenderInput(this, Text.MALE);
-	public final WIGenderInput inpFemale = new WIGenderInput(this, Text.FEMALE);
+	public final WICheckboxInput inpMale = new WIGenderInput(this, Text.MALE);
+	public final WICheckboxInput inpFemale = new WIGenderInput(this, Text.FEMALE);
 
 	public final WILabeledTextInput inpCity = new WILabeledTextInput(this, Text.FIELD_CITY);
 	public final WILabeledTextInput inpBirthCity = new WILabeledTextInput(this, Text.FIELD_BIRTH_CITY);

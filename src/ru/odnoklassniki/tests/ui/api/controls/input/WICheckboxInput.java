@@ -43,7 +43,7 @@ public class WICheckboxInput extends WIBooleanInput {
 			public boolean until() {
 				return isChecked();
 			}
-		}.wait(TEST_CHECKED.getProblem(this));
+		}.wait(TEST_CHECKED.getValue(this));
 		return this;
 	}
 
@@ -53,13 +53,13 @@ public class WICheckboxInput extends WIBooleanInput {
 			public boolean until() {
 				return !isChecked();
 			}
-		}.wait(TEST_UNCHECKED.getProblem(this));
+		}.wait(TEST_UNCHECKED.getValue(this));
 		return this;
 	}
 
 	public void check() {
 		if (!getValue()) {
-			Loggers.ui.info(LOG_CHECKBOX_CHECK.getProblem(this));
+			Loggers.ui.info(LOG_CHECKBOX_CHECK.getValue(this));
 			click();
 			waitChecked();
 		}
@@ -67,7 +67,7 @@ public class WICheckboxInput extends WIBooleanInput {
 
 	public void uncheck() {
 		if (getValue()) {
-			Loggers.ui.info(LOG_CHECKBOX_UNCHECK.getProblem(this));
+			Loggers.ui.info(LOG_CHECKBOX_UNCHECK.getValue(this));
 			click();
 			waitUnchecked();
 		}

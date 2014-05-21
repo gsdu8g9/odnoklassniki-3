@@ -4,7 +4,6 @@ import static ru.odnoklassniki.tests.ui.api.Messages.LOG_SELECTOR_SETVALUE;
 import ru.odnoklassniki.tests.common.Loggers;
 import ru.odnoklassniki.tests.ui.api.common.IWIRoad;
 
-
 public class WISelectorInput extends WITextInput {
 
 	public WISelectorInput(IWIRoad aRoad, String aId, String aName) {
@@ -13,7 +12,7 @@ public class WISelectorInput extends WITextInput {
 
 	@Override
 	public void setValue(String aValue) {
-		Loggers.ui.info(LOG_SELECTOR_SETVALUE.getProblem(this, aValue));
+		Loggers.ui.info(LOG_SELECTOR_SETVALUE.getValue(this, aValue));
 		// Use "select" instead of "type"
 		getBrowser().select(getGlobalID(), aValue);
 	}

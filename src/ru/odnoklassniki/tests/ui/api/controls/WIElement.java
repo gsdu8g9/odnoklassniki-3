@@ -159,36 +159,36 @@ public class WIElement implements IWIRoad {
 
 	public void assertVisible() {
 		if (!isVisible()) {
-			Assert.fail(TEST_EXPECTED_VISIBLE.getProblem(this));
+			Assert.fail(TEST_EXPECTED_VISIBLE.getValue(this));
 		}
 	}
 
 	public void assertInvisible() {
 		if (isVisible()) {
-			Assert.fail(TEST_EXPECTED_INVISIBLE.getProblem(this));
+			Assert.fail(TEST_EXPECTED_INVISIBLE.getValue(this));
 		}
 	}
 
 	public void waitVisible() {
-		Loggers.ui.info(LOG_ELEMENT_WAIT_VISIBLE.getProblem(this));
+		Loggers.ui.info(LOG_ELEMENT_WAIT_VISIBLE.getValue(this));
 		new Wait() {
 			@Override
 			public boolean until() {
 				return isVisible();
 			}
-		}.wait(TEST_EXPECTED_VISIBLE.getProblem(this));
-		Loggers.ui.info(LOG_ELEMENT_VISIBLE.getProblem(this));
+		}.wait(TEST_EXPECTED_VISIBLE.getValue(this));
+		Loggers.ui.info(LOG_ELEMENT_VISIBLE.getValue(this));
 	}
 
 	public void waitInvisible() {
-		Loggers.ui.info(LOG_ELEMENT_WAIT_INVISIBLE.getProblem(this));
+		Loggers.ui.info(LOG_ELEMENT_WAIT_INVISIBLE.getValue(this));
 		new Wait() {
 			@Override
 			public boolean until() {
 				return !isVisible();
 			}
-		}.wait(TEST_EXPECTED_INVISIBLE.getProblem(this));
-		Loggers.ui.info(LOG_ELEMENT_INVISIBLE.getProblem(this));
+		}.wait(TEST_EXPECTED_INVISIBLE.getValue(this));
+		Loggers.ui.info(LOG_ELEMENT_INVISIBLE.getValue(this));
 	}
 
 }

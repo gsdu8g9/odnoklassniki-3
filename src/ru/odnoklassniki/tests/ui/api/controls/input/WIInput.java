@@ -27,15 +27,15 @@ public abstract class WIInput<T> extends WIElement {
 	public abstract T getValue();
 
 	public void assertValue(T value) {
-		Assert.assertEquals(getValue(), value, TEST_VALUE.getProblem(this));
+		Assert.assertEquals(getValue(), value, TEST_VALUE.getValue(this));
 	}
 
 	public void assertVisible() {
-		Assert.assertTrue(isVisible(), TEST_EXPECTED_VISIBLE.getProblem(this));
+		Assert.assertTrue(isVisible(), TEST_EXPECTED_VISIBLE.getValue(this));
 	}
 
 	public void assertInvisible() {
-		Assert.assertTrue(!isVisible(), TEST_EXPECTED_INVISIBLE.getProblem(this));
+		Assert.assertTrue(!isVisible(), TEST_EXPECTED_INVISIBLE.getValue(this));
 	}
 
 }

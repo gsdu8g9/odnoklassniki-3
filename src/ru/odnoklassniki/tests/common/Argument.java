@@ -23,7 +23,7 @@ public class Argument<T> {
 	
 	public Argument<T> notNull() {
 		if (null == value) {
-			throw new IllegalArgumentException(ERR_ARGUMENT_IS_NULL.getProblem(name));
+			throw new IllegalArgumentException(ERR_ARGUMENT_IS_NULL.getValue(name));
 		}
 		return this;
 	}
@@ -37,10 +37,10 @@ public class Argument<T> {
 		} else if (value instanceof String) {
 			isEmpty = ((String) value).length() == 0;
 		} else {
-			throw new IllegalArgumentException(ERR_ARGUMENT_NO_SIZE.getProblem(name)); 
+			throw new IllegalArgumentException(ERR_ARGUMENT_NO_SIZE.getValue(name)); 
 		}
 		if (isEmpty) {
-			throw new IllegalArgumentException(ERR_ARGUMENT_IS_EMPTY.getProblem(name));
+			throw new IllegalArgumentException(ERR_ARGUMENT_IS_EMPTY.getValue(name));
 		}
 		return this;
 	}

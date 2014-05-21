@@ -10,6 +10,7 @@ import ru.odnoklassniki.tests.common.Utils;
 
 import com.thoughtworks.selenium.CommandProcessor;
 
+// TODO Remove LogggedCommandProcessor
 public class LogggedCommandProcessor implements CommandProcessor {
 	
 	@SuppressWarnings("serial")

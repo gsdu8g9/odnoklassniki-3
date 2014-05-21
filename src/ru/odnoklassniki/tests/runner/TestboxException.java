@@ -9,19 +9,14 @@ public class TestboxException extends RuntimeException {
 
 	private static final long serialVersionUID = -1199259648444871312L;
 
-	private String m_message;
-	private String m_problem;
-	private String m_solution;
+	private String message;
 
-	public TestboxException(Throwable t, IMessage message, Object... params) {
+	public TestboxException(Throwable t, IMessage msg, Object... params) {
 		// Message is immutable field but we can't pass it to super constructor
 		// so pass dummy text and override getMessage()
 		super("", t);
 		params = convert(params);
-		m_problem = message.getProblem(params);
-		m_solution = message.getSolution(params);
-		m_message = m_solution == null ? Utils.format("PROBLEM: %s", m_problem) : Utils.format(
-		        "PROBLEM: %s\nSOLUTION: %s", m_problem, m_solution);
+		message = msg.getValue(params);
 	}
 
 	public TestboxException(IMessage message, Object... params) {
@@ -30,15 +25,7 @@ public class TestboxException extends RuntimeException {
 
 	@Override
 	public String getMessage() {
-		return m_message;
-	}
-
-	public String getProblem() {
-		return m_problem;
-	}
-
-	public String getSolution() {
-		return m_solution;
+		return message;
 	}
 
 	private static Object[] convert(Object[] params) {
