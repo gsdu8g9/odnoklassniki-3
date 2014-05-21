@@ -62,7 +62,7 @@ public class PersonalInfoEditTest {
 	}
 	
 	@Test
-	public void testChangeName() {
+	public void testNameChange() {
 		String oldValue = d.inpName.getValue();
 		String newValue = Data.NAME.getNewValue(oldValue);
 	    		
@@ -73,8 +73,19 @@ public class PersonalInfoEditTest {
 		d.inpName.assertValue(newValue);
 	}
 
+	@Test
+	public void testNameDigits() {
+		String newValue = "1234567890";
+	    		
+		d.inpName.setValue(newValue);
+		d.save();
+		
+		d.go();
+		d.inpName.assertValue(newValue);
+	}
+
 	@Test(dataProvider = "symbols")
-	public void testSymbolName(char symbol) {
+	public void testNameSymbols(char symbol) {
 		String newValue = "Иван" + symbol;
 		
 		d.inpName.setValue(newValue);
@@ -85,7 +96,17 @@ public class PersonalInfoEditTest {
 	}
 	
 	@Test
-	public void testChangeSurame() {
+	public void testNameMaxLength() {
+		d.inpName.setValue("12345678901234567890");
+		d.inpName.assertValue("1234567890123456");
+		d.save();
+		
+		d.go();
+		d.inpName.assertValue("1234567890123456");
+	}
+
+	@Test
+	public void testSurameChange() {
 		String oldValue = d.inpSurname.getValue();
 		String newValue = Data.SURNAME.getNewValue(oldValue);
 
@@ -96,8 +117,19 @@ public class PersonalInfoEditTest {
 		d.inpSurname.assertValue(newValue);
 	}
 	
+	@Test
+	public void testSurnameDigits() {
+		String newValue = "1234567890";
+	    		
+		d.inpSurname.setValue(newValue);
+		d.save();
+		
+		d.go();
+		d.inpSurname.assertValue(newValue);
+	}
+	
 	@Test(dataProvider = "symbols")
-	public void testSymbolSurname(char symbol) {
+	public void testSurnameSymbols(char symbol) {
 		String newValue = "Иванов" + symbol;
 		
 		d.inpSurname.setValue(newValue);
@@ -108,7 +140,17 @@ public class PersonalInfoEditTest {
 	}
 	
 	@Test
-	public void testChangeBirthDay() {
+	public void testSurnameMaxLength() {
+		d.inpSurname.setValue("1234567890123456789001234567890");
+		d.inpSurname.assertValue("123456789012345678901234");
+		d.save();
+		
+		d.go();
+		d.inpSurname.assertValue("123456789012345678901234");
+	}
+
+	@Test
+	public void testBirthDayChange() {
 		String oldValue = d.inpBirthDay.getValue();
 		String newValue = Data.BIRTH_DAY.getNewValue(oldValue);
 
@@ -120,7 +162,7 @@ public class PersonalInfoEditTest {
 	}
 	
 	@Test
-	public void testChangeBirthMonth() {
+	public void testBirthMonthChange() {
 		String oldValue = d.inpBirthMonth.getValue();
 	    String newValue = Data.BIRTH_MONTH.getNewValue(oldValue);
 
@@ -132,7 +174,7 @@ public class PersonalInfoEditTest {
 	}
 	
 	@Test
-	public void testChangeBirthYear() {
+	public void testBirthYearChange() {
 		String oldValue = d.inpBirthYear.getValue();
 		String newValue = Data.BIRTH_YEAR.getNewValue(oldValue);
 
@@ -144,7 +186,7 @@ public class PersonalInfoEditTest {
 	}
 	
 	@Test
-	public void testChangeGender() {
+	public void testGendeChanger() {
 		boolean isMale = d.inpMale.isChecked();
 		
 		if (isMale) {
@@ -161,7 +203,7 @@ public class PersonalInfoEditTest {
 	}
 	
 	@Test
-	public void testChangeCity() {
+	public void testCityChange() {
 		String oldValue = d.inpCity.getValue();
 		String newValue = Data.CITY.getNewValue(oldValue);
 
@@ -173,7 +215,7 @@ public class PersonalInfoEditTest {
 	}
 	
 	@Test
-	public void testChangeBithCity() {
+	public void testBithCityChange() {
 		String oldValue = d.inpBirthCity.getValue();
 		String newValue = Data.BIRTH_CITY.getNewValue(oldValue);
 
@@ -185,7 +227,7 @@ public class PersonalInfoEditTest {
 	}
 	
 	@Test
-	public void testEmptyBirthCity() {
+	public void testBirthCityEmpty() {
 		d.inpBirthCity.setValue("");
 		d.save();
 		

@@ -18,7 +18,7 @@ public enum Messages implements IMessage {
 	ERR_ARGUMENT_IS_EMPTY("Argument %s must not be empty"),
 	ERR_ARGUMENT_NO_SIZE("Argument %s has no size"),
 
-	TEST_VALUE("Input %s value"),
+	TEST_VALUE("%s value"),
 	TEST_EXPECTED_VISIBLE("Expected visible %s"), 
 	TEST_EXPECTED_INVISIBLE("Expected invisible %s"), 
 	
