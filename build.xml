@@ -20,7 +20,7 @@
 		<pathelement path="${bin}" />
 	</path>
 
-	<target name="all" depends="compile" />
+	<target name="all" depends="compile,test" />
 
 	<target name="clean">
         <delete dir="${bin}" failonerror="true" />
@@ -44,14 +44,17 @@
 		</javac>
 	</target>
 
-    <target name="test" depends="compile">
-    	<testng 
-    		classpathref="libs" 
-    		outputDir="${testng.report.dir}"
-    		useDefaultListeners="false"
-    		listeners="org.uncommons.reportng.HTMLReporter">
+    <target name="selenium">
+        <java classname="ru.odnoklassniki.tests.runner.Testbox" classpathref="libs" fork="true">
+          <arg value="-start-selenium"/>
+        </java>
+    </target>
+
+    <target name="test">
+    	<testng classpathref="libs" outputDir="${testng.report.dir}"
+    		useDefaultListeners="false" listeners="org.uncommons.reportng.HTMLReporter">
     	    <classfileset dir="${bin}" includes="**/*.class" />
-    		<sysproperty key="org.uncommons.reportng.title" value="Odnoklassniki Test Report"/>
+            <sysproperty key="org.uncommons.reportng.title" value="Odnoklassniki Test Report"/>
     	</testng>
     </target>
 	

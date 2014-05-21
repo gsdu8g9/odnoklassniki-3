@@ -10,7 +10,9 @@ import ru.odnoklassniki.tests.ui.api.dialog.WIProfilePersoanlDialog;
 
 public class PersonalInfoEditTest {
 
+//	private static final String USERNAME = "dummy_user1";
 	private static final String USERNAME = "dummy_user123";
+//	private static final String USERNAME = "dummy_user456";
 	private static final String PASSWORD = "pwd123456";
 	
 	private static enum Data {
@@ -29,7 +31,7 @@ public class PersonalInfoEditTest {
 		}
 		
 		public String getNewValue(String oldValue) {
-			return values[0] == oldValue ? values[1] : values[0];
+			return values[0].equals(oldValue) ? values[1] : values[0];
 		}
 	};
 	
@@ -41,7 +43,6 @@ public class PersonalInfoEditTest {
 	@BeforeClass()
 	public void setupClass() {
 		b = WIBrowserFactory.getNewBrowser("http://www.odnoklassniki.ru");
-//		b.login("dummy_user1@mail.ru", "pwd123456");
 		b.login(USERNAME, PASSWORD);
 		d = b.getProfile().dlgPersonalInfo; 
 	}

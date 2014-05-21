@@ -27,7 +27,7 @@ public class WIBrowserFactory {
 	private static final String SELENIUM_BROWSER = System.getProperty("selenium.browser", "*firefox");
 	private static final String SELENIUM_TIMEOUT = System.getProperty("selenium.timeout", "30000");
 
-	private static boolean useEmbededSeleniumServer = System.getProperty("selenium.embedded", "true").equals("true");
+	private static boolean useEmbededSeleniumServer = System.getProperty("selenium.embedded", "false").equals("true");
 	private static boolean isSeleniumRunning = false;
 	private static URL seleniumUrl;
 	private static SeleniumServer server;
@@ -76,6 +76,7 @@ public class WIBrowserFactory {
 			System.out.println("****** Configuration ***** ");
 			System.out.println("Port : " + config.getPort());
 			System.out.println("Profile : " + config.getFirefoxProfileTemplate());
+			System.out.println("Proxy : " + System.getProperty("http.proxyHost") + ":" + System.getProperty("http.proxyPort"));
 			System.out.println("Log : " + config.getLogOutFile());
 			System.out.println("************************** ");
 			
