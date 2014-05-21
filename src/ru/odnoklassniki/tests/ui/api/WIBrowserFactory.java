@@ -20,7 +20,7 @@ public class WIBrowserFactory {
 	private static final String SELENIUM_BROWSER = System.getProperty("selenium.browser", "*firefox");
 	private static final String SELENIUM_TIMEOUT = System.getProperty("selenium.timeout", "30000");
 
-	private static boolean useEmbededSeleniumServer = System.getProperty("selenium.embedded", "false").equals("true");
+	private static boolean useEmbededSeleniumServer = System.getProperty("selenium.embedded", "true").equals("true");
 	private static boolean isSeleniumRunning = false;
 	private static URL seleniumUrl = Utils.getURL(SELENIUM_URL);
 	private static SeleniumServer server;

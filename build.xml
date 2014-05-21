@@ -35,7 +35,7 @@
 	</target>
 
 	<target name="compile" depends="clean,prepare,resources">
-		<javac destdir="${bin}" classpathref="libs" debug="true" includeantruntime="true">
+		<javac destdir="${bin}" classpathref="libs" debug="true" includeantruntime="true" encoding="utf8">
 			<src path="${src}" />
 			<src path="${tests}" />
 		</javac>
