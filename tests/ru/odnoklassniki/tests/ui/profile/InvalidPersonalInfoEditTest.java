@@ -9,6 +9,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import ru.odnoklassniki.tests.ui.Environment;
 import ru.odnoklassniki.tests.ui.api.WIBrowser;
 import ru.odnoklassniki.tests.ui.api.WIBrowserFactory;
 import ru.odnoklassniki.tests.ui.api.dialog.WIProfilePersoanlDialog;
@@ -19,13 +20,10 @@ public class InvalidPersonalInfoEditTest {
 	WIBrowser b;
 	WIProfilePersoanlDialog d;
 	
-	static final String INVALID_SYMBOLS = "~`!@#$%^&*_=+\\|[{]}:\"'<>?/"; 
-	static final String CORRECT_SYMBOLS = "()-"; 
-	
 	@DataProvider(name = "symbols")
 	public Iterator<Object[]> createData() {
 		ArrayList<Object[]> data = new ArrayList<Object[]>();
-		for (char c : INVALID_SYMBOLS.toCharArray()) {
+		for (char c : Environment.INVALID_SYMBOLS.toCharArray()) {
 			data.add(new Object[] { c });
 		}
 		return data.iterator();
@@ -33,9 +31,8 @@ public class InvalidPersonalInfoEditTest {
 	
 	@BeforeClass()
 	public void setup() {
-		b = WIBrowserFactory.getNewBrowser("http://www.odnoklassniki.ru");
-		b.login("dummy_user1@mail.ru", "pwd123456");
-//		b.login("dummy_user123", "pwd123456");
+		b = WIBrowserFactory.getNewBrowser(Environment.BASE_URL);
+		b.login(Environment.USERNAME, Environment.PASSWORD);
 		d = b.getProfile().dlgPersonalInfo; 
 	}
 	
@@ -92,19 +89,6 @@ public class InvalidPersonalInfoEditTest {
 		d.btnSave.click();
 		d.inpCity.propError.waitVisible();
 		d.inpCity.propError.assertValue(Text.ERR_SPECIFY_CITY);
-	}
-	
-//	@Test
-	public void testEmptyName2() {
-		d.go();
-		d.inpName.setValue("Петр");
-		d.inpSurname.setValue("Smith");
-		d.inpBirthDay.setValue("8");
-		d.inpBirthMonth.setValue("март");
-		d.inpBirthYear.setValue("2000");
-		d.inpCity.setValue("Васюки");
-		d.inpBirthCity.setValue("Питер");
-		d.save();
 	}
 	
 }

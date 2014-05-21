@@ -1,23 +1,21 @@
 package ru.odnoklassniki.tests.ui.profile;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import ru.odnoklassniki.tests.ui.Environment;
 import ru.odnoklassniki.tests.ui.api.WIBrowser;
 import ru.odnoklassniki.tests.ui.api.WIBrowserFactory;
 import ru.odnoklassniki.tests.ui.api.dialog.WIProfilePersoanlDialog;
 import ru.odnoklassniki.tests.ui.api.locale.Text;
 
-
 public class PersonalInfoEditTest {
 
-	private static final String BASE_URL = "http://www.odnoklassniki.ru";
-//	private static final String USERNAME = "dummy_user1";
-	private static final String USERNAME = "dummy_user123";
-//	private static final String USERNAME = "dummy_user456";
-	private static final String PASSWORD = "pwd123456";
-	
 	private static enum Data {
 		NAME("Иван", "Петр"),
 		SURNAME("Иванов", "Петров"),
@@ -38,6 +36,15 @@ public class PersonalInfoEditTest {
 		}
 	};
 	
+	@DataProvider(name = "symbols")
+	public Iterator<Object[]> createData() {
+		ArrayList<Object[]> data = new ArrayList<Object[]>();
+		for (char c : Environment.CORRECT_SYMBOLS.toCharArray()) {
+			data.add(new Object[] { c });
+		}
+		return data.iterator();
+	}
+	
 	WIBrowser b;
 	WIProfilePersoanlDialog d;
 	
@@ -45,8 +52,8 @@ public class PersonalInfoEditTest {
 	
 	@BeforeClass()
 	public void setupClass() {
-		b = WIBrowserFactory.getNewBrowser(BASE_URL);
-		b.login(USERNAME, PASSWORD);
+		b = WIBrowserFactory.getNewBrowser(Environment.BASE_URL);
+		b.login(Environment.USERNAME, Environment.PASSWORD);
 		d = b.getProfile().dlgPersonalInfo; 
 		d.go();
 	}
@@ -68,11 +75,33 @@ public class PersonalInfoEditTest {
 		d.inpName.assertValue(newValue);
 	}
 
+	@Test(dataProvider = "symbols")
+	public void testSymbolName(char symbol) {
+		newValue = "Иван" + symbol;
+		
+		d.inpName.setValue(newValue);
+		d.save();
+		
+		d.go();
+		d.inpName.assertValue(newValue);
+	}
+	
 	@Test
 	public void testChangeSurame() {
 	    oldValue = d.inpSurname.getValue();
 	    newValue = Data.SURNAME.getNewValue(oldValue);
 
+		d.inpSurname.setValue(newValue);
+		d.save();
+		
+		d.go();
+		d.inpSurname.assertValue(newValue);
+	}
+	
+	@Test(dataProvider = "symbols")
+	public void testSymbolSurname(char symbol) {
+		newValue = "Иванов" + symbol;
+		
 		d.inpSurname.setValue(newValue);
 		d.save();
 		
