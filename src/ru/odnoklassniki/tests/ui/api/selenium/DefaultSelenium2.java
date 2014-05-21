@@ -23,7 +23,7 @@ public class DefaultSelenium2 extends DefaultSelenium implements Selenium2 {
 			String browserStartCommand, String browserURL) {
 		super(serverHost, serverPort, browserStartCommand, browserURL);
 		
-		// Wrap commandProcessor to log all interaction with Selenium RC locally
+		// Wrap commandProcessor to log all interaction with Selenium RC on client side
 		commandProcessor = new LogggedCommandProcessor(commandProcessor);
 	}
 
