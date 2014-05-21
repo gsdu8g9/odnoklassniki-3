@@ -165,6 +165,7 @@ public class WIElement implements IWIRoad {
 		return false;
 	}
 
+	// FIXME Remove isAccessible
 	public boolean isAccessible() {
 		return isVisible();
 	}

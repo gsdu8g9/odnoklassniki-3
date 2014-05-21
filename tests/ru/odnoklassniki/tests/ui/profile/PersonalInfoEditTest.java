@@ -1,16 +1,37 @@
 package ru.odnoklassniki.tests.ui.profile;
 
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import ru.odnoklassniki.tests.ui.api.WIBrowser;
 import ru.odnoklassniki.tests.ui.api.WIBrowserFactory;
 import ru.odnoklassniki.tests.ui.api.dialog.WIProfilePersoanlDialog;
-import ru.odnoklassniki.tests.ui.api.locale.Locale;
 
 
 public class PersonalInfoEditTest {
+
+	private static final String USERNAME = "dummy_user123";
+	private static final String PASSWORD = "pwd123456";
+	
+	private static enum Data {
+		NAME("Иван", "Петр"),
+		SURNAME("Иванов", "Петров"),
+		BIRTH_DAY("1", "2"),
+		BIRTH_MONTH("3", "4"),
+		BITH_YEAR("2005", "2006"),
+		CITY("Санкт-Петербург, Россия", "г. Кронштадт (Санкт-Петербург г), Россия"),
+		BIRTH_CITY("Москва, Россия", "г. Зеленоград (Москва г), Россия");
+		
+		private String[] values;
+		
+		Data(String... values) {
+			this.values = values;
+		}
+		
+		public String getNewValue(String oldValue) {
+			return values[0] == oldValue ? values[1] : values[0];
+		}
+	};
 	
 	WIBrowser b;
 	WIProfilePersoanlDialog d;
@@ -18,66 +39,59 @@ public class PersonalInfoEditTest {
 	String oldValue, newValue;
 	
 	@BeforeClass()
-	public void setup() {
+	public void setupClass() {
 		b = WIBrowserFactory.getNewBrowser("http://www.odnoklassniki.ru");
 //		b.login("dummy_user1@mail.ru", "pwd123456");
-		b.login("dummy_user123", "pwd123456");
+		b.login(USERNAME, PASSWORD);
 		d = b.getProfile().dlgPersonalInfo; 
 	}
-	
-	@AfterMethod(alwaysRun=true)
-	public void clean() {
-		d.cancel();
-	}
-	
-	private String getNewValue(String oldValue) {
-		return oldValue.substring(1, oldValue.length() - 1) + (oldValue.endsWith("1") ? "2" : "1"); 
-	}
-	
+
 	@Test
 	public void testChangeName() {
 		d.go();
 		
-		oldValue = d.inpName.getValue();
-		newValue = getNewValue(oldValue);
-		
+	    oldValue = d.inpName.getValue();
+	    newValue = Data.NAME.getNewValue(oldValue);
+	    		
 		d.inpName.setValue(newValue);
 		d.save();
-		// TOTO check name value
+		// TODO check name value
 	}
 
 	@Test
 	public void testChangeSurame() {
 		d.go();
-		
-		oldValue = d.inpSurname.getValue();
-		newValue = getNewValue(oldValue);
-		
+
+	    oldValue = d.inpSurname.getValue();
+	    newValue = Data.SURNAME.getNewValue(oldValue);
+
 		d.inpSurname.setValue(newValue);
 		d.save();
-		// TOTO check name value
+		// TODO check name value
 	}
 	
-//	@Test
-	public void testEmptyCity() {
+	@Test
+	public void testChangeCity() {
 		d.go();
-		d.inpCity.setValue("");
-		d.btnSave.click();
-		d.inpCity.propError.waitVisible();
-		d.inpCity.propError.assertValue(Locale.ERR_SPECIFY_CITY);
-	}
-	
-//	@Test
-	public void testEmptyName2() {
-		d.go();
-		d.inpName.setValue("РџРµС‚СЂ");
-		d.inpSurname.setValue("Smith");
-		d.inpBirthDay.setValue("8");
-		d.inpBirthMonth.setValue("РјР°СЂС‚");
-		d.inpBirthYear.setValue("2000");
-		d.inpCity.setValue("Р’Р°СЃСЋРєРё");
-		d.inpBirthCity.setValue("РџРёС‚РµСЂ");
+
+	    oldValue = d.inpCity.getValue();
+	    newValue = Data.CITY.getNewValue(oldValue);
+
+		d.inpCity.setValue(newValue);
 		d.save();
+		// TODO check name value
+	}
+	
+	@Test
+	public void testChangeBithCity() {
+		d.go();
+
+	    oldValue = d.inpBirthCity.getValue();
+	    newValue = Data.BIRTH_CITY.getNewValue(oldValue);
+
+		d.inpBirthCity.setValue(newValue);
+		d.save();
+		// TODO check name value
 	}
 	
 }

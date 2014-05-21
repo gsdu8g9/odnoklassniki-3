@@ -1,6 +1,6 @@
 package ru.odnoklassniki.tests.common;
 
-import static ru.odnoklassniki.tests.common.Messages.FAILED_FORMAT_STRING;
+import static ru.odnoklassniki.tests.common.Messages.*;
 import static ru.odnoklassniki.tests.common.Messages.INVALID_URL1;
 import static ru.odnoklassniki.tests.common.Messages.INVALID_URL2;
 
@@ -17,7 +17,11 @@ import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Collection;
+import java.util.Date;
 
 import org.slf4j.Logger;
 
@@ -71,6 +75,7 @@ public class Utils {
 		}
 	}
 
+	// FIXME Use Java 7 libs instead
 	public static void copy(InputStream is, File file) {
 		try {
 			FileOutputStream fos = new FileOutputStream(file);
@@ -120,6 +125,7 @@ public class Utils {
 			}
 			return text;
 		} catch (IOException e) {
+			// FIXME Use TestboxException
 			throw new RuntimeException("Failed read file \"" + file + "\"", e);
 		}
 	}
@@ -251,6 +257,15 @@ public class Utils {
 			return String.format(format, params);
 		} catch (Exception e) {
 			throw new TestboxException(FAILED_FORMAT_STRING, format, e.getClass().getSimpleName(), e.getMessage());
+		}
+	}
+	
+	public static Date parseDate(String format, String text) {
+		DateFormat df = new SimpleDateFormat(format);
+		try {
+			return df.parse(text);
+		} catch (ParseException e) {
+			throw new TestboxException(FAILED_PARSE_DATE, df, text, e.getClass().getSimpleName(), e.getMessage());
 		}
 	}
    
