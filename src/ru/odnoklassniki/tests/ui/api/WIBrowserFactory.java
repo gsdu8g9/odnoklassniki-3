@@ -32,7 +32,6 @@ public class WIBrowserFactory {
 		File profile = new File(tmp, "profile");
 		Utils.clean(profile);
 
-		// TODO Clean up user-extensions.js
 		File userExtensions = new File(profile, "user-extensions.js");
 		Utils.copy(WIBrowserFactory.class.getResourceAsStream("selenium/user-extensions.js"), userExtensions);
 
