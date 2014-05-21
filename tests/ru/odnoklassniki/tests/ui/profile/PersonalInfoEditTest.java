@@ -146,6 +146,23 @@ public class PersonalInfoEditTest {
 	}
 	
 	@Test
+	public void testChangeGender() {
+		boolean isMale = d.inpMale.isChecked();
+		
+		if (isMale) {
+			d.inpFemale.setValue(true);
+		} else {
+			d.inpMale.setValue(true);
+		}
+
+		d.save();
+
+		d.go();
+		d.inpMale.assertValue(!isMale);
+		d.inpFemale.assertValue(isMale);
+	}
+	
+	@Test
 	public void testChangeCity() {
 	    oldValue = d.inpCity.getValue();
 	    newValue = Data.CITY.getNewValue(oldValue);

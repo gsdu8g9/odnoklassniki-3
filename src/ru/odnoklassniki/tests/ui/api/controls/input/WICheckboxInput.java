@@ -8,9 +8,9 @@ import ru.odnoklassniki.tests.ui.api.common.IWIRoad;
 
 import com.thoughtworks.selenium.Wait;
 
-public class WICheckbox extends WIBooleanInput {
+public class WICheckboxInput extends WIBooleanInput {
 
-	public WICheckbox(IWIRoad aRoad, String aId, String aName) {
+	public WICheckboxInput(IWIRoad aRoad, String aId, String aName) {
 		super(aRoad, aId, aName);
 	}
 
@@ -36,7 +36,7 @@ public class WICheckbox extends WIBooleanInput {
 		return getValue();
 	}
 
-	public WICheckbox waitChecked(){
+	public WICheckboxInput waitChecked(){
 		new Wait() {
 			@Override
 			public boolean until() {
@@ -46,7 +46,7 @@ public class WICheckbox extends WIBooleanInput {
 		return this;
 	}
 	
-	public WICheckbox waitUnchecked(){
+	public WICheckboxInput waitUnchecked(){
 		new Wait() {
 			@Override
 			public boolean until() {
