@@ -61,7 +61,7 @@ public class InvalidPersonalInfoEditTest {
 	@Test(dataProvider = "symbols")
 	public void testSymbolName(char symbol) {
 		d.go();
-		d.inpName.setValue("»‚‡Ì" + symbol);
+		d.inpName.setValue("–ò–≤–∞–Ω" + symbol);
 		d.btnSave.click();
 		d.inpName.propError.waitVisible();
 		d.inpName.propError.assertValue(Locale.ERR_USE_ALPHA_ONLY);
@@ -79,7 +79,7 @@ public class InvalidPersonalInfoEditTest {
 	@Test(dataProvider = "symbols")
 	public void testSymbolSurame(char symbol) {
 		d.go();
-		d.inpSurname.setValue("»‚‡ÌÓ‚" + symbol);
+		d.inpSurname.setValue("–ò–≤–∞–Ω–æ–≤" + symbol);
 		d.btnSave.click();
 		d.inpSurname.propError.waitVisible();
 		d.inpSurname.propError.assertValue(Locale.ERR_USE_ALPHA_ONLY);
