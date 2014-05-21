@@ -4,27 +4,27 @@ import ru.odnoklassniki.tests.ui.api.WIBrowser;
 
 public class WIDefaultRoad implements IWIRoad {
 
-	private IWIRoad m_parentRoad;
+	private IWIRoad parentRoad;
 
 	public WIDefaultRoad(IWIRoad aRoad) {
-		m_parentRoad = aRoad;
+		parentRoad = aRoad;
 	}
 
 	@Override
 	public WIBrowser getBrowser() {
-		return m_parentRoad == null ? null : m_parentRoad.getBrowser();
+		return parentRoad == null ? null : parentRoad.getBrowser();
 	}
 
 	@Override
 	public void go() {
-		if (null != m_parentRoad) {
-			m_parentRoad.go();
+		if (null != parentRoad) {
+			parentRoad.go();
 		}
 	}
 
 	@Override
 	public IWIRoad getParent() {
-		return m_parentRoad;
+		return parentRoad;
 	}
 
 }

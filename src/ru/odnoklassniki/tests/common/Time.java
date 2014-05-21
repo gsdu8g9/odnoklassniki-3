@@ -7,7 +7,7 @@ public class Time {
 	private static final DecimalFormat DF00 = new DecimalFormat("00");
 	private static final DecimalFormat DF000 = new DecimalFormat("000");
 
-	private long m_milliseconds;
+	private long milliseconds;
 
 	public static Time Milliseconds(long value) {
 		return new Time(value);
@@ -22,11 +22,11 @@ public class Time {
 	}
 
 	private Time(long milliseconds) {
-		m_milliseconds = milliseconds;
+		this.milliseconds = milliseconds;
 	}
 
 	public long toMilliseconds() {
-		return m_milliseconds;
+		return milliseconds;
 	}
 
 	public long toSeconds() {

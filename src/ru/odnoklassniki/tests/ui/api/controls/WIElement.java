@@ -40,31 +40,31 @@ public class WIElement implements IWIRoad {
 
 	}
 
-	private IWIRoad m_road;
-	private String m_id;
-	private String m_name;
-	private String m_type;
+	private IWIRoad road;
+	private String id;
+	private String name;
+	private String type;
 
 	public WIElement(IWIRoad aRoad, String aId, String aName, String aType) {
-		m_road = new Road(aRoad);
-		m_id = aId;
-		m_name = aName;
-		m_type = aType;
+		road = new Road(aRoad);
+		id = aId;
+		name = aName;
+		type = aType;
 	}
 
 	@Override
 	public WIBrowser getBrowser() {
-		return m_road.getBrowser();
+		return road.getBrowser();
 	}
 
 	@Override
 	public void go() {
-		m_road.go();
+		road.go();
 	}
 
 	@Override
 	public IWIRoad getParent() {
-		return m_road.getParent();
+		return road.getParent();
 	}
 
 	public XPathBuilderBehaviour getRoadBuilderType() {
@@ -79,7 +79,7 @@ public class WIElement implements IWIRoad {
 	 * @return Local ID value
 	 */
 	public String getLocalID() {
-		return m_id;
+		return id;
 	}
 
 	/**
@@ -114,7 +114,7 @@ public class WIElement implements IWIRoad {
 		if (XPathBuilderBehaviour.GLOBAL == getRoadBuilderType()) {
 			return null;
 		}
-		IWIRoad r = m_road;
+		IWIRoad r = road;
 		while (r != null) {
 			if (r instanceof WIElement
 			        && (XPathBuilderBehaviour.SKIP != ((WIElement) r)
@@ -127,11 +127,11 @@ public class WIElement implements IWIRoad {
 	}
 
 	public String getType() {
-		return m_type;
+		return type;
 	}
 
 	public String getName() {
-		return m_name;
+		return name;
 	}
 
 	@Override

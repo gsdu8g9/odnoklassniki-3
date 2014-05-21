@@ -21,6 +21,14 @@ public class WIProfilePage extends WIPage {
 		super(aRoad, "hook_Block_UserProfileSummary", "User Profile");
 	}
 
+	@Override
+	public void go() {
+		super.go();
+		
+		// Some links are unclickable until page loads so wait a bit
+		getBrowser().waitForPageToLoad("60000");
+	}
+	
 	public void setPersonalInfo(String aName, String aSurname,
 	        String aBirthdate, String aCity, String aBithCity) {
 		Calendar cal = Calendar.getInstance();
