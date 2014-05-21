@@ -1,6 +1,6 @@
 package ru.odnoklassniki.tests.ui.api.locale;
 
-public enum Locale {
+public enum Text {
 
 	MONTH_JANUARY,
 	MONTH_FEBRUARY,

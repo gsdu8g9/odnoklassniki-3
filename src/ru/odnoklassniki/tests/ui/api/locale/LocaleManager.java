@@ -45,7 +45,7 @@ public class LocaleManager {
 		}
 		
 		// Check property file defines all enum values
-		for (Locale l : Locale.values()) {
+		for (Text l : Text.values()) {
 			if (properties.getProperty(l.name()) == null) {
 				throw new TestboxException(PROPERTY_UNDEFINED, l.name(), locale);			
 			}

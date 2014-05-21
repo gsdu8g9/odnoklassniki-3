@@ -3,7 +3,7 @@ package ru.odnoklassniki.tests.ui.api.controls.property;
 import org.testng.Assert;
 
 import ru.odnoklassniki.tests.ui.api.common.IWIRoad;
-import ru.odnoklassniki.tests.ui.api.locale.Locale;
+import ru.odnoklassniki.tests.ui.api.locale.Text;
 
 
 public class WITextProperty extends WIProperty<String> {
@@ -12,7 +12,7 @@ public class WITextProperty extends WIProperty<String> {
 		super(road, id, name);
 	}
 
-	public WITextProperty(IWIRoad road, Locale aName) {
+	public WITextProperty(IWIRoad road, Text aName) {
 		super(road, "//*[text()='" + aName.getValue() + "']", aName.getName());
 	}
 	
@@ -25,7 +25,7 @@ public class WITextProperty extends WIProperty<String> {
 		Assert.assertEquals(getValue(), "", this + " value");
 	}
 	
-	public void assertValue(Locale value) {
+	public void assertValue(Text value) {
 		super.assertValue(value.getValue());
 	}
 	

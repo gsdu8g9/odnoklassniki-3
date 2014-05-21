@@ -2,12 +2,12 @@ package ru.odnoklassniki.tests.ui.api.dialog;
 
 import ru.odnoklassniki.tests.ui.api.common.IWIRoad;
 import ru.odnoklassniki.tests.ui.api.controls.WIButton;
-import ru.odnoklassniki.tests.ui.api.locale.Locale;
+import ru.odnoklassniki.tests.ui.api.locale.Text;
 
 
 public abstract class WISaveCancelDialog extends WIDialog {
 
-	public WISaveCancelDialog(IWIRoad road, Locale aName) {
+	public WISaveCancelDialog(IWIRoad road, Text aName) {
 		super(road, aName);
 	}
 

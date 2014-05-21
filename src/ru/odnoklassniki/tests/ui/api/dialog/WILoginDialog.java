@@ -3,7 +3,7 @@ package ru.odnoklassniki.tests.ui.api.dialog;
 import static ru.odnoklassniki.tests.common.Scenario.ui;
 import static ru.odnoklassniki.tests.common.Time.Seconds;
 import static ru.odnoklassniki.tests.ui.api.Requirements.argumentNotNull;
-import static ru.odnoklassniki.tests.ui.api.locale.Locale.BTN_LOGIN;
+import static ru.odnoklassniki.tests.ui.api.locale.Text.BTN_LOGIN;
 import ru.odnoklassniki.tests.common.Utils;
 import ru.odnoklassniki.tests.ui.api.common.IWIRoad;
 import ru.odnoklassniki.tests.ui.api.controls.WIButton;

@@ -7,7 +7,7 @@ import org.testng.Assert;
 import ru.odnoklassniki.tests.common.Scenario;
 import ru.odnoklassniki.tests.ui.api.common.IWIRoad;
 import ru.odnoklassniki.tests.ui.api.common.WIDefaultRoad;
-import ru.odnoklassniki.tests.ui.api.locale.Locale;
+import ru.odnoklassniki.tests.ui.api.locale.Text;
 
 
 public class WIButton extends WIElement {
@@ -30,7 +30,7 @@ public class WIButton extends WIElement {
 	
 	public static class Submit extends WIButton {
 
-		public Submit(IWIRoad aRoad, Locale aName) {
+		public Submit(IWIRoad aRoad, Text aName) {
 			super(aRoad, "//input[@type='submit' and @value='" + aName.getValue() + "']", aName.getName());
 		}
 		
@@ -38,7 +38,7 @@ public class WIButton extends WIElement {
 	
 	public static class Link extends WIButton {
 
-		public Link(IWIRoad aRoad, Locale aName) {
+		public Link(IWIRoad aRoad, Text aName) {
 			super(aRoad, "//a[text()='" + aName.getValue() + "']", aName.getValue());
 		}
 		

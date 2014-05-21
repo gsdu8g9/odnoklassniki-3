@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 import ru.odnoklassniki.tests.ui.api.WIBrowser;
 import ru.odnoklassniki.tests.ui.api.WIBrowserFactory;
 import ru.odnoklassniki.tests.ui.api.dialog.WIProfilePersoanlDialog;
-import ru.odnoklassniki.tests.ui.api.locale.Locale;
+import ru.odnoklassniki.tests.ui.api.locale.Text;
 
 public class InvalidPersonalInfoEditTest {
 	
@@ -55,7 +55,7 @@ public class InvalidPersonalInfoEditTest {
 		d.inpName.setValue("");
 		d.btnSave.click();
 		d.inpName.propError.waitVisible();
-		d.inpName.propError.assertValue(Locale.ERR_SPECIFY_NAME);
+		d.inpName.propError.assertValue(Text.ERR_SPECIFY_NAME);
 	}
 
 	@Test(dataProvider = "symbols")
@@ -64,7 +64,7 @@ public class InvalidPersonalInfoEditTest {
 		d.inpName.setValue("Иван" + symbol);
 		d.btnSave.click();
 		d.inpName.propError.waitVisible();
-		d.inpName.propError.assertValue(Locale.ERR_USE_ALPHA_ONLY);
+		d.inpName.propError.assertValue(Text.ERR_USE_ALPHA_ONLY);
 	}
 
 	@Test
@@ -73,7 +73,7 @@ public class InvalidPersonalInfoEditTest {
 		d.inpSurname.setValue("");
 		d.btnSave.click();
 		d.inpSurname.propError.waitVisible();
-		d.inpSurname.propError.assertValue(Locale.ERR_SPECIFY_SURNAME);
+		d.inpSurname.propError.assertValue(Text.ERR_SPECIFY_SURNAME);
 	}
 	
 	@Test(dataProvider = "symbols")
@@ -82,7 +82,7 @@ public class InvalidPersonalInfoEditTest {
 		d.inpSurname.setValue("Иванов" + symbol);
 		d.btnSave.click();
 		d.inpSurname.propError.waitVisible();
-		d.inpSurname.propError.assertValue(Locale.ERR_USE_ALPHA_ONLY);
+		d.inpSurname.propError.assertValue(Text.ERR_USE_ALPHA_ONLY);
 	}
 	
 	@Test
@@ -91,7 +91,7 @@ public class InvalidPersonalInfoEditTest {
 		d.inpCity.setValue("");
 		d.btnSave.click();
 		d.inpCity.propError.waitVisible();
-		d.inpCity.propError.assertValue(Locale.ERR_SPECIFY_CITY);
+		d.inpCity.propError.assertValue(Text.ERR_SPECIFY_CITY);
 	}
 	
 //	@Test

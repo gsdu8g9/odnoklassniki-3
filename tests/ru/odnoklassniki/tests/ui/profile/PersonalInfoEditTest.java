@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 import ru.odnoklassniki.tests.ui.api.WIBrowser;
 import ru.odnoklassniki.tests.ui.api.WIBrowserFactory;
 import ru.odnoklassniki.tests.ui.api.dialog.WIProfilePersoanlDialog;
-import ru.odnoklassniki.tests.ui.api.locale.Locale;
+import ru.odnoklassniki.tests.ui.api.locale.Text;
 
 
 public class PersonalInfoEditTest {
@@ -22,7 +22,7 @@ public class PersonalInfoEditTest {
 		NAME("Иван", "Петр"),
 		SURNAME("Иванов", "Петров"),
 		BIRTH_DAY("2", "3"),
-		BIRTH_MONTH(Locale.MONTH_APRIL.getValue(), Locale.MONTH_MAY.getValue()),
+		BIRTH_MONTH(Text.MONTH_APRIL.getValue(), Text.MONTH_MAY.getValue()),
 		BIRTH_YEAR("2006", "2007"),
 		CITY("Санкт-Петербург, Россия", "г. Кронштадт (Санкт-Петербург г), Россия"),
 		BIRTH_CITY("Москва, Россия", "г. Зеленоград (Москва г), Россия");
