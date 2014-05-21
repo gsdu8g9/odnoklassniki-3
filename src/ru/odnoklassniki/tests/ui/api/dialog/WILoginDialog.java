@@ -8,7 +8,7 @@ import ru.odnoklassniki.tests.common.Utils;
 import ru.odnoklassniki.tests.ui.api.common.IWIRoad;
 import ru.odnoklassniki.tests.ui.api.controls.WIButton;
 import ru.odnoklassniki.tests.ui.api.controls.input.WITextInput;
-import ru.odnoklassniki.tests.ui.api.locale.Text;
+import ru.odnoklassniki.tests.ui.api.locale.LocaleManager;
 
 
 public class WILoginDialog extends WIDialog {
@@ -41,7 +41,7 @@ public class WILoginDialog extends WIDialog {
 		waitInvisible();
 		
 		// After login locale can be changed depends on user's settings
-		Text.autoLocale(getBrowser());
+		LocaleManager.autoDetect(getBrowser());
 		
 		// Login is successful if page shows username property 
 		getBrowser().getGlobalContainer().proUsername.waitAccessible();

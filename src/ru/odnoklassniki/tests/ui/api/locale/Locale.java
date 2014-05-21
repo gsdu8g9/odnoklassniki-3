@@ -1,7 +1,19 @@
 package ru.odnoklassniki.tests.ui.api.locale;
 
-
 public enum Locale {
+
+	MONTH_JANUARY,
+	MONTH_FEBRUARY,
+	MONTH_MARCH,
+	MONTH_APRIL,
+	MONTH_MAY,
+	MONTH_JUNE,
+	MONTH_JULY,
+	MONTH_AUGUST,
+	MONTH_SEPTEMBER,
+	MONTH_OCTOBER,
+	MONTH_NOVEMBER,
+	MONTH_DECEMBER,	
 	
 	BTN_LOGIN,
 	BTN_SAVE,
@@ -31,10 +43,10 @@ public enum Locale {
 	;
 	
 	public String getValue() {
-		return Text.getCurrent().getProperty(name());
+		return LocaleManager.getCurrent().getProperty(name());
 	}
 	
 	public String getName() {
-		return Text.getDefault().getProperty(name());
+		return LocaleManager.getDefault().getProperty(name());
 	}
 }

@@ -14,13 +14,12 @@ import ru.odnoklassniki.tests.common.Scenario;
 import ru.odnoklassniki.tests.runner.TestboxException;
 import ru.odnoklassniki.tests.ui.api.WIBrowser;
 
-
-public class Text {
+public class LocaleManager {
 	
-	private static Properties propDefault = getProperties("en");
+	private static Properties propDefault = getProperties(System.getProperty("locale.default", "en"));
 	private static Properties propCurrent;
 	
-	public static void autoLocale(WIBrowser browser) {
+	public static void autoDetect(WIBrowser browser) {
 		// Auto-detect locale
 		String locale = browser.getAttribute("//head/meta[@name='gwt:property']/@content");
 		if (!locale.startsWith("locale=")) {
@@ -31,7 +30,7 @@ public class Text {
 	
 	private static Properties getProperties(String locale) {
 		Properties properties = new Properties();
-		InputStream is = Text.class.getResourceAsStream(locale + ".properties");
+		InputStream is = LocaleManager.class.getResourceAsStream(locale + ".properties");
 		if (is == null) {
 			throw new TestboxException(LOCALE_NOT_FOUND, locale);			
 		}

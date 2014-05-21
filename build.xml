@@ -10,9 +10,6 @@
 
 	<property name="testbox.jar" location="testbox.jar" />
 	
-	<!-- NOTE: Don't use "location" property but only "value"-->
-	<property name="selenium-server.jar" value="selenium-server-standalone-2.41.0.jar" />
-
 	<taskdef resource="testngtasks" classpath="${lib}/testng-6.5.1.jar"/>
 	
 	<path id="libs">

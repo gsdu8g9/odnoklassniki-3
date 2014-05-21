@@ -15,7 +15,7 @@ import org.slf4j.Logger;
 import ru.odnoklassniki.tests.common.LogFactory;
 import ru.odnoklassniki.tests.common.Utils;
 import ru.odnoklassniki.tests.runner.Testbox;
-import ru.odnoklassniki.tests.ui.api.locale.Text;
+import ru.odnoklassniki.tests.ui.api.locale.LocaleManager;
 
 public class WIBrowserFactory {
 
@@ -122,7 +122,7 @@ public class WIBrowserFactory {
 
 		browser.open(aUrl);
 
-		Text.autoLocale(browser);
+		LocaleManager.autoDetect(browser);
 		
 		return browser;
 	}
