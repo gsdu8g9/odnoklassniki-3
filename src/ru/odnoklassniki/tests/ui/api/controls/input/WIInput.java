@@ -15,7 +15,6 @@ public abstract class WIInput<T> extends WIElement {
 
 	private static final String WI_INPUT_TYPE = "input";
 	
-	@Deprecated
 	public WIInput(IWIRoad aRoad, String aId, String aName) {
 		super(aRoad, aId, aName, WI_INPUT_TYPE);
 	}

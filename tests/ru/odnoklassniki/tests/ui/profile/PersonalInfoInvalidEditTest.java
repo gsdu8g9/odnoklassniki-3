@@ -15,7 +15,7 @@ import ru.odnoklassniki.tests.ui.api.WIBrowserFactory;
 import ru.odnoklassniki.tests.ui.api.dialog.WIProfilePersoanlDialog;
 import ru.odnoklassniki.tests.ui.api.locale.Text;
 
-public class InvalidPersonalInfoEditTest {
+public class PersonalInfoInvalidEditTest {
 	
 	WIBrowser b;
 	WIProfilePersoanlDialog d;
