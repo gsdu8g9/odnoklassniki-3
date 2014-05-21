@@ -141,7 +141,7 @@ public class PersonalInfoEditTest {
 	
 	@Test
 	public void testSurnameMaxLength() {
-		d.inpSurname.setValue("1234567890123456789001234567890");
+		d.inpSurname.setValue("123456789012345678901234567890");
 		d.inpSurname.assertValue("123456789012345678901234");
 		d.save();
 		
