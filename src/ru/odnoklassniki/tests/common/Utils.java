@@ -245,5 +245,13 @@ public class Utils {
 			throw new TestboxException(FAILED_PARSE_DATE, text, format, e);
 		}
 	}
-
+	
+	public static String fillString(int count) {
+	    StringBuilder sb = new StringBuilder(count);
+	    for( int i = 1; i <= count; i++ ) {
+	        sb.append(Character.forDigit(i % 10, 10)); 
+	    }
+	    return sb.toString();
+	}
+	
 }

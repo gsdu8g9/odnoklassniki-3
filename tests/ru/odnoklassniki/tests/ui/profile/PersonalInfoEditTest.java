@@ -8,6 +8,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import ru.odnoklassniki.tests.common.Utils;
 import ru.odnoklassniki.tests.ui.Environment;
 import ru.odnoklassniki.tests.ui.api.WIBrowser;
 import ru.odnoklassniki.tests.ui.api.WIBrowserFactory;
@@ -53,7 +54,6 @@ public class PersonalInfoEditTest {
 		b = WIBrowserFactory.getNewBrowser(Environment.BASE_URL);
 		b.login(Environment.USERNAME, Environment.PASSWORD);
 		d = b.getProfile().dlgPersonalInfo; 
-		d.go();
 	}
 
 	@AfterClass()
@@ -63,6 +63,8 @@ public class PersonalInfoEditTest {
 	
 	@Test
 	public void testNameChange() {
+		d.go();
+		
 		String oldValue = d.inpName.getValue();
 		String newValue = Data.NAME.getNewValue(oldValue);
 	    		
@@ -77,6 +79,7 @@ public class PersonalInfoEditTest {
 	public void testNameDigits() {
 		String newValue = "1234567890";
 	    		
+		d.go();
 		d.inpName.setValue(newValue);
 		d.save();
 		
@@ -88,6 +91,7 @@ public class PersonalInfoEditTest {
 	public void testNameSymbols(char symbol) {
 		String newValue = "Иван" + symbol;
 		
+		d.go();
 		d.inpName.setValue(newValue);
 		d.save();
 		
@@ -96,17 +100,23 @@ public class PersonalInfoEditTest {
 	}
 	
 	@Test
-	public void testNameMaxLength() {
-		d.inpName.setValue("12345678901234567890");
-		d.inpName.assertValue("1234567890123456");
+	public void testNameLong() {
+		String original = Utils.fillString(20);
+		String expected = Utils.fillString(16);
+
+		d.go();
+		d.inpName.setValue(original);
+		d.inpName.assertValue(expected);
 		d.save();
 		
 		d.go();
-		d.inpName.assertValue("1234567890123456");
+		d.inpName.assertValue(expected);
 	}
 
 	@Test
 	public void testSurameChange() {
+		d.go();
+
 		String oldValue = d.inpSurname.getValue();
 		String newValue = Data.SURNAME.getNewValue(oldValue);
 
@@ -121,6 +131,7 @@ public class PersonalInfoEditTest {
 	public void testSurnameDigits() {
 		String newValue = "1234567890";
 	    		
+		d.go();
 		d.inpSurname.setValue(newValue);
 		d.save();
 		
@@ -132,6 +143,7 @@ public class PersonalInfoEditTest {
 	public void testSurnameSymbols(char symbol) {
 		String newValue = "Иванов" + symbol;
 		
+		d.go();
 		d.inpSurname.setValue(newValue);
 		d.save();
 		
@@ -140,17 +152,23 @@ public class PersonalInfoEditTest {
 	}
 	
 	@Test
-	public void testSurnameMaxLength() {
-		d.inpSurname.setValue("123456789012345678901234567890");
-		d.inpSurname.assertValue("123456789012345678901234");
+	public void testSurnameLong() {
+		String original = Utils.fillString(30);
+		String expected = Utils.fillString(24);
+
+		d.go();
+		d.inpSurname.setValue(original);
+		d.inpSurname.assertValue(expected);
 		d.save();
 		
 		d.go();
-		d.inpSurname.assertValue("123456789012345678901234");
+		d.inpSurname.assertValue(expected);
 	}
 
 	@Test
 	public void testBirthDayChange() {
+		d.go();
+
 		String oldValue = d.inpBirthDay.getValue();
 		String newValue = Data.BIRTH_DAY.getNewValue(oldValue);
 
@@ -163,6 +181,8 @@ public class PersonalInfoEditTest {
 	
 	@Test
 	public void testBirthMonthChange() {
+		d.go();
+
 		String oldValue = d.inpBirthMonth.getValue();
 	    String newValue = Data.BIRTH_MONTH.getNewValue(oldValue);
 
@@ -175,6 +195,8 @@ public class PersonalInfoEditTest {
 	
 	@Test
 	public void testBirthYearChange() {
+		d.go();
+
 		String oldValue = d.inpBirthYear.getValue();
 		String newValue = Data.BIRTH_YEAR.getNewValue(oldValue);
 
@@ -187,6 +209,8 @@ public class PersonalInfoEditTest {
 	
 	@Test
 	public void testGendeChanger() {
+		d.go();
+
 		boolean isMale = d.inpMale.isChecked();
 		
 		if (isMale) {
@@ -204,6 +228,8 @@ public class PersonalInfoEditTest {
 	
 	@Test
 	public void testCityChange() {
+		d.go();
+
 		String oldValue = d.inpCity.getValue();
 		String newValue = Data.CITY.getNewValue(oldValue);
 
@@ -213,9 +239,24 @@ public class PersonalInfoEditTest {
 		d.go();
 		d.inpCity.assertValue(newValue);
 	}
-	
+
+	@Test
+	public void testCityLong() {
+		String original = Utils.fillString(60);
+		String expected = Utils.fillString(50);
+		
+		d.go();
+		d.inpCity.setValue(original);
+		d.inpCity.assertValue(expected);
+		
+		// Need real long city name to save so just cancel
+		d.cancel();
+	}
+
 	@Test
 	public void testBithCityChange() {
+		d.go();
+
 		String oldValue = d.inpBirthCity.getValue();
 		String newValue = Data.BIRTH_CITY.getNewValue(oldValue);
 
@@ -228,6 +269,7 @@ public class PersonalInfoEditTest {
 	
 	@Test
 	public void testBirthCityEmpty() {
+		d.go();
 		d.inpBirthCity.setValue("");
 		d.save();
 		
@@ -235,4 +277,17 @@ public class PersonalInfoEditTest {
 		d.inpBirthCity.assertValue("");
 	}
 	
+	@Test
+	public void testBiirthCityLong() {
+		String original = Utils.fillString(60);
+		String expected = Utils.fillString(50);
+		
+		d.go();
+		d.inpBirthCity.setValue(original);
+		d.inpBirthCity.assertValue(expected);
+		
+		// Need real long city name to save so just cancel
+		d.cancel();
+	}
+
 }
