@@ -8,6 +8,7 @@ import java.net.URL;
 import org.openqa.selenium.server.RemoteControlConfiguration;
 import org.openqa.selenium.server.SeleniumServer;
 
+import ru.odnoklassniki.tests.common.Loggers;
 import ru.odnoklassniki.tests.common.Utils;
 import ru.odnoklassniki.tests.runner.Testbox;
 import ru.odnoklassniki.tests.runner.TestboxException;
@@ -47,11 +48,9 @@ public class WIBrowserFactory {
 			config.setFirefoxProfileTemplate(new File(System.getProperty("selenium.profile", profile.getAbsolutePath())));
 			config.setPort(seleniumUrl.getPort());
 
-			System.out.println("****** Configuration ***** ");
-			System.out.println("Port : " + config.getPort());
-			System.out.println("Profile : " + config.getFirefoxProfileTemplate());
-			System.out.println("Log : " + config.getLogOutFile());
-			System.out.println("************************** ");
+			Loggers.selenium.info("Port : " + config.getPort());
+			Loggers.selenium.info("Profile : " + config.getFirefoxProfileTemplate());
+			Loggers.selenium.info("Log : " + config.getLogOutFile());
 
 			server = new SeleniumServer(config);
 			server.boot();

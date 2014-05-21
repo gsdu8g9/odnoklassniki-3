@@ -49,8 +49,10 @@
 
     <target name="test">
     	<testng classpathref="libs" outputDir="${testng.report.dir}"
-    		useDefaultListeners="false" listeners="org.uncommons.reportng.HTMLReporter">
+    		useDefaultListeners="false" listeners="org.uncommons.reportng.HTMLReporter"
+    		suitename="User Profile Tests">
     	    <classfileset dir="${bin}" includes="**/*.class" />
+    		<jvmarg value="-Djava.util.logging.config.file=logging.properties" />
             <sysproperty key="org.uncommons.reportng.title" value="Odnoklassniki Test Report"/>
     	</testng>
     </target>
