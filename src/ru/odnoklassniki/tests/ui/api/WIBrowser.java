@@ -4,9 +4,9 @@ import ru.odnoklassniki.tests.ui.api.common.IWIRoad;
 import ru.odnoklassniki.tests.ui.api.dialog.WILoginDialog;
 import ru.odnoklassniki.tests.ui.api.pages.WIGlobalContainer;
 import ru.odnoklassniki.tests.ui.api.pages.WIProfilePage;
-import ru.odnoklassniki.tests.ui.api.selenium.BrowserService;
+import ru.odnoklassniki.tests.ui.api.selenium.DefaultSelenium2;
 
-public class WIBrowser extends BrowserService implements IWIRoad {
+public class WIBrowser extends DefaultSelenium2 implements IWIRoad {
 
 	private WIGlobalContainer cntGlobal;
 
@@ -16,6 +16,7 @@ public class WIBrowser extends BrowserService implements IWIRoad {
 
 	WIBrowser(String host, int port, String browser, String url) {
 		super(host, port, browser, url);
+		start();
 	}
 
 	@Override

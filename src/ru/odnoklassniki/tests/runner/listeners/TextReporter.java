@@ -13,17 +13,17 @@ public class TextReporter extends TestListenerAdapter {
 
 	@Override
 	public void onTestFailure(ITestResult result) {
-		System.out.println(getTestName(result) + " FAILED");
+		System.out.println(" FAILED : " + getTestName(result));
 	}
 
 	@Override
 	public void onTestSkipped(ITestResult result) {
-		System.out.println(getTestName(result) + " SKIPPED");
+		System.out.println("SKIPPED : " + getTestName(result));
 	}
 
 	@Override
 	public void onTestSuccess(ITestResult result) {
-		System.out.println(getTestName(result) + " PASSED");
+		System.out.println(" PASSED : " + getTestName(result));
 	}
 
 }
