@@ -52,7 +52,7 @@ public class Testbox {
 	}
 
 	// TODO Print testing progress
-	// TODO Add to log test start and status
+	// TODO Add to log test start and status	
 	public static void main(String[] args) throws IOException {
 		Thread.setDefaultUncaughtExceptionHandler(new Handler());
 
