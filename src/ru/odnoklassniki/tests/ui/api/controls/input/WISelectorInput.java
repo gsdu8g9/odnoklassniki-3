@@ -1,7 +1,7 @@
 package ru.odnoklassniki.tests.ui.api.controls.input;
 
 import static ru.odnoklassniki.tests.ui.api.Messages.LOG_SELECTOR_SETVALUE;
-import ru.odnoklassniki.tests.common.Scenario;
+import ru.odnoklassniki.tests.common.Loggers;
 import ru.odnoklassniki.tests.ui.api.common.IWIRoad;
 
 
@@ -13,7 +13,8 @@ public class WISelectorInput extends WITextInput {
 
 	@Override
 	public void setValue(String aValue) {
-		Scenario.ui.info(LOG_SELECTOR_SETVALUE.getProblem(this, aValue));
+		Loggers.ui.info(LOG_SELECTOR_SETVALUE.getProblem(this, aValue));
+		// Use "select" instead of "type"
 		getBrowser().select(getGlobalID(), aValue);
 	}
 

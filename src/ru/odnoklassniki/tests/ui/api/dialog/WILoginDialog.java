@@ -1,6 +1,6 @@
 package ru.odnoklassniki.tests.ui.api.dialog;
 
-import static ru.odnoklassniki.tests.common.Scenario.ui;
+import static ru.odnoklassniki.tests.common.Loggers.ui;
 import static ru.odnoklassniki.tests.common.Time.Seconds;
 import static ru.odnoklassniki.tests.ui.api.Requirements.argumentNotNull;
 import static ru.odnoklassniki.tests.ui.api.locale.Text.BTN_LOGIN;

@@ -2,6 +2,7 @@ package ru.odnoklassniki.tests.common;
 
 import static ru.odnoklassniki.tests.ui.api.Messages.ERR_ARGUMENT_IS_EMPTY;
 import static ru.odnoklassniki.tests.ui.api.Messages.ERR_ARGUMENT_IS_NULL;
+import static ru.odnoklassniki.tests.ui.api.Messages.ERR_ARGUMENT_NO_SIZE;
 
 import java.lang.reflect.Array;
 import java.util.Collection;
@@ -36,7 +37,7 @@ public class Argument<T> {
 		} else if (value instanceof String) {
 			isEmpty = ((String) value).length() == 0;
 		} else {
-			throw new IllegalArgumentException("Argument " + name + " has no size"); 
+			throw new IllegalArgumentException(ERR_ARGUMENT_NO_SIZE.getProblem(name)); 
 		}
 		if (isEmpty) {
 			throw new IllegalArgumentException(ERR_ARGUMENT_IS_EMPTY.getProblem(name));

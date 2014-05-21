@@ -5,7 +5,6 @@ import java.util.Collection;
 import ru.odnoklassniki.tests.common.IMessage;
 import ru.odnoklassniki.tests.common.Utils;
 
-
 public class TestboxException extends RuntimeException {
 
 	private static final long serialVersionUID = -1199259648444871312L;
@@ -21,25 +20,23 @@ public class TestboxException extends RuntimeException {
 		params = convert(params);
 		m_problem = message.getProblem(params);
 		m_solution = message.getSolution(params);
-		m_message = 
-			m_solution == null 
-			? Utils.format("PROBLEM: %s", m_problem)
-			: Utils.format("PROBLEM: %s\nSOLUTION: %s", m_problem, m_solution);
+		m_message = m_solution == null ? Utils.format("PROBLEM: %s", m_problem) : Utils.format(
+		        "PROBLEM: %s\nSOLUTION: %s", m_problem, m_solution);
 	}
-	
+
 	public TestboxException(IMessage message, Object... params) {
 		this(null, message, params);
 	}
 
 	@Override
-    public String getMessage() {
+	public String getMessage() {
 		return m_message;
 	}
-	
+
 	public String getProblem() {
 		return m_problem;
 	}
-	
+
 	public String getSolution() {
 		return m_solution;
 	}

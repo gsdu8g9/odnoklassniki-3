@@ -1,6 +1,6 @@
 package ru.odnoklassniki.tests.ui.api.controls;
 
-import ru.odnoklassniki.tests.common.Scenario;
+import ru.odnoklassniki.tests.common.Loggers;
 import ru.odnoklassniki.tests.ui.api.common.IWIRoad;
 import ru.odnoklassniki.tests.ui.api.common.WIDefaultRoad;
 
@@ -33,7 +33,7 @@ public class WIClickable extends WIElement {
 	public void click() {
 		go();
 		getBrowser().click(getGlobalID());
-		Scenario.ui.info("Click " + this);
+		Loggers.ui.info("Click " + this);
 	}
 	
 }

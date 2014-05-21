@@ -6,7 +6,6 @@ import ru.odnoklassniki.tests.ui.api.pages.WIGlobalContainer;
 import ru.odnoklassniki.tests.ui.api.pages.WIProfilePage;
 import ru.odnoklassniki.tests.ui.api.selenium.BrowserService;
 
-
 public class WIBrowser extends BrowserService implements IWIRoad {
 
 	private WIGlobalContainer cntGlobal;
@@ -44,7 +43,7 @@ public class WIBrowser extends BrowserService implements IWIRoad {
 
 	public WIProfilePage getProfile() {
 		return pageProfile == null ? (pageProfile = new WIProfilePage(getGlobalContainer().mnuAbout.getRoad()))
-				: pageProfile;
+		        : pageProfile;
 	}
 
 	public WIBrowser login(String name, String password) {

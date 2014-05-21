@@ -1,6 +1,6 @@
 package ru.odnoklassniki.tests.ui.api.selenium;
 
-import static ru.odnoklassniki.tests.common.Scenario.selenium;
+import static ru.odnoklassniki.tests.common.Loggers.selenium;
 
 import java.util.ArrayList;
 import java.util.Collection;

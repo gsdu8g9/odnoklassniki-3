@@ -15,34 +15,27 @@ public enum Messages implements IMessage {
 	ERR_FAILED_CLOSE_BROWSER("Faield close browser"),
 	ERR_ARGUMENT_IS_NULL("Argument %s must not be null", "Fix code"),
 	ERR_ARGUMENT_IS_EMPTY("Argument %s must not be empty", "Fix code"),
+	ERR_ARGUMENT_NO_SIZE("Argument %s has no size"),
 
+	TEST_VALUE("Input %s value"),
 	TEST_EXPECTED_VISIBLE("Expected visible %s"), 
 	TEST_EXPECTED_INVISIBLE("Expected invisible %s"), 
-	TEST_EXPECTED_ACCESSIBLE("Expected accessible %s"), 
-	TEST_UNEXPECTED_ACCESSIBLE("Unexpected accessible %s"), 
-	TEST_EXPECTED_DISAPPEAR("Expected %s disappear after %d seconds"), 
-	
-	TEST_DIALOG_DOESNT_DISAPPEAR("Dialog \"%s\" doesn't disappear after %d seconds"),
-
-	TEST_EXPECTED_DISABLED("Expected disabled %s"),
-	TEST_EXPECTED_ENABLED("Expected enabled %s"),
 	
 	TEST_EXPECTED_VALUE("Expected %s has value \"%s\""),
 	TEST_UNEXPECTED_VALUE("Unexpected %s has value \"%s\""),
+
+	TEST_CHECKED("Expected %s checked"),
+	TEST_UNCHECKED("Expected %s unchecked"),
 
 	LOG_ELEMENT_VISIBLE("%s is visible"),
 	LOG_ELEMENT_INVISIBLE("%s is invisible"),
 	LOG_ELEMENT_WAIT_VISIBLE("Waiting for %s to become visible..."),
 	LOG_ELEMENT_WAIT_INVISIBLE("Waiting for %s to become invisible..."),
-	LOG_ELEMENT_WAIT_INVISIBLE_FOR("Waiting for %s is invisible for %d seconds..."),
 	
 	LOG_SELECTOR_SETVALUE("Select \"%2$s\" at %1$s"),
 	
 	LOG_CHECKBOX_CHECK("Check %s"),
 	LOG_CHECKBOX_UNCHECK("Uncheck %s"),
-	
-	VIP_HOSTNAME_UNRESOLVED("Unresolved VIP %s hostname", "Fix test or test environment"),
-
 	;
 	
 	private String m_problem;

@@ -2,8 +2,9 @@ package ru.odnoklassniki.tests.ui.api.controls.input;
 
 import static ru.odnoklassniki.tests.ui.api.Messages.LOG_CHECKBOX_CHECK;
 import static ru.odnoklassniki.tests.ui.api.Messages.LOG_CHECKBOX_UNCHECK;
-import static ru.odnoklassniki.tests.ui.api.Messages.TEST_EXPECTED_ENABLED;
-import ru.odnoklassniki.tests.common.Scenario;
+import static ru.odnoklassniki.tests.ui.api.Messages.TEST_CHECKED;
+import static ru.odnoklassniki.tests.ui.api.Messages.TEST_UNCHECKED;
+import ru.odnoklassniki.tests.common.Loggers;
 import ru.odnoklassniki.tests.ui.api.common.IWIRoad;
 
 import com.thoughtworks.selenium.Wait;
@@ -27,46 +28,46 @@ public class WICheckboxInput extends WIBooleanInput {
 	public Boolean getValue() {
 		return getBrowser().isChecked(getGlobalID());
 	}
-	
+
 	private void click() {
 		getBrowser().click(getGlobalID());
 	}
 
-	public boolean isChecked(){
+	public boolean isChecked() {
 		return getValue();
 	}
 
-	public WICheckboxInput waitChecked(){
+	public WICheckboxInput waitChecked() {
 		new Wait() {
 			@Override
 			public boolean until() {
 				return isChecked();
 			}
-		}.wait(TEST_EXPECTED_ENABLED.getProblem(this));
+		}.wait(TEST_CHECKED.getProblem(this));
 		return this;
 	}
-	
-	public WICheckboxInput waitUnchecked(){
+
+	public WICheckboxInput waitUnchecked() {
 		new Wait() {
 			@Override
 			public boolean until() {
-				return ! isChecked();
+				return !isChecked();
 			}
-		}.wait(TEST_EXPECTED_ENABLED.getProblem(this));
+		}.wait(TEST_UNCHECKED.getProblem(this));
 		return this;
 	}
 
 	public void check() {
-		if (!getValue()){
-			Scenario.ui.info(LOG_CHECKBOX_CHECK.getProblem(this));
+		if (!getValue()) {
+			Loggers.ui.info(LOG_CHECKBOX_CHECK.getProblem(this));
 			click();
 			waitChecked();
 		}
 	}
-	
+
 	public void uncheck() {
-		if (getValue()){
-			Scenario.ui.info(LOG_CHECKBOX_UNCHECK.getProblem(this));
+		if (getValue()) {
+			Loggers.ui.info(LOG_CHECKBOX_UNCHECK.getProblem(this));
 			click();
 			waitUnchecked();
 		}

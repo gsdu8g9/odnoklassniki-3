@@ -35,15 +35,7 @@ public enum Messages implements IMessage {
 	}
 
 	public static String format(String text, Object... params) {
-		// If formats starts with "%s..." that first character can be lower-case
-		// so replace it with upper-case
-		return text == null ? null : capitalLeadingChar(Utils.format(text,
-				params));
-	}
-
-	private static String capitalLeadingChar(String text) {
-		return text.isEmpty() ? "" : text.substring(0, 1).toUpperCase()
-				+ text.substring(1);
+		return Utils.format(text, params);
 	}
 
 }

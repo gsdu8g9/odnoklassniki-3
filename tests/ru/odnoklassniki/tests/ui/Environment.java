@@ -2,13 +2,13 @@ package ru.odnoklassniki.tests.ui;
 
 public interface Environment {
 
-	public static final String BASE_URL = "http://www.odnoklassniki.ru";
-	public static final String USERNAME = "dummy_user123";
-//	public static final String USERNAME = "dummy_user1";
-//	public static final String USERNAME = "dummy_user456";
-	public static final String PASSWORD = "pwd123456";
-	
-	public static final String CORRECT_SYMBOLS = "()-";
-	public static final String INVALID_SYMBOLS = "~`!@#$%^&*_=+\\|[{]}:\"'<>?/";
-	
+	final String BASE_URL = "http://www.odnoklassniki.ru";
+	final String USERNAME = "dummy_user123";
+	// final String USERNAME = "dummy_user1";
+	// final String USERNAME = "dummy_user456";
+	final String PASSWORD = "pwd123456";
+
+	final String CORRECT_SYMBOLS = "()-";
+	final String INVALID_SYMBOLS = "~`!@#$%^&*_=+\\|[{]}:\"'<>?/";
+
 }

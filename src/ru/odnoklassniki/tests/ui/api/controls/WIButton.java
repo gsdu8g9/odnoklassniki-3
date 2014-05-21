@@ -4,7 +4,7 @@ import static ru.odnoklassniki.tests.ui.api.Messages.TEST_EXPECTED_VISIBLE;
 
 import org.testng.Assert;
 
-import ru.odnoklassniki.tests.common.Scenario;
+import ru.odnoklassniki.tests.common.Loggers;
 import ru.odnoklassniki.tests.ui.api.common.IWIRoad;
 import ru.odnoklassniki.tests.ui.api.common.WIDefaultRoad;
 import ru.odnoklassniki.tests.ui.api.locale.Text;
@@ -52,7 +52,7 @@ public class WIButton extends WIElement {
 	}
 	
 	public void click() {
-		Scenario.ui.info("Click " + this);
+		Loggers.ui.info("Click " + this);
 		if (isVisible()) {
 			getBrowser().click(getGlobalID());
 		} else {

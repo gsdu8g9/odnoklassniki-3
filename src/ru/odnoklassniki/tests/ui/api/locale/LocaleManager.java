@@ -10,7 +10,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.Properties;
 
-import ru.odnoklassniki.tests.common.Scenario;
+import ru.odnoklassniki.tests.common.Loggers;
 import ru.odnoklassniki.tests.runner.TestboxException;
 import ru.odnoklassniki.tests.ui.api.WIBrowser;
 
@@ -56,7 +56,7 @@ public class LocaleManager {
 	
 	public static void setLocale(String locale) {
 		propCurrent = getProperties(locale); 		
-		Scenario.ui.debug("Set locale " + locale);
+		Loggers.ui.debug("Set locale " + locale);
 	}
 	
 	public static Properties getDefault() {

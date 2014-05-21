@@ -10,7 +10,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
-import ru.odnoklassniki.tests.common.Scenario;
+import ru.odnoklassniki.tests.common.Loggers;
 import ru.odnoklassniki.tests.common.Utils;
 
 /**
@@ -75,7 +75,7 @@ public class BrowserService implements Selenium2, WebDriver {
 	}
 
 	public void quit() {
-		Scenario.ui.info("Close browser");
+		Loggers.ui.info("Close browser");
 		m_webdriver.quit();
 	}
 
@@ -315,12 +315,12 @@ public class BrowserService implements Selenium2, WebDriver {
 	}
 
 	public void open(String url) {
-		Scenario.ui.info("Open browser " + url);
+		Loggers.ui.info("Open browser " + url);
 		m_selenium.open(url);
 	}
 
 	public void open(URL url) {
-		Scenario.ui.info("Open browser " + url);
+		Loggers.ui.info("Open browser " + url);
 		m_selenium.open(url);
 	}
 
@@ -381,7 +381,7 @@ public class BrowserService implements Selenium2, WebDriver {
 	}
 
 	public void close() {
-		Scenario.ui.info("Close browser");
+		Loggers.ui.info("Close browser");
 		m_selenium.close();
 	}
 

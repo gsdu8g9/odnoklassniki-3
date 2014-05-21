@@ -7,17 +7,13 @@ import java.net.URL;
 
 import org.openqa.selenium.server.RemoteControlConfiguration;
 import org.openqa.selenium.server.SeleniumServer;
-import org.slf4j.Logger;
 
-import ru.odnoklassniki.tests.common.LogFactory;
 import ru.odnoklassniki.tests.common.Utils;
 import ru.odnoklassniki.tests.runner.Testbox;
 import ru.odnoklassniki.tests.runner.TestboxException;
 import ru.odnoklassniki.tests.ui.api.locale.LocaleManager;
 
 public class WIBrowserFactory {
-
-	private final static Logger log = LogFactory.getLogger(WIBrowserFactory.class);
 
 	private static final String SELENIUM_URL = System.getProperty("selenium", "http://localhost:4444");
 	private static final String SELENIUM_LOG = System.getProperty("selenium.log");
@@ -68,7 +64,7 @@ public class WIBrowserFactory {
 
 	public static WIBrowser getNewBrowser(String aUrl) {
 		URL url = Utils.getURL(aUrl);
-		
+
 		// Start Selenium server only when first test called getNewBrowser()
 		if (useEmbededSeleniumServer) {
 			if (!isSeleniumRunning) {
@@ -84,7 +80,8 @@ public class WIBrowserFactory {
 
 		browser.setTimeout(SELENIUM_TIMEOUT);
 
-		// Highlight used HTML elements to get visual control of executed operations
+		// Highlight used HTML elements to get visual control of executed
+		// operations
 		browser.setShouldHighlightElement(true);
 
 		browser.windowMaximize();

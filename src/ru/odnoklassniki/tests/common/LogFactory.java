@@ -17,20 +17,18 @@ public class LogFactory {
 	static {
 		loadConfig();
 	}
-	
+
 	public static void loadConfig() {
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		try {
 			DocumentBuilder db = dbf.newDocumentBuilder();
-			Document doc = db.parse(
-					LogFactory.class.getResourceAsStream("log4j.properties.xml")
-				);
+			Document doc = db.parse(LogFactory.class.getResourceAsStream("log4j.properties.xml"));
 			DOMConfigurator.configure(doc.getDocumentElement());
 		} catch (Exception e) {
 			throw new TestboxException(FAILED_READ_LOG_CONFIG, e);
 		}
 	}
-	
+
 	public static Logger getLogger(Class<?> clazz) {
 		return getLogger(clazz.getName());
 	}

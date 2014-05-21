@@ -9,7 +9,7 @@ import static ru.odnoklassniki.tests.ui.api.Messages.TEST_EXPECTED_VISIBLE;
 
 import org.testng.Assert;
 
-import ru.odnoklassniki.tests.common.Scenario;
+import ru.odnoklassniki.tests.common.Loggers;
 import ru.odnoklassniki.tests.common.Utils;
 import ru.odnoklassniki.tests.common.Wait;
 import ru.odnoklassniki.tests.ui.api.WIBrowser;
@@ -170,25 +170,25 @@ public class WIElement implements IWIRoad {
 	}
 
 	public void waitVisible() {
-		Scenario.ui.info(LOG_ELEMENT_WAIT_VISIBLE.getProblem(this));
+		Loggers.ui.info(LOG_ELEMENT_WAIT_VISIBLE.getProblem(this));
 		new Wait() {
 			@Override
 			public boolean until() {
 				return isVisible();
 			}
 		}.wait(TEST_EXPECTED_VISIBLE.getProblem(this));
-		Scenario.ui.info(LOG_ELEMENT_VISIBLE.getProblem(this));
+		Loggers.ui.info(LOG_ELEMENT_VISIBLE.getProblem(this));
 	}
 
 	public void waitInvisible() {
-		Scenario.ui.info(LOG_ELEMENT_WAIT_INVISIBLE.getProblem(this));
+		Loggers.ui.info(LOG_ELEMENT_WAIT_INVISIBLE.getProblem(this));
 		new Wait() {
 			@Override
 			public boolean until() {
 				return !isVisible();
 			}
 		}.wait(TEST_EXPECTED_INVISIBLE.getProblem(this));
-		Scenario.ui.info(LOG_ELEMENT_INVISIBLE.getProblem(this));
+		Loggers.ui.info(LOG_ELEMENT_INVISIBLE.getProblem(this));
 	}
 
 }

@@ -30,7 +30,6 @@ import org.slf4j.Logger;
 
 import ru.odnoklassniki.tests.runner.TestboxException;
 
-
 public class Utils {
 
 	public static final String DEFAULT_ARRAY_DELIMITER = ",";
@@ -110,8 +109,7 @@ public class Utils {
 		}
 	}
 
-	public static void setText(OutputStream stream, String text)
-			throws IOException {
+	public static void setText(OutputStream stream, String text) throws IOException {
 		copy(new ByteArrayInputStream(text.getBytes()), stream);
 	}
 
@@ -131,7 +129,6 @@ public class Utils {
 			in.close();
 		}
 	}
-
 
 	public static String toXPath(String locator) {
 		// Locator is xpath
@@ -160,12 +157,12 @@ public class Utils {
 	public static void pause(Time interval, Logger logger) {
 		pause(interval, "", logger);
 	}
-	
+
 	public static void pause(Time interval, String message, Logger logger) {
 		logger.debug("Wait " + interval + ". " + message);
 		pause(interval);
 	}
-	
+
 	public static void pause(Time interval) {
 		try {
 			Thread.sleep(interval.toMilliseconds());
@@ -173,7 +170,7 @@ public class Utils {
 			// DO NOTHING
 		}
 	}
-	
+
 	public static URI getURI(String url, IMessage errorMessage) {
 		try {
 			return new URI(url);
@@ -182,8 +179,7 @@ public class Utils {
 		}
 	}
 
-	public static URI getURI(String protocol, String host, int port,
-			String path, IMessage errorMessage) {
+	public static URI getURI(String protocol, String host, int port, String path, IMessage errorMessage) {
 		try {
 			return new URI(protocol, null, host, port, path, null, null);
 		} catch (URISyntaxException e) {
@@ -199,8 +195,7 @@ public class Utils {
 		}
 	}
 
-	public static URL getURL(String protocol, String host, int port,
-			String path) {
+	public static URL getURL(String protocol, String host, int port, String path) {
 		try {
 			return new URL(protocol, host, port, path);
 		} catch (MalformedURLException e) {
@@ -241,7 +236,7 @@ public class Utils {
 			throw new TestboxException(FAILED_FORMAT_STRING, format, e);
 		}
 	}
-	
+
 	public static Date parseDate(String format, String text) {
 		DateFormat df = new SimpleDateFormat(format);
 		try {
@@ -250,5 +245,5 @@ public class Utils {
 			throw new TestboxException(FAILED_PARSE_DATE, text, format, e);
 		}
 	}
-   
+
 }
