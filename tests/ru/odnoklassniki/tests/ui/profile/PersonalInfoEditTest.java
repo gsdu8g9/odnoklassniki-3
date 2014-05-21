@@ -48,8 +48,6 @@ public class PersonalInfoEditTest {
 	WIBrowser b;
 	WIProfilePersoanlDialog d;
 	
-	String oldValue, newValue;
-	
 	@BeforeClass()
 	public void setupClass() {
 		b = WIBrowserFactory.getNewBrowser(Environment.BASE_URL);
@@ -65,8 +63,8 @@ public class PersonalInfoEditTest {
 	
 	@Test
 	public void testChangeName() {
-	    oldValue = d.inpName.getValue();
-	    newValue = Data.NAME.getNewValue(oldValue);
+		String oldValue = d.inpName.getValue();
+		String newValue = Data.NAME.getNewValue(oldValue);
 	    		
 		d.inpName.setValue(newValue);
 		d.save();
@@ -77,7 +75,7 @@ public class PersonalInfoEditTest {
 
 	@Test(dataProvider = "symbols")
 	public void testSymbolName(char symbol) {
-		newValue = "Иван" + symbol;
+		String newValue = "Иван" + symbol;
 		
 		d.inpName.setValue(newValue);
 		d.save();
@@ -88,8 +86,8 @@ public class PersonalInfoEditTest {
 	
 	@Test
 	public void testChangeSurame() {
-	    oldValue = d.inpSurname.getValue();
-	    newValue = Data.SURNAME.getNewValue(oldValue);
+		String oldValue = d.inpSurname.getValue();
+		String newValue = Data.SURNAME.getNewValue(oldValue);
 
 		d.inpSurname.setValue(newValue);
 		d.save();
@@ -100,7 +98,7 @@ public class PersonalInfoEditTest {
 	
 	@Test(dataProvider = "symbols")
 	public void testSymbolSurname(char symbol) {
-		newValue = "Иванов" + symbol;
+		String newValue = "Иванов" + symbol;
 		
 		d.inpSurname.setValue(newValue);
 		d.save();
@@ -111,8 +109,8 @@ public class PersonalInfoEditTest {
 	
 	@Test
 	public void testChangeBirthDay() {
-	    oldValue = d.inpBirthDay.getValue();
-	    newValue = Data.BIRTH_DAY.getNewValue(oldValue);
+		String oldValue = d.inpBirthDay.getValue();
+		String newValue = Data.BIRTH_DAY.getNewValue(oldValue);
 
 		d.inpBirthDay.setValue(newValue);
 		d.save();
@@ -123,8 +121,8 @@ public class PersonalInfoEditTest {
 	
 	@Test
 	public void testChangeBirthMonth() {
-	    oldValue = d.inpBirthMonth.getValue();
-	    newValue = Data.BIRTH_MONTH.getNewValue(oldValue);
+		String oldValue = d.inpBirthMonth.getValue();
+	    String newValue = Data.BIRTH_MONTH.getNewValue(oldValue);
 
 		d.inpBirthMonth.setValue(newValue);
 		d.save();
@@ -135,8 +133,8 @@ public class PersonalInfoEditTest {
 	
 	@Test
 	public void testChangeBirthYear() {
-	    oldValue = d.inpBirthYear.getValue();
-	    newValue = Data.BIRTH_YEAR.getNewValue(oldValue);
+		String oldValue = d.inpBirthYear.getValue();
+		String newValue = Data.BIRTH_YEAR.getNewValue(oldValue);
 
 		d.inpBirthYear.setValue(newValue);
 		d.save();
@@ -164,8 +162,8 @@ public class PersonalInfoEditTest {
 	
 	@Test
 	public void testChangeCity() {
-	    oldValue = d.inpCity.getValue();
-	    newValue = Data.CITY.getNewValue(oldValue);
+		String oldValue = d.inpCity.getValue();
+		String newValue = Data.CITY.getNewValue(oldValue);
 
 		d.inpCity.setValue(newValue);
 		d.save();
@@ -176,8 +174,8 @@ public class PersonalInfoEditTest {
 	
 	@Test
 	public void testChangeBithCity() {
-	    oldValue = d.inpBirthCity.getValue();
-	    newValue = Data.BIRTH_CITY.getNewValue(oldValue);
+		String oldValue = d.inpBirthCity.getValue();
+		String newValue = Data.BIRTH_CITY.getNewValue(oldValue);
 
 		d.inpBirthCity.setValue(newValue);
 		d.save();
