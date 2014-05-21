@@ -16,12 +16,17 @@ import ru.odnoklassniki.tests.ui.api.locale.LocaleManager;
 
 public class WIBrowserFactory {
 
-	private static final String SELENIUM_URL = System.getProperty("selenium", "http://localhost:4444");
-	private static final String SELENIUM_LOG = System.getProperty("selenium.log");
-	private static final String SELENIUM_BROWSER = System.getProperty("selenium.browser", "*firefox");
-	private static final String SELENIUM_TIMEOUT = System.getProperty("selenium.timeout", "30000");
+	private static final String SELENIUM_URL = System.getProperty("selenium",
+	        "http://localhost:4444");
+	private static final String SELENIUM_LOG = System
+	        .getProperty("selenium.log");
+	private static final String SELENIUM_BROWSER = System.getProperty(
+	        "selenium.browser", "*firefox");
+	private static final String SELENIUM_TIMEOUT = System.getProperty(
+	        "selenium.timeout", "30000");
 
-	private static boolean useEmbededSeleniumServer = System.getProperty("selenium.embedded", "true").equals("true");
+	private static boolean useEmbededSeleniumServer = System.getProperty(
+	        "selenium.embedded", "true").equals("true");
 	private static boolean isSeleniumRunning = false;
 	private static URL seleniumUrl = Utils.getURL(SELENIUM_URL);
 	private static SeleniumServer server;
@@ -34,22 +39,28 @@ public class WIBrowserFactory {
 		Utils.clean(profile);
 
 		File userExtensions = new File(profile, "user-extensions.js");
-		Utils.copy(WIBrowserFactory.class.getResourceAsStream("selenium/user-extensions.js"), userExtensions);
+		Utils.copy(WIBrowserFactory.class
+		        .getResourceAsStream("selenium/user-extensions.js"),
+		        userExtensions);
 
 		File prefs = new File(profile, "prefs.js");
-		Utils.copy(WIBrowserFactory.class.getResourceAsStream("selenium/profile/prefs.js"), prefs);
+		Utils.copy(WIBrowserFactory.class
+		        .getResourceAsStream("selenium/profile/prefs.js"), prefs);
 
 		try {
-			File log = SELENIUM_LOG == null ? new File(tmp, "selenium.log") : new File(SELENIUM_LOG);
+			File log = SELENIUM_LOG == null ? new File(tmp, "selenium.log")
+			        : new File(SELENIUM_LOG);
 
 			RemoteControlConfiguration config = new RemoteControlConfiguration();
 			config.setLogOutFile(log);
 			config.setUserExtensions(userExtensions);
-			config.setFirefoxProfileTemplate(new File(System.getProperty("selenium.profile", profile.getAbsolutePath())));
+			config.setFirefoxProfileTemplate(new File(System.getProperty(
+			        "selenium.profile", profile.getAbsolutePath())));
 			config.setPort(seleniumUrl.getPort());
 
 			Loggers.selenium.info("Port : " + config.getPort());
-			Loggers.selenium.info("Profile : " + config.getFirefoxProfileTemplate());
+			Loggers.selenium.info("Profile : "
+			        + config.getFirefoxProfileTemplate());
 			Loggers.selenium.info("Log : " + config.getLogOutFile());
 
 			server = new SeleniumServer(config);
@@ -72,10 +83,11 @@ public class WIBrowserFactory {
 			}
 		}
 
-		URL baseUrl = Utils.getURL(url.getProtocol(), url.getHost(), url.getPort(), "");
+		URL baseUrl = Utils.getURL(url.getProtocol(), url.getHost(),
+		        url.getPort(), "");
 
-		WIBrowser browser = new WIBrowser(seleniumUrl.getHost(), seleniumUrl.getPort(), SELENIUM_BROWSER,
-		        baseUrl.toString());
+		WIBrowser browser = new WIBrowser(seleniumUrl.getHost(),
+		        seleniumUrl.getPort(), SELENIUM_BROWSER, baseUrl.toString());
 
 		browser.setTimeout(SELENIUM_TIMEOUT);
 

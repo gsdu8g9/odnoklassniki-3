@@ -52,7 +52,8 @@ public abstract class Wait {
 		wait(message, timeout.toMilliseconds(), interval.toMilliseconds());
 	}
 
-	private void wait(String message, long timeoutInMilliseconds, long intervalInMilliseconds) {
+	private void wait(String message, long timeoutInMilliseconds,
+	        long intervalInMilliseconds) {
 		long start = System.currentTimeMillis();
 		long end = start + timeoutInMilliseconds;
 		while (System.currentTimeMillis() < end) {

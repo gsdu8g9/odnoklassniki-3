@@ -9,21 +9,25 @@ public class Requirements {
 
 	public static <T> T argumentNotNull(T aArgValue, String aArgName) {
 		if (null == aArgValue) {
-			throw new IllegalArgumentException(ERR_ARGUMENT_IS_NULL.getValue(aArgName));
+			throw new IllegalArgumentException(
+			        ERR_ARGUMENT_IS_NULL.getValue(aArgName));
 		}
 		return aArgValue;
 	}
 
-	public static <T> Collection<T> argumentNotEmpty(Collection<T> aArgValue, String aArgName) {
+	public static <T> Collection<T> argumentNotEmpty(Collection<T> aArgValue,
+	        String aArgName) {
 		if (0 == aArgValue.size()) {
-			throw new IllegalArgumentException(ERR_ARGUMENT_IS_EMPTY.getValue(aArgName));
+			throw new IllegalArgumentException(
+			        ERR_ARGUMENT_IS_EMPTY.getValue(aArgName));
 		}
 		return aArgValue;
 	}
 
 	public static <T> T[] argumentNotEmpty(T[] aArgValue, String aArgName) {
 		if (0 == aArgValue.length) {
-			throw new IllegalArgumentException(ERR_ARGUMENT_IS_EMPTY.getValue(aArgName));
+			throw new IllegalArgumentException(
+			        ERR_ARGUMENT_IS_EMPTY.getValue(aArgName));
 		}
 		return aArgValue;
 	}

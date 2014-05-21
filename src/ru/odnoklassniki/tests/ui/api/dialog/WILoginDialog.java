@@ -12,7 +12,7 @@ import ru.odnoklassniki.tests.ui.api.locale.LocaleManager;
 
 public class WILoginDialog extends WIDialog {
 
-	// TODO Use human oriended xpath
+	// TODO Need label oriented xpath
 	public final WITextInput inpUsername = new WITextInput(this, "field_email", "Username");
 
 	public final WITextInput inpPassword = new WITextInput(this, "field_password", "Password");

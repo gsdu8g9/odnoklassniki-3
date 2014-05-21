@@ -44,7 +44,6 @@ public class WIElement implements IWIRoad {
 	private String m_id;
 	private String m_name;
 	private String m_type;
-	
 
 	public WIElement(IWIRoad aRoad, String aId, String aName, String aType) {
 		m_road = new Road(aRoad);
@@ -82,7 +81,7 @@ public class WIElement implements IWIRoad {
 	public String getLocalID() {
 		return m_id;
 	}
-	
+
 	/**
 	 * Method returns global unique ID value. Use this value for Selenium
 	 * actions.
@@ -108,7 +107,7 @@ public class WIElement implements IWIRoad {
 		}
 		String root = getRootID();
 		return (root == null || root == "") ? Utils.toXPath(aLocator) : Utils
-				.concateXPath(root, aLocator);
+		        .concateXPath(root, aLocator);
 	}
 
 	private String getRootID() {
@@ -118,8 +117,8 @@ public class WIElement implements IWIRoad {
 		IWIRoad r = m_road;
 		while (r != null) {
 			if (r instanceof WIElement
-					&& (XPathBuilderBehaviour.SKIP != ((WIElement) r)
-							.getRoadBuilderType())) {
+			        && (XPathBuilderBehaviour.SKIP != ((WIElement) r)
+			                .getRoadBuilderType())) {
 				return ((WIElement) r).getGlobalID();
 			}
 			r = r.getParent();
@@ -130,14 +129,15 @@ public class WIElement implements IWIRoad {
 	public String getType() {
 		return m_type;
 	}
-	
+
 	public String getName() {
 		return m_name;
 	}
-	
+
 	@Override
 	public String toString() {
-		return getType() + " \"" + (getName() == null ? getLocalID() : getName()) + "\"";
+		return getType() + " \""
+		        + (getName() == null ? getLocalID() : getName()) + "\"";
 	}
 
 	public boolean isVisible() {
@@ -146,12 +146,12 @@ public class WIElement implements IWIRoad {
 		// and compiler/vm can execute both conditions
 		if (getBrowser().isElementPresent(getGlobalID())) {
 			// For slow connection element can disappear after
-			// isElementPresent call so isVisible will throw 
+			// isElementPresent call so isVisible will throw
 			// SeleniumException
 			try {
 				return getBrowser().isVisible(getGlobalID());
 			} catch (SeleniumException e) {
-				return false;								
+				return false;
 			}
 		}
 		return false;

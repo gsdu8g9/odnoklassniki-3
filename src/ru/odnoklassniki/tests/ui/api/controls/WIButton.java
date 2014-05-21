@@ -31,7 +31,8 @@ public class WIButton extends WIElement {
 	public static class Submit extends WIButton {
 
 		public Submit(IWIRoad aRoad, Text aName) {
-			super(aRoad, "//input[@type='submit' and @value='" + aName.getValue() + "']", aName.getName());
+			super(aRoad, "//input[@type='submit' and @value='"
+			        + aName.getValue() + "']", aName.getName());
 		}
 
 	}
@@ -39,7 +40,8 @@ public class WIButton extends WIElement {
 	public static class Link extends WIButton {
 
 		public Link(IWIRoad aRoad, Text aName) {
-			super(aRoad, "//a[text()='" + aName.getValue() + "']", aName.getValue());
+			super(aRoad, "//a[text()='" + aName.getValue() + "']", aName
+			        .getValue());
 		}
 
 	}

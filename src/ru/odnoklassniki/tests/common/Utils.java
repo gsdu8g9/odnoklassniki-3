@@ -109,7 +109,8 @@ public class Utils {
 		}
 	}
 
-	public static void setText(OutputStream stream, String text) throws IOException {
+	public static void setText(OutputStream stream, String text)
+	        throws IOException {
 		copy(new ByteArrayInputStream(text.getBytes()), stream);
 	}
 
@@ -118,7 +119,8 @@ public class Utils {
 			return null;
 		}
 		try {
-			BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+			BufferedReader reader = new BufferedReader(
+			        new InputStreamReader(in));
 			StringBuilder sb = new StringBuilder();
 			String line;
 			while ((line = reader.readLine()) != null) {
@@ -179,7 +181,8 @@ public class Utils {
 		}
 	}
 
-	public static URI getURI(String protocol, String host, int port, String path, IMessage errorMessage) {
+	public static URI getURI(String protocol, String host, int port,
+	        String path, IMessage errorMessage) {
 		try {
 			return new URI(protocol, null, host, port, path, null, null);
 		} catch (URISyntaxException e) {
@@ -245,13 +248,13 @@ public class Utils {
 			throw new TestboxException(FAILED_PARSE_DATE, text, format, e);
 		}
 	}
-	
+
 	public static String fillString(int count) {
-	    StringBuilder sb = new StringBuilder(count);
-	    for( int i = 1; i <= count; i++ ) {
-	        sb.append(Character.forDigit(i % 10, 10)); 
-	    }
-	    return sb.toString();
+		StringBuilder sb = new StringBuilder(count);
+		for (int i = 1; i <= count; i++) {
+			sb.append(Character.forDigit(i % 10, 10));
+		}
+		return sb.toString();
 	}
-	
+
 }

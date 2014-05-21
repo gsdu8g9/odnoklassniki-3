@@ -23,13 +23,13 @@ public abstract class WIProperty<T> extends WIElement {
 	public T getValue() {
 		return convert(getBrowser().getText(getGlobalID()));
 	}
-	
+
 	protected abstract T convert(String text);
-	
+
 	public void assertValue(T value) {
 		Assert.assertEquals(getValue(), value, this + " value");
 	}
-	
+
 	public void assertVisible() {
 		Assert.assertTrue(this.isVisible(), this + " expected to be visible");
 	}
@@ -40,22 +40,24 @@ public abstract class WIProperty<T> extends WIElement {
 
 	public void waitValue(Time timeout, final T aValue) {
 		argumentNotNull(aValue, "value");
-        new Wait() {
-        	@Override
-            public boolean until() {
-                return aValue.equals(getValue());
-            }
-        }.wait(TEST_EXPECTED_VALUE.getValue(this, aValue), timeout.toMilliseconds());
+		new Wait() {
+			@Override
+			public boolean until() {
+				return aValue.equals(getValue());
+			}
+		}.wait(TEST_EXPECTED_VALUE.getValue(this, aValue),
+		        timeout.toMilliseconds());
 	}
 
 	public void waitNoValue(Time timeout, final T aValue) {
 		argumentNotNull(aValue, "value");
-        new Wait() {
-        	@Override
-            public boolean until() {
-                return !aValue.equals(getValue());
-            }
-        }.wait(TEST_UNEXPECTED_VALUE.getValue(this, aValue), timeout.toMilliseconds());
+		new Wait() {
+			@Override
+			public boolean until() {
+				return !aValue.equals(getValue());
+			}
+		}.wait(TEST_UNEXPECTED_VALUE.getValue(this, aValue),
+		        timeout.toMilliseconds());
 	}
 
 }

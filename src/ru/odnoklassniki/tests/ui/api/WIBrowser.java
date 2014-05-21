@@ -35,16 +35,18 @@ public class WIBrowser extends DefaultSelenium2 implements IWIRoad {
 	}
 
 	public WILoginDialog getLoginDialog() {
-		return dlgLogin == null ? (dlgLogin = new WILoginDialog(this)) : dlgLogin;
+		return dlgLogin == null ? (dlgLogin = new WILoginDialog(this))
+		        : dlgLogin;
 	}
 
 	public WIGlobalContainer getGlobalContainer() {
-		return cntGlobal == null ? (cntGlobal = new WIGlobalContainer(this)) : cntGlobal;
+		return cntGlobal == null ? (cntGlobal = new WIGlobalContainer(this))
+		        : cntGlobal;
 	}
 
 	public WIProfilePage getProfile() {
-		return pageProfile == null ? (pageProfile = new WIProfilePage(getGlobalContainer().mnuAbout.getRoad()))
-		        : pageProfile;
+		return pageProfile == null ? (pageProfile = new WIProfilePage(
+		        getGlobalContainer().mnuAbout.getRoad())) : pageProfile;
 	}
 
 	public WIBrowser login(String name, String password) {

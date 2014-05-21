@@ -12,7 +12,7 @@ import com.thoughtworks.selenium.Selenium;
 public interface Selenium2 extends Selenium {
 
 	void open(URL url);
-	
+
 	/**
 	 * Switch on/off highlighting of all HTML elements during execution of all
 	 * Selenium commands. Highlighting helps visually control browser's command
@@ -24,5 +24,5 @@ public interface Selenium2 extends Selenium {
 	void setShouldHighlightElement(boolean value);
 
 	void getHtmlSource(File file);
-	
+
 }

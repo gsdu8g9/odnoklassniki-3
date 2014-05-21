@@ -26,15 +26,15 @@ public class WIClickable extends WIElement {
 	protected WIClickable(IWIRoad aRoad, String aId, String aName, String aType) {
 		super(aRoad, aId, aName, aType);
 	}
-	
+
 	public IWIRoad getRoad() {
 		return new Road(this);
 	}
-	
+
 	public void click() {
 		go();
 		getBrowser().click(getGlobalID());
 		Loggers.ui.info(LOG_CLICK.getValue(this));
 	}
-	
+
 }

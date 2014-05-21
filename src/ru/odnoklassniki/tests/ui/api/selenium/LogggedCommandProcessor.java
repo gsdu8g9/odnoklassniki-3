@@ -11,19 +11,22 @@ import ru.odnoklassniki.tests.common.Utils;
 import com.thoughtworks.selenium.CommandProcessor;
 
 public class LogggedCommandProcessor implements CommandProcessor {
-	
+
+	// Some Selenium commands produce huge text result, don't log it
 	@SuppressWarnings("serial")
-	private static final List<String> s_hugeResult = new ArrayList<String>() {{
-		add("getHtmlSource");
-		add("captureEntirePageScreenshotToString");
-	}};
-	
+	private static final List<String> hugeResult = new ArrayList<String>() {
+		{
+			add("getHtmlSource");
+			add("captureEntirePageScreenshotToString");
+		}
+	};
+
 	private CommandProcessor processor;
 
 	public LogggedCommandProcessor(CommandProcessor processor) {
 		this.processor = processor;
 	}
-	
+
 	private String toString(Object obj) {
 		if (obj == null) {
 			return "";
@@ -36,17 +39,17 @@ public class LogggedCommandProcessor implements CommandProcessor {
 		}
 		return obj.toString();
 	}
-	
+
 	private void log(String command, Object params, Object result) {
-		// Command "getHtmlSource" return huge HTML code which should be ignored by logger
-		if (s_hugeResult.contains(command)) {
+		// Command "getHtmlSource" return huge HTML code which should be ignored
+		// by logger
+		if (hugeResult.contains(command)) {
 			result = "...";
 		}
-		selenium.debug(
-				command + " (" + toString(params) + ")" + 
-				(result == null ? "" : " -> [" + toString(result) + "]"));
+		selenium.debug(command + " (" + toString(params) + ")"
+		        + (result == null ? "" : " -> [" + toString(result) + "]"));
 	}
-	
+
 	public String doCommand(String command, String[] params) {
 		String result = processor.doCommand(command, params);
 		log(command, params, result);
@@ -95,7 +98,7 @@ public class LogggedCommandProcessor implements CommandProcessor {
 	}
 
 	public void start(Object param) {
-		log("start",  param, null);
+		log("start", param, null);
 		processor.start(param);
 	}
 

@@ -13,7 +13,8 @@ public class WIProfilePersoanlDialog extends WIDialog {
 	public static class WIGenderInput extends WICheckboxInput {
 
 		public WIGenderInput(IWIRoad aRoad, Text aLabel) {
-			super(aRoad, "//label[text()='" + aLabel.getValue() + "']/ancestor::li//input", aLabel.getName());
+			super(aRoad, "//label[text()='" + aLabel.getValue()
+			        + "']/ancestor::li//input", aLabel.getName());
 		}
 
 	}
@@ -23,9 +24,11 @@ public class WIProfilePersoanlDialog extends WIDialog {
 		public final WITextProperty propError;
 
 		public WILabeledTextInput(IWIRoad aRoad, Text aName) {
-			super(aRoad, "//label[text()='" + aName.getValue() + "']/ancestor::div[1]//input", aName.getName());
-			propError = new WITextProperty(aRoad, "//label[text()='" + aName.getValue()
-			        + "']/ancestor::div[1]//span[2]", aName.getName() + " Error Message");
+			super(aRoad, "//label[text()='" + aName.getValue()
+			        + "']/ancestor::div[1]//input", aName.getName());
+			propError = new WITextProperty(aRoad, "//label[text()='"
+			        + aName.getValue() + "']/ancestor::div[1]//span[2]",
+			        aName.getName() + " Error Message");
 		}
 
 	}
