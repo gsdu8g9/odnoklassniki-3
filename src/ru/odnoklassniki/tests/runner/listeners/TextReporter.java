@@ -52,7 +52,7 @@ public class TextReporter implements ITestListener, IInvokedMethodListener {
 
 	@Override
 	public void afterInvocation(IInvokedMethod arg0, ITestResult result) {
-		if (result.getThrowable() != null) {
+		if (null != result.getThrowable()) {
 			Loggers.framework.error("====== " + getTestName(result) + " [FAILED] ======", result.getThrowable());
 		}
 	}

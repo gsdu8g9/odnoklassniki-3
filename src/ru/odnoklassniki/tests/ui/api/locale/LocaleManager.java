@@ -34,7 +34,7 @@ public class LocaleManager {
 	private static Properties getProperties(String locale) {
 		Properties properties = new Properties();
 		InputStream is = LocaleManager.class.getResourceAsStream(locale + ".properties");
-		if (is == null) {
+		if (null == is) {
 			throw new TestboxException(LOCALE_NOT_FOUND, locale);
 		}
 		try {
@@ -49,7 +49,7 @@ public class LocaleManager {
 
 		// Check property file defines all enum values
 		for (Text l : Text.values()) {
-			if (properties.getProperty(l.name()) == null) {
+			if (null == properties.getProperty(l.name())) {
 				throw new TestboxException(PROPERTY_UNDEFINED, l.name(), locale);
 			}
 		}
@@ -67,7 +67,7 @@ public class LocaleManager {
 	}
 
 	public static Properties getCurrent() {
-		return propCurrent == null ? propDefault : propCurrent;
+		return null == propCurrent ? propDefault : propCurrent;
 	}
 
 }

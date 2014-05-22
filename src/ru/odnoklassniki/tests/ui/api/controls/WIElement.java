@@ -102,11 +102,11 @@ public class WIElement implements IWIRoad {
 	 * @return Global unique ID value
 	 */
 	public String getGlobalID(String aLocator) {
-		if (aLocator == null) {
+		if (null == aLocator) {
 			return null;
 		}
 		String root = getRootID();
-		return (root == null || root == "") ? Utils.toXPath(aLocator) : Utils
+		return (null == root || root == "") ? Utils.toXPath(aLocator) : Utils
 		        .concateXPath(root, aLocator);
 	}
 
@@ -115,7 +115,7 @@ public class WIElement implements IWIRoad {
 			return null;
 		}
 		IWIRoad r = road;
-		while (r != null) {
+		while (null != r) {
 			if (r instanceof WIElement
 			        && (XPathBuilderBehaviour.SKIP != ((WIElement) r)
 			                .getRoadBuilderType())) {
@@ -137,7 +137,7 @@ public class WIElement implements IWIRoad {
 	@Override
 	public String toString() {
 		return getType() + " \""
-		        + (getName() == null ? getLocalID() : getName()) + "\"";
+		        + (null == getName() ? getLocalID() : getName()) + "\"";
 	}
 
 	public boolean isVisible() {

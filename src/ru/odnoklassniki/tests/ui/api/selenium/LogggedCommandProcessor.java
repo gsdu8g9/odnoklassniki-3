@@ -28,7 +28,7 @@ public class LogggedCommandProcessor implements CommandProcessor {
 	}
 
 	private String toString(Object obj) {
-		if (obj == null) {
+		if (null == obj) {
 			return "";
 		}
 		if (obj.getClass().isArray()) {
@@ -47,7 +47,7 @@ public class LogggedCommandProcessor implements CommandProcessor {
 			result = "...";
 		}
 		selenium.debug(command + " (" + toString(params) + ")"
-		        + (result == null ? "" : " -> [" + toString(result) + "]"));
+		        + (null == result ? "" : " -> [" + toString(result) + "]"));
 	}
 
 	public String doCommand(String command, String[] params) {

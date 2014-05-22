@@ -48,7 +48,7 @@ public class WIBrowserFactory {
 		        .getResourceAsStream("selenium/profile/prefs.js"), prefs);
 
 		try {
-			File log = SELENIUM_LOG == null ? new File(tmp, "selenium.log")
+			File log = null == SELENIUM_LOG ? new File(tmp, "selenium.log")
 			        : new File(SELENIUM_LOG);
 
 			RemoteControlConfiguration config = new RemoteControlConfiguration();

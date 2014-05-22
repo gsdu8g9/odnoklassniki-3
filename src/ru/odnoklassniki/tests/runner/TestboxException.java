@@ -32,7 +32,7 @@ public class TestboxException extends RuntimeException {
 		Object[] result = new Object[params.length];
 		for (int i = 0; i < params.length; i++) {
 			Object param = params[i];
-			if (param == null) {
+			if (null == param) {
 				result[i] = null;
 			} else if (param.getClass().isArray()) {
 				result[i] = Utils.join((Object[]) param);

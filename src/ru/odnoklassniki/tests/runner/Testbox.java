@@ -30,7 +30,7 @@ public class Testbox {
 			if (e instanceof TestboxException) {
 				TestboxException te = (TestboxException) e;
 				System.err.println("ERROR: " + te.getMessage());
-				if (te.getCause() != null) {
+				if (null != te.getCause()) {
 					System.err.println("   CAUSE:");
 					te.getCause().printStackTrace(System.err);
 				}

@@ -12,7 +12,7 @@ public class WIDefaultRoad implements IWIRoad {
 
 	@Override
 	public WIBrowser getBrowser() {
-		return parentRoad == null ? null : parentRoad.getBrowser();
+		return null == parentRoad ? null : parentRoad.getBrowser();
 	}
 
 	@Override

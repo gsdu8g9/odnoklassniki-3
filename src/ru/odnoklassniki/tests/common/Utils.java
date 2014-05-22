@@ -41,7 +41,7 @@ public class Utils {
 
 	public static File delete(File folder) {
 		File[] files = folder.listFiles();
-		if (files == null) {
+		if (null == files) {
 			return folder;
 		}
 		for (File file : files) {
@@ -115,7 +115,7 @@ public class Utils {
 	}
 
 	public static String getText(InputStream in) throws IOException {
-		if (in == null) {
+		if (null == in) {
 			return null;
 		}
 		try {
@@ -123,7 +123,7 @@ public class Utils {
 			        new InputStreamReader(in));
 			StringBuilder sb = new StringBuilder();
 			String line;
-			while ((line = reader.readLine()) != null) {
+			while (null != (line = reader.readLine())) {
 				sb.append(line + "\n");
 			}
 			return sb.toString();
