@@ -14,33 +14,33 @@ public class WIButton extends WIElement {
 
 	public static class Road extends WIDefaultRoad {
 
-		private WIButton mButton;
+		private WIButton button;
 
-		public Road(WIButton aButton) {
-			super(aButton);
-			mButton = aButton;
+		public Road(WIButton button) {
+			super(button);
+			this.button = button;
 		}
 
 		@Override
 		public void go() {
-			mButton.click();
+			button.click();
 		}
 
 	}
 
 	public static class Submit extends WIButton {
 
-		public Submit(IWIRoad aRoad, Text aName) {
-			super(aRoad, "//input[@type='submit' and @value='"
-			        + aName.getValue() + "']", aName.getName());
+		public Submit(IWIRoad road, Text name) {
+			super(road, "//input[@type='submit' and @value='"
+			        + name.getValue() + "']", name.getName());
 		}
 
 	}
 
 	public static class Link extends WIButton {
 
-		public Link(IWIRoad aRoad, Text aName) {
-			super(aRoad, "//a[text()='" + aName.getValue() + "']", aName
+		public Link(IWIRoad road, Text name) {
+			super(road, "//a[text()='" + name.getValue() + "']", name
 			        .getValue());
 		}
 
@@ -48,8 +48,8 @@ public class WIButton extends WIElement {
 
 	public static final String WI_BUTTON_TYPE = "button";
 
-	public WIButton(IWIRoad aRoad, String aId, String aName) {
-		super(aRoad, aId, aName, WI_BUTTON_TYPE);
+	public WIButton(IWIRoad road, String locator, String name) {
+		super(road, locator, name, WI_BUTTON_TYPE);
 	}
 
 	public void click() {

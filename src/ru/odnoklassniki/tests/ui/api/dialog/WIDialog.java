@@ -1,23 +1,23 @@
 package ru.odnoklassniki.tests.ui.api.dialog;
 
 import ru.odnoklassniki.tests.ui.api.common.IWIRoad;
-import ru.odnoklassniki.tests.ui.api.controls.WIContainer;
+import ru.odnoklassniki.tests.ui.api.controls.WIElement;
 import ru.odnoklassniki.tests.ui.api.locale.Text;
 
-public class WIDialog extends WIContainer {
+public class WIDialog extends WIElement {
 
 	public static final String WI_DIALOG_TYPE = "dialog";
 
-	public WIDialog(IWIRoad aRoad, Text aName) {
+	public WIDialog(IWIRoad road, Text name) {
 		super(
-		        aRoad,
+		        road,
 		        "//*[@id='mp_mm_cont' and .//*[@class='panelLayer_head_headerSimple' and text()='"
-		                + aName.getValue() + "']]", aName.getName(),
+		                + name.getValue() + "']]", name.getName(),
 		        WI_DIALOG_TYPE);
 	}
 
-	public WIDialog(IWIRoad aRoad, String aLocator, String aName) {
-		super(aRoad, aLocator, aName, WI_DIALOG_TYPE);
+	public WIDialog(IWIRoad road, String locator, String name) {
+		super(road, locator, name, WI_DIALOG_TYPE);
 	}
 
 	@Override

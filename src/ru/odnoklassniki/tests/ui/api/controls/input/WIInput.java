@@ -18,11 +18,11 @@ public abstract class WIInput<T> extends WIElement {
 
 	private static final String WI_INPUT_TYPE = "input";
 
-	public WIInput(IWIRoad aRoad, String aId, String aName) {
-		super(aRoad, aId, aName, WI_INPUT_TYPE);
+	public WIInput(IWIRoad road, String locator, String name) {
+		super(road, locator, name, WI_INPUT_TYPE);
 	}
 
-	public abstract void setValue(T aValue);
+	public abstract void setValue(T value);
 
 	public abstract T getValue();
 

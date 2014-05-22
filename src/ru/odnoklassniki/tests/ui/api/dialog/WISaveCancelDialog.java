@@ -6,8 +6,8 @@ import ru.odnoklassniki.tests.ui.api.locale.Text;
 
 public abstract class WISaveCancelDialog extends WIDialog {
 
-	public WISaveCancelDialog(IWIRoad road, Text aName) {
-		super(road, aName);
+	public WISaveCancelDialog(IWIRoad road, Text name) {
+		super(road, name);
 	}
 
 	public abstract WIButton getSave();

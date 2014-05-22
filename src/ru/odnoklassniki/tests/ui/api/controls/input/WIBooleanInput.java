@@ -4,8 +4,8 @@ import ru.odnoklassniki.tests.ui.api.common.IWIRoad;
 
 public abstract class WIBooleanInput extends WIInput<Boolean> {
 
-	public WIBooleanInput(IWIRoad aRoad, String aId, String aName) {
-		super(aRoad, aId, aName);
+	public WIBooleanInput(IWIRoad road, String localor, String name) {
+		super(road, localor, name);
 	}
 
 }

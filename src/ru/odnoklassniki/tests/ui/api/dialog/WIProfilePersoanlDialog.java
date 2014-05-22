@@ -12,9 +12,9 @@ public class WIProfilePersoanlDialog extends WIDialog {
 
 	public static class WIGenderInput extends WICheckboxInput {
 
-		public WIGenderInput(IWIRoad aRoad, Text aLabel) {
-			super(aRoad, "//label[text()='" + aLabel.getValue()
-			        + "']/ancestor::li//input", aLabel.getName());
+		public WIGenderInput(IWIRoad road, Text name) {
+			super(road, "//label[text()='" + name.getValue()
+			        + "']/ancestor::li//input", name.getName());
 		}
 
 	}
@@ -23,12 +23,12 @@ public class WIProfilePersoanlDialog extends WIDialog {
 
 		public final WITextProperty propError;
 
-		public WILabeledTextInput(IWIRoad aRoad, Text aName) {
-			super(aRoad, "//label[text()='" + aName.getValue()
-			        + "']/ancestor::div[1]//input", aName.getName());
-			propError = new WITextProperty(aRoad, "//label[text()='"
-			        + aName.getValue() + "']/ancestor::div[1]//span[2]",
-			        aName.getName() + " Error Message");
+		public WILabeledTextInput(IWIRoad road, Text name) {
+			super(road, "//label[text()='" + name.getValue()
+			        + "']/ancestor::div[1]//input", name.getName());
+			propError = new WITextProperty(road, "//label[text()='"
+			        + name.getValue() + "']/ancestor::div[1]//span[2]",
+			        name.getName() + " Error Message");
 		}
 
 	}
@@ -53,8 +53,8 @@ public class WIProfilePersoanlDialog extends WIDialog {
 
 	public final WIButton btnClose = new WIButton.Submit(this, Text.BTN_CLOSE);
 
-	public WIProfilePersoanlDialog(IWIRoad aRoad) {
-		super(aRoad, Text.TITLE_CHANGE_PERSONAL_INFO);
+	public WIProfilePersoanlDialog(IWIRoad road) {
+		super(road, Text.TITLE_CHANGE_PERSONAL_INFO);
 	}
 
 	public void save() {

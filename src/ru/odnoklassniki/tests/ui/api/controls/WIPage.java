@@ -6,8 +6,8 @@ public class WIPage extends WIElement {
 
 	public static final String WI_PAGE_TYPE = "page";
 
-	public WIPage(IWIRoad aRoad, String aId, String aName) {
-		super(aRoad, aId, aName, WI_PAGE_TYPE);
+	public WIPage(IWIRoad road, String locator, String name) {
+		super(road, locator, name, WI_PAGE_TYPE);
 	}
 	
 	@Override

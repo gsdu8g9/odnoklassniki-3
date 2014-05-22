@@ -7,18 +7,18 @@ public class WIMenuItem extends WIClickable {
 
 	public static final String WI_MENU_ITEM_TYPE = "menu";
 
-	public static WIMenuItem Footer(IWIRoad aRoad, Text aName) {
-		return new WIMenuItem(aRoad, "//*[@id='footer']//*[text()='"
-		        + aName.getValue() + "']", aName.getName());
+	public static WIMenuItem Footer(IWIRoad road, Text name) {
+		return new WIMenuItem(road, "//*[@id='footer']//*[text()='"
+		        + name.getValue() + "']", name.getName());
 	}
 
-	public static WIMenuItem Link(IWIRoad aRoad, Text aName) {
-		return new WIMenuItem(aRoad, "//a[text()='" + aName.getValue() + "']",
-		        aName.getName());
+	public static WIMenuItem Link(IWIRoad road, Text name) {
+		return new WIMenuItem(road, "//a[text()='" + name.getValue() + "']",
+		        name.getName());
 	}
 
-	private WIMenuItem(IWIRoad aRoad, String aId, String aName) {
-		super(aRoad, aId, aName, WI_MENU_ITEM_TYPE);
+	private WIMenuItem(IWIRoad road, String locator, String name) {
+		super(road, locator, name, WI_MENU_ITEM_TYPE);
 	}
 
 }

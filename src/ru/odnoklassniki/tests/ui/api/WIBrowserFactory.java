@@ -73,8 +73,8 @@ public class WIBrowserFactory {
 		}
 	}
 
-	public static WIBrowser getNewBrowser(String aUrl) {
-		URL url = Utils.getURL(aUrl);
+	public static WIBrowser getNewBrowser(String urlStr) {
+		URL url = Utils.getURL(urlStr);
 
 		// Start Selenium server only when first test called getNewBrowser()
 		if (useEmbededSeleniumServer) {
@@ -98,7 +98,7 @@ public class WIBrowserFactory {
 
 		browser.windowMaximize();
 
-		browser.open(aUrl);
+		browser.open(urlStr);
 
 		LocaleManager.autoDetect(browser);
 

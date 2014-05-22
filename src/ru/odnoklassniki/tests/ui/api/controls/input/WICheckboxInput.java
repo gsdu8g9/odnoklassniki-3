@@ -11,13 +11,13 @@ import com.thoughtworks.selenium.Wait;
 
 public class WICheckboxInput extends WIBooleanInput {
 
-	public WICheckboxInput(IWIRoad aRoad, String aId, String aName) {
-		super(aRoad, aId, aName);
+	public WICheckboxInput(IWIRoad road, String locator, String name) {
+		super(road, locator, name);
 	}
 
 	@Override
-	public void setValue(Boolean aValue) {
-		if (aValue) {
+	public void setValue(Boolean value) {
+		if (value) {
 			check();
 		} else {
 			uncheck();

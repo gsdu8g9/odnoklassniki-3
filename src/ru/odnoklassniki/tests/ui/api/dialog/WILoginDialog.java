@@ -23,17 +23,17 @@ public class WILoginDialog extends WIDialog {
 		super(road, "//*[@class='anonym_login']", "Login");
 	}
 
-	public void login(String aName, String aPassword) {
-		loginSuccessful(aName, aPassword);
+	public void login(String name, String password) {
+		loginSuccessful(name, password);
 	}
 
-	public void loginSuccessful(String aName, String aPassword) {
-		argumentNotNull(aName, "name");
-		argumentNotNull(aPassword, "password");
+	public void loginSuccessful(String name, String password) {
+		argumentNotNull(name, "name");
+		argumentNotNull(password, "password");
 
 		waitVisible();
-		inpUsername.setValue(aName);
-		inpPassword.setValue(aPassword);
+		inpUsername.setValue(name);
+		inpPassword.setValue(password);
 		btnLogin.click();
 		Utils.pause(Seconds(3), "FIXME Selenium crashes", ui);
 		waitInvisible();

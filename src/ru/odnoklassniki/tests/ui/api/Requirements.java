@@ -7,29 +7,29 @@ import java.util.Collection;
 
 public class Requirements {
 
-	public static <T> T argumentNotNull(T aArgValue, String aArgName) {
-		if (null == aArgValue) {
+	public static <T> T argumentNotNull(T argValue, String argName) {
+		if (null == argValue) {
 			throw new IllegalArgumentException(
-			        ERR_ARGUMENT_IS_NULL.getValue(aArgName));
+			        ERR_ARGUMENT_IS_NULL.getValue(argName));
 		}
-		return aArgValue;
+		return argValue;
 	}
 
-	public static <T> Collection<T> argumentNotEmpty(Collection<T> aArgValue,
-	        String aArgName) {
-		if (0 == aArgValue.size()) {
+	public static <T> Collection<T> argumentNotEmpty(Collection<T> argValue,
+	        String argName) {
+		if (0 == argValue.size()) {
 			throw new IllegalArgumentException(
-			        ERR_ARGUMENT_IS_EMPTY.getValue(aArgName));
+			        ERR_ARGUMENT_IS_EMPTY.getValue(argName));
 		}
-		return aArgValue;
+		return argValue;
 	}
 
-	public static <T> T[] argumentNotEmpty(T[] aArgValue, String aArgName) {
-		if (0 == aArgValue.length) {
+	public static <T> T[] argumentNotEmpty(T[] argValue, String argName) {
+		if (0 == argValue.length) {
 			throw new IllegalArgumentException(
-			        ERR_ARGUMENT_IS_EMPTY.getValue(aArgName));
+			        ERR_ARGUMENT_IS_EMPTY.getValue(argName));
 		}
-		return aArgValue;
+		return argValue;
 	}
 
 }

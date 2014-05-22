@@ -11,9 +11,9 @@ public class WIClickable extends WIElement {
 
 		private WIClickable clickable;
 
-		public Road(WIClickable aClickable) {
-			super(aClickable);
-			clickable = aClickable;
+		public Road(WIClickable clickable) {
+			super(clickable);
+			this.clickable = clickable;
 		}
 
 		@Override
@@ -23,8 +23,8 @@ public class WIClickable extends WIElement {
 
 	}
 
-	protected WIClickable(IWIRoad aRoad, String aId, String aName, String aType) {
-		super(aRoad, aId, aName, aType);
+	protected WIClickable(IWIRoad road, String locator, String name, String type) {
+		super(road, locator, name, type);
 	}
 
 	public IWIRoad getRoad() {

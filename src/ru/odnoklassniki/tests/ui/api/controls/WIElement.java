@@ -26,8 +26,8 @@ public class WIElement implements IWIRoad {
 
 	private class Road extends WIDefaultRoad {
 
-		public Road(IWIRoad aRoad) {
-			super(aRoad);
+		public Road(IWIRoad road) {
+			super(road);
 		}
 
 		@Override
@@ -41,15 +41,15 @@ public class WIElement implements IWIRoad {
 	}
 
 	private IWIRoad road;
-	private String id;
+	private String locator;
 	private String name;
 	private String type;
 
-	public WIElement(IWIRoad aRoad, String aId, String aName, String aType) {
-		road = new Road(aRoad);
-		id = aId;
-		name = aName;
-		type = aType;
+	public WIElement(IWIRoad road, String locator, String name, String type) {
+		this.road = new Road(road);
+		this.locator = locator;
+		this.name = name;
+		this.type = type;
 	}
 
 	@Override
@@ -79,35 +79,22 @@ public class WIElement implements IWIRoad {
 	 * @return Local ID value
 	 */
 	public String getLocalID() {
-		return id;
+		return locator;
 	}
 
 	/**
 	 * Method returns global unique ID value. Use this value for Selenium
-	 * actions.
+	 * commands.
 	 * 
 	 * @return Global unique ID value
 	 */
 	public String getGlobalID() {
-		return getGlobalID(getLocalID());
-	}
-
-	/**
-	 * Method returns global unique ID value produced from locator and root ID,
-	 * Use it to produce global ID values for support elements, for exmaple -
-	 * labels, reference "Edit" etc
-	 * 
-	 * @param aLocator
-	 *            Local ID value
-	 * @return Global unique ID value
-	 */
-	public String getGlobalID(String aLocator) {
-		if (null == aLocator) {
+		if (null == locator) {
 			return null;
 		}
 		String root = getRootID();
-		return (null == root || root == "") ? Utils.toXPath(aLocator) : Utils
-		        .concateXPath(root, aLocator);
+		return (null == root || root == "") ? Utils.toXPath(locator) : Utils
+		        .concateXPath(root, locator);
 	}
 
 	private String getRootID() {

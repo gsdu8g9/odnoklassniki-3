@@ -16,8 +16,8 @@ public abstract class WIProperty<T> extends WIElement {
 
 	public static final String WI_PROPERTY_TYPE = "property";
 
-	public WIProperty(IWIRoad road, String id, String name) {
-		super(road, id, name, WI_PROPERTY_TYPE);
+	public WIProperty(IWIRoad road, String locator, String name) {
+		super(road, locator, name, WI_PROPERTY_TYPE);
 	}
 
 	public T getValue() {
@@ -38,25 +38,25 @@ public abstract class WIProperty<T> extends WIElement {
 		Assert.assertTrue(!this.isVisible(), this + " expected to be invisible");
 	}
 
-	public void waitValue(Time timeout, final T aValue) {
-		argumentNotNull(aValue, "value");
+	public void waitValue(Time timeout, final T value) {
+		argumentNotNull(value, "value");
 		new Wait() {
 			@Override
 			public boolean until() {
-				return aValue.equals(getValue());
+				return value.equals(getValue());
 			}
-		}.wait(TEST_EXPECTED_VALUE.getValue(this, aValue),
+		}.wait(TEST_EXPECTED_VALUE.getValue(this, value),
 		        timeout.toMilliseconds());
 	}
 
-	public void waitNoValue(Time timeout, final T aValue) {
-		argumentNotNull(aValue, "value");
+	public void waitNoValue(Time timeout, final T value) {
+		argumentNotNull(value, "value");
 		new Wait() {
 			@Override
 			public boolean until() {
-				return !aValue.equals(getValue());
+				return !value.equals(getValue());
 			}
-		}.wait(TEST_UNEXPECTED_VALUE.getValue(this, aValue),
+		}.wait(TEST_UNEXPECTED_VALUE.getValue(this, value),
 		        timeout.toMilliseconds());
 	}
 
