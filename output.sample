@@ -1,0 +1,102 @@
+Buildfile: /home/dkishenk/workspace/odnoklassniki/build.xml
+clean:
+   [delete] Deleting directory /home/dkishenk/workspace/odnoklassniki/bin
+prepare:
+    [mkdir] Created dir: /home/dkishenk/workspace/odnoklassniki/bin
+resources:
+     [copy] Copying 6 files to /home/dkishenk/workspace/odnoklassniki/bin
+compile:
+    [javac] Compiling 43 source files to /home/dkishenk/workspace/odnoklassniki/bin
+test:
+     [echo] Browser firefox
+   [testng] [TestNG] Running:
+   [testng]   User Profile Tests
+   [testng] jar:file:/home/dkishenk/workspace/odnoklassniki/lib/selenium-server-standalone-2.41.0.jar!/customProfileDirCUSTFFCHROME
+   [testng] jar:file:/home/dkishenk/workspace/odnoklassniki/lib/selenium-server-standalone-2.41.0.jar!/sslSupport
+   [testng] jar:file:/home/dkishenk/workspace/odnoklassniki/lib/selenium-server-standalone-2.41.0.jar!/sslSupport
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoEditTest.testBiirthCityLong
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoEditTest.testBirthCityEmpty
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoEditTest.testBirthDayChange
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoEditTest.testBirthMonthChange
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoEditTest.testBirthYearChange
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoEditTest.testBithCityChange
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoEditTest.testCityChange
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoEditTest.testCityLong
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoEditTest.testGendeChanger
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoEditTest.testNameChange
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoEditTest.testNameDigits
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoEditTest.testNameLong
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoEditTest.testNameSymbols
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoEditTest.testNameSymbols
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoEditTest.testNameSymbols
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoEditTest.testSurameChange
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoEditTest.testSurnameDigits
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoEditTest.testSurnameLong
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoEditTest.testSurnameSymbols
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoEditTest.testSurnameSymbols
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoEditTest.testSurnameSymbols
+   [testng] jar:file:/home/dkishenk/workspace/odnoklassniki/lib/selenium-server-standalone-2.41.0.jar!/customProfileDirCUSTFFCHROME
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoInvalidEditTest.testBirthCityUnknown
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoInvalidEditTest.testCityEmpty
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoInvalidEditTest.testCityUnknown
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoInvalidEditTest.testNameEmpty
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoInvalidEditTest.testNameSymbol
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoInvalidEditTest.testNameSymbol
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoInvalidEditTest.testNameSymbol
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoInvalidEditTest.testNameSymbol
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoInvalidEditTest.testNameSymbol
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoInvalidEditTest.testNameSymbol
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoInvalidEditTest.testNameSymbol
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoInvalidEditTest.testNameSymbol
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoInvalidEditTest.testNameSymbol
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoInvalidEditTest.testNameSymbol
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoInvalidEditTest.testNameSymbol
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoInvalidEditTest.testNameSymbol
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoInvalidEditTest.testNameSymbol
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoInvalidEditTest.testNameSymbol
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoInvalidEditTest.testNameSymbol
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoInvalidEditTest.testNameSymbol
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoInvalidEditTest.testNameSymbol
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoInvalidEditTest.testNameSymbol
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoInvalidEditTest.testNameSymbol
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoInvalidEditTest.testNameSymbol
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoInvalidEditTest.testNameSymbol
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoInvalidEditTest.testNameSymbol
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoInvalidEditTest.testNameSymbol
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoInvalidEditTest.testNameSymbol
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoInvalidEditTest.testNameSymbol
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoInvalidEditTest.testNameSymbol
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoInvalidEditTest.testSurameEmpty
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoInvalidEditTest.testSurameSymbol
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoInvalidEditTest.testSurameSymbol
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoInvalidEditTest.testSurameSymbol
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoInvalidEditTest.testSurameSymbol
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoInvalidEditTest.testSurameSymbol
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoInvalidEditTest.testSurameSymbol
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoInvalidEditTest.testSurameSymbol
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoInvalidEditTest.testSurameSymbol
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoInvalidEditTest.testSurameSymbol
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoInvalidEditTest.testSurameSymbol
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoInvalidEditTest.testSurameSymbol
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoInvalidEditTest.testSurameSymbol
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoInvalidEditTest.testSurameSymbol
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoInvalidEditTest.testSurameSymbol
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoInvalidEditTest.testSurameSymbol
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoInvalidEditTest.testSurameSymbol
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoInvalidEditTest.testSurameSymbol
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoInvalidEditTest.testSurameSymbol
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoInvalidEditTest.testSurameSymbol
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoInvalidEditTest.testSurameSymbol
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoInvalidEditTest.testSurameSymbol
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoInvalidEditTest.testSurameSymbol
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoInvalidEditTest.testSurameSymbol
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoInvalidEditTest.testSurameSymbol
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoInvalidEditTest.testSurameSymbol
+   [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoInvalidEditTest.testSurameSymbol
+   [testng] ===============================================
+   [testng] User Profile Tests
+   [testng] Total tests run: 78, Failures: 0, Skips: 0
+   [testng] ===============================================
+all:
+BUILD SUCCESSFUL
+Total time: 2 minutes 37 seconds
