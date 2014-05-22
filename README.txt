@@ -25,14 +25,20 @@
 ==============
     * Java 1.7 or higher    https://www.java.com/en/download/
     * Ant  1.8 or higher    http://ant.apache.org/bindownload.cgi
+ 
+    Tested browsers       
+    * Firefox 28.0
+    * Chrome 34.0
 
 
  RUNNING
 =========
     Run ant from root folder
     
-    Command:
+    Commands:
         ant
+        ant -Dbrowser=firefox
+        ant -Dbrowser=googlechrome
     
     Output:
         Buildfile: E:\Work\odnoklassniki\build.xml
@@ -47,6 +53,7 @@
             [javac] Note: E:\Work\odnoklassniki\src\ru\odnoklassniki\tests\common\Utils.java uses unchecked or unsafe operations.
             [javac] Note: Recompile with -Xlint:unchecked for details.
         test:
+             [echo] Browser firefox
            [testng] [TestNG] Running:
            [testng]   User Profile Tests
            [testng] jar:file:/E:/Work/odnoklassniki/lib/selenium-server-standalone-2.41.0.jar!/customProfileDirCUSTFFCHROME
@@ -55,16 +62,15 @@
            [testng]  PASSED : ru.odnoklassniki.tests.ui.profile.PersonalInfoInvalidEditTest.testUnknownCity
            [testng] ===============================================
            [testng] User Profile Tests
-           [testng] Total tests run: 78, Failures: 2, Skips: 0
+           [testng] Total tests run: 78, Failures: 0, Skips: 0
            [testng] ===============================================
-           [testng] The tests failed.
         all:
         BUILD SUCCESSFUL
-        Total time: 3 minutes 51 seconds
+        Total time: 3 minutes 3 seconds
 
 
  REPORT 
-========= 
+=========
     test-output/html/index.html
 
     

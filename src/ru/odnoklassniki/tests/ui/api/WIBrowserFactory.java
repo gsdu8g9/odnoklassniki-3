@@ -57,6 +57,7 @@ public class WIBrowserFactory {
 			config.setFirefoxProfileTemplate(new File(System.getProperty(
 			        "selenium.profile", profile.getAbsolutePath())));
 			config.setPort(seleniumUrl.getPort());
+			config.setTrustAllSSLCertificates(true);
 
 			Loggers.selenium.info("Port : " + config.getPort());
 			Loggers.selenium.info("Profile : "

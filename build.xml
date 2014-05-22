@@ -5,7 +5,9 @@
 	<property name="src" location="src" />
 	<property name="tests" location="tests" />
 	<property name="lib" location="lib" />
-    
+
+	<property name="browser" value="firefox"/>
+	
 	<property name="testng.report.dir" location="test-output" />
 
 	<property name="testbox.jar" location="testbox.jar" />
@@ -48,11 +50,13 @@
     </target>
 
     <target name="test">
+    	<echo message="Browser ${browser}"/>
     	<testng classpathref="libs" outputDir="${testng.report.dir}"
     		useDefaultListeners="false" listeners="org.uncommons.reportng.HTMLReporter"
     		suitename="User Profile Tests">
     	    <classfileset dir="${bin}" includes="**/*.class" />
     		<jvmarg value="-Djava.util.logging.config.file=logging.properties" />
+            <jvmarg value="-Dselenium.browser=*${browser}" />
             <sysproperty key="org.uncommons.reportng.title" value="Odnoklassniki Test Report"/>
     	</testng>
     </target>
