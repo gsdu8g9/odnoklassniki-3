@@ -49,9 +49,7 @@
         resources:
              [copy] Copying 6 files to E:\Work\odnoklassniki\bin
         compile:
-            [javac] Compiling 48 source files to E:\Work\odnoklassniki\bin
-            [javac] Note: E:\Work\odnoklassniki\src\ru\odnoklassniki\tests\common\Utils.java uses unchecked or unsafe operations.
-            [javac] Note: Recompile with -Xlint:unchecked for details.
+            [javac] Compiling 47 source files to E:\Work\odnoklassniki\bin
         test:
              [echo] Browser firefox
            [testng] [TestNG] Running:
