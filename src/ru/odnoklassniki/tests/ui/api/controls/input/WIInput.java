@@ -6,6 +6,7 @@ import static ru.odnoklassniki.tests.ui.api.Messages.TEST_VALUE;
 
 import org.testng.Assert;
 
+import ru.odnoklassniki.tests.ui.api.Requirements;
 import ru.odnoklassniki.tests.ui.api.common.IWIRoad;
 import ru.odnoklassniki.tests.ui.api.controls.WIElement;
 
@@ -27,6 +28,7 @@ public abstract class WIInput<T> extends WIElement {
 	public abstract T getValue();
 
 	public void assertValue(T value) {
+		Requirements.notNull(value, "value");
 		Assert.assertEquals(getValue(), value, TEST_VALUE.getValue(this));
 	}
 

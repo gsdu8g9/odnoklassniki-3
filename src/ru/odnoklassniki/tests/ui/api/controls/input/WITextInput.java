@@ -2,6 +2,7 @@ package ru.odnoklassniki.tests.ui.api.controls.input;
 
 import static ru.odnoklassniki.tests.ui.api.Messages.LOG_TYPE;
 import ru.odnoklassniki.tests.common.Loggers;
+import ru.odnoklassniki.tests.ui.api.Requirements;
 import ru.odnoklassniki.tests.ui.api.common.IWIRoad;
 
 public class WITextInput extends WIInput<String> {
@@ -12,6 +13,7 @@ public class WITextInput extends WIInput<String> {
 
 	@Override
 	public void setValue(String value) {
+		Requirements.notNull(value, "value");
 		Loggers.ui.info(LOG_TYPE.getValue(value, this));
 		getBrowser().type(getGlobalID(), value);
 	}

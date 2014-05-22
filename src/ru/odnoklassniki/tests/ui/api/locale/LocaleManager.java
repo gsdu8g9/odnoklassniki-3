@@ -13,6 +13,7 @@ import java.util.Properties;
 
 import ru.odnoklassniki.tests.common.Loggers;
 import ru.odnoklassniki.tests.runner.TestboxException;
+import ru.odnoklassniki.tests.ui.api.Requirements;
 import ru.odnoklassniki.tests.ui.api.WIBrowser;
 
 public class LocaleManager {
@@ -22,6 +23,7 @@ public class LocaleManager {
 	private static Properties propCurrent;
 
 	public static void autoDetect(WIBrowser browser) {
+		Requirements.notNull(browser, "browser");
 		// Auto-detect locale
 		String locale = browser
 		        .getAttribute("//head/meta[@name='gwt:property']/@content");
@@ -32,6 +34,7 @@ public class LocaleManager {
 	}
 
 	private static Properties getProperties(String locale) {
+		Requirements.notNull(locale, "locale");
 		Properties properties = new Properties();
 		InputStream is = LocaleManager.class.getResourceAsStream(locale + ".properties");
 		if (null == is) {
@@ -58,6 +61,7 @@ public class LocaleManager {
 	}
 
 	public static void setLocale(String locale) {
+		Requirements.notNull(locale, "locale");
 		propCurrent = getProperties(locale);
 		Loggers.ui.debug(LOG_SET_LOCALE.getValue(locale));
 	}

@@ -12,6 +12,7 @@ import org.testng.Assert;
 import ru.odnoklassniki.tests.common.Loggers;
 import ru.odnoklassniki.tests.common.Utils;
 import ru.odnoklassniki.tests.common.Wait;
+import ru.odnoklassniki.tests.ui.api.Requirements;
 import ru.odnoklassniki.tests.ui.api.WIBrowser;
 import ru.odnoklassniki.tests.ui.api.common.IWIRoad;
 import ru.odnoklassniki.tests.ui.api.common.WIDefaultRoad;
@@ -46,6 +47,10 @@ public class WIElement implements IWIRoad {
 	private String type;
 
 	public WIElement(IWIRoad road, String locator, String name, String type) {
+		Requirements.notNull(road, "raod");
+		// NOTE: locator can be null
+		Requirements.notNull(name, "name");
+		Requirements.notNull(type, "type");
 		this.road = new Road(road);
 		this.locator = locator;
 		this.name = name;

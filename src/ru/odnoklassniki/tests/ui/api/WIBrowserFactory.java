@@ -74,6 +74,7 @@ public class WIBrowserFactory {
 	}
 
 	public static WIBrowser getNewBrowser(String urlStr) {
+		Requirements.notNull(urlStr, "url");
 		URL url = Utils.getURL(urlStr);
 
 		// Start Selenium server only when first test called getNewBrowser()

@@ -5,6 +5,7 @@ import static ru.odnoklassniki.tests.ui.api.Messages.LOG_CHECKBOX_UNCHECK;
 import static ru.odnoklassniki.tests.ui.api.Messages.TEST_CHECKED;
 import static ru.odnoklassniki.tests.ui.api.Messages.TEST_UNCHECKED;
 import ru.odnoklassniki.tests.common.Loggers;
+import ru.odnoklassniki.tests.ui.api.Requirements;
 import ru.odnoklassniki.tests.ui.api.common.IWIRoad;
 
 import com.thoughtworks.selenium.Wait;
@@ -17,6 +18,7 @@ public class WICheckboxInput extends WIBooleanInput {
 
 	@Override
 	public void setValue(Boolean value) {
+		Requirements.notNull(value, "value");
 		if (value) {
 			check();
 		} else {

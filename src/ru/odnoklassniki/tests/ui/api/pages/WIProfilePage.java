@@ -3,6 +3,7 @@ package ru.odnoklassniki.tests.ui.api.pages;
 import java.util.Calendar;
 
 import ru.odnoklassniki.tests.common.Utils;
+import ru.odnoklassniki.tests.ui.api.Requirements;
 import ru.odnoklassniki.tests.ui.api.common.IWIRoad;
 import ru.odnoklassniki.tests.ui.api.controls.WIMenuItem;
 import ru.odnoklassniki.tests.ui.api.controls.WIPage;
@@ -22,7 +23,13 @@ public class WIProfilePage extends WIPage {
 	}
 
 	public void setPersonalInfo(String name, String surname,
-	        String birthDate, String city, String bithCity) {
+	        String birthDate, String city, String birthCity) {
+		Requirements.notNull(name, "name");
+		Requirements.notNull(surname, "surname");
+		Requirements.notNull(birthDate, "birthDate");
+		Requirements.notNull(city, "city");
+		Requirements.notNull(birthCity, "birthCity");
+
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(Utils.parseDate("yyyy-MM-dd", birthDate));
 		int year = cal.get(Calendar.YEAR);
@@ -36,7 +43,7 @@ public class WIProfilePage extends WIPage {
 		dlgPersonalInfo.inpBirthDay.setValue("" + month);
 		dlgPersonalInfo.inpBirthDay.setValue("" + year);
 		dlgPersonalInfo.inpCity.setValue(city);
-		dlgPersonalInfo.inpBirthCity.setValue(bithCity);
+		dlgPersonalInfo.inpBirthCity.setValue(birthCity);
 		dlgPersonalInfo.save();
 	}
 

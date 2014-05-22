@@ -2,11 +2,11 @@ package ru.odnoklassniki.tests.ui.api.controls.property;
 
 import static ru.odnoklassniki.tests.ui.api.Messages.TEST_EXPECTED_VALUE;
 import static ru.odnoklassniki.tests.ui.api.Messages.TEST_UNEXPECTED_VALUE;
-import static ru.odnoklassniki.tests.ui.api.Requirements.argumentNotNull;
 
 import org.testng.Assert;
 
 import ru.odnoklassniki.tests.common.Time;
+import ru.odnoklassniki.tests.ui.api.Requirements;
 import ru.odnoklassniki.tests.ui.api.common.IWIRoad;
 import ru.odnoklassniki.tests.ui.api.controls.WIElement;
 
@@ -27,6 +27,7 @@ public abstract class WIProperty<T> extends WIElement {
 	protected abstract T convert(String text);
 
 	public void assertValue(T value) {
+		Requirements.notNull(value, "value");
 		Assert.assertEquals(getValue(), value, this + " value");
 	}
 
@@ -39,7 +40,8 @@ public abstract class WIProperty<T> extends WIElement {
 	}
 
 	public void waitValue(Time timeout, final T value) {
-		argumentNotNull(value, "value");
+		Requirements.notNull(timeout, "timeout");
+		Requirements.notNull(value, "value");
 		new Wait() {
 			@Override
 			public boolean until() {
@@ -50,7 +52,8 @@ public abstract class WIProperty<T> extends WIElement {
 	}
 
 	public void waitNoValue(Time timeout, final T value) {
-		argumentNotNull(value, "value");
+		Requirements.notNull(timeout, "timeout");
+		Requirements.notNull(value, "value");
 		new Wait() {
 			@Override
 			public boolean until() {

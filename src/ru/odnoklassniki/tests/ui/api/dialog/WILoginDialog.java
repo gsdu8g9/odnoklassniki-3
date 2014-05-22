@@ -2,9 +2,9 @@ package ru.odnoklassniki.tests.ui.api.dialog;
 
 import static ru.odnoklassniki.tests.common.Loggers.ui;
 import static ru.odnoklassniki.tests.common.Time.Seconds;
-import static ru.odnoklassniki.tests.ui.api.Requirements.argumentNotNull;
 import static ru.odnoklassniki.tests.ui.api.locale.Text.BTN_LOGIN;
 import ru.odnoklassniki.tests.common.Utils;
+import ru.odnoklassniki.tests.ui.api.Requirements;
 import ru.odnoklassniki.tests.ui.api.common.IWIRoad;
 import ru.odnoklassniki.tests.ui.api.controls.WIButton;
 import ru.odnoklassniki.tests.ui.api.controls.input.WITextInput;
@@ -28,8 +28,8 @@ public class WILoginDialog extends WIDialog {
 	}
 
 	public void loginSuccessful(String name, String password) {
-		argumentNotNull(name, "name");
-		argumentNotNull(password, "password");
+		Requirements.notNull(name, "name");
+		Requirements.notNull(password, "password");
 
 		waitVisible();
 		inpUsername.setValue(name);
