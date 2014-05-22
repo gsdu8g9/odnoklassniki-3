@@ -40,6 +40,7 @@
 		<javac destdir="${bin}" classpathref="libs" debug="true" includeantruntime="true" encoding="utf8">
 			<src path="${src}" />
 			<src path="${tests}" />
+			<compilerarg value="-Xlint"/>
 		</javac>
 	</target>
 

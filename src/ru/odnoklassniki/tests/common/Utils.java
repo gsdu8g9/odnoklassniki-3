@@ -206,10 +206,12 @@ public class Utils {
 		}
 	}
 
+	@SuppressWarnings({"unchecked", "varargs"})
 	public static <T> String join(T... values) {
 		return joinWithDelimiter(DEFAULT_ARRAY_DELIMITER, values);
 	}
 
+	@SafeVarargs
 	public static <T> String joinWithDelimiter(String delimiter, T... values) {
 		if (values.length == 0) {
 			return "";
