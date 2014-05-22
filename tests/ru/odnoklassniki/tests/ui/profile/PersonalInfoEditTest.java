@@ -8,6 +8,8 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import ru.odnoklassniki.tests.common.Loggers;
+import ru.odnoklassniki.tests.common.Time;
 import ru.odnoklassniki.tests.common.Utils;
 import ru.odnoklassniki.tests.ui.Environment;
 import ru.odnoklassniki.tests.ui.api.WIBrowser;
@@ -53,7 +55,13 @@ public class PersonalInfoEditTest {
 	public void setupClass() {
 		b = WIBrowserFactory.getNewBrowser(Environment.BASE_URL);
 		b.login(Environment.USERNAME, Environment.PASSWORD);
-		d = b.getProfile().dlgPersonalInfo; 
+		d = b.getProfile().dlgPersonalInfo;
+
+		// FIXME For some reason dialog can't be reopened immediately after first saving
+		// so make warm up saving and wait a bit
+		d.go();
+		d.save();
+		Utils.pause(Time.Seconds(3), "Warm up edit dialog", Loggers.ui);
 	}
 
 	@AfterClass()
