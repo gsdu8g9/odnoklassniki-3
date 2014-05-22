@@ -137,7 +137,7 @@ public class PersonalInfoEditTest {
 		d.inpSurname.assertValue(newValue);
 	}
 	
-	@Test(description="User digits for surname")
+	@Test(description="Use digits for surname")
 	public void testSurnameDigits() {
 		String newValue = "1234567890";
 	    		
