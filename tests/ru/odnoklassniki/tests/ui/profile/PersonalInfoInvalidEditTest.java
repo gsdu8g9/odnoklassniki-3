@@ -47,7 +47,7 @@ public class PersonalInfoInvalidEditTest {
 	}
 	
 	@Test
-	public void testEmptyName() {
+	public void testNameEmpty() {
 		d.go();
 		d.inpName.setValue("");
 		d.btnSave.click();
@@ -56,7 +56,7 @@ public class PersonalInfoInvalidEditTest {
 	}
 
 	@Test(dataProvider = "symbols")
-	public void testSymbolName(char symbol) {
+	public void testNameSymbol(char symbol) {
 		d.go();
 		d.inpName.setValue("Иван" + symbol);
 		d.btnSave.click();
@@ -65,7 +65,7 @@ public class PersonalInfoInvalidEditTest {
 	}
 
 	@Test
-	public void testEmptySurame() {
+	public void testSurameEmpty() {
 		d.go();
 		d.inpSurname.setValue("");
 		d.btnSave.click();
@@ -74,7 +74,7 @@ public class PersonalInfoInvalidEditTest {
 	}
 	
 	@Test(dataProvider = "symbols")
-	public void testSymbolSurame(char symbol) {
+	public void testSurameSymbol(char symbol) {
 		d.go();
 		d.inpSurname.setValue("Иванов" + symbol);
 		d.btnSave.click();
@@ -83,7 +83,7 @@ public class PersonalInfoInvalidEditTest {
 	}
 	
 	@Test
-	public void testEmptyCity() {
+	public void testCityEmpty() {
 		d.go();
 		d.inpCity.setValue("");
 		d.btnSave.click();
@@ -92,7 +92,7 @@ public class PersonalInfoInvalidEditTest {
 	}
 	
 	@Test
-	public void testUnknownCity() {
+	public void testCityUnknown() {
 		d.go();
 		d.inpCity.setValue("foo");
 		d.btnSave.click();
@@ -101,7 +101,7 @@ public class PersonalInfoInvalidEditTest {
 	}
 	
 	@Test
-	public void testUnknownBirthCity() {
+	public void testBirthCityUnknown() {
 		d.go();
 		d.inpCity.setValue("bar");
 		d.btnSave.click();
