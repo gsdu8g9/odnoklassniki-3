@@ -1,0 +1,153 @@
+=====================
+ Foto Album Test Plan
+=====================
+
+Album Create
+    Capacity
+        - Create one album
+        - Create two albums
+        - Create 10 albums
+        - Create 100 albums
+        - Create 1000 albums
+    Name
+        Content
+            - Create album with alpha name
+            - Create album with digit name
+            - Create album with symbolic name
+            - Create album with unicode name
+        Size       
+            - Create album without name
+            - Create album with middle name
+            - Create album with name of length 50 (max length 50)
+            - Create album with name of length 51 (max length 50)
+        Change
+            - Rename album to absolutely new name
+            - Rename album to exiting name
+    Visibility options
+        - Create album with each visibility option (many tests)
+        - Test visibility option dependencies on creation dialog (many tests)
+    Mutli session
+        - Create two albums with same name in two different sessions
+
+Album Delete
+    Content
+        - Delete empty album
+        - Delete non-empty album
+    Capacity
+        - Delete single of two albums
+        - Delete all of two albums
+    Duplicates
+        - Delete one of two albums with same name
+    Mutli session
+        - Delete same album from two different sessions
+
+Album Restore
+    Accessibility
+        - Delete album and restore
+        - Delete album, go out of the album, return back and check album disappeared
+    Content
+        - Restore deleted empty album
+        - Restore deleted non-empty album
+    Capacity
+        - Restore one of two deleted albums
+        - Restore all of two deleted albums
+    Duplicates
+        - Restore one of two albums with same name
+        - Restore deleted album when same name exists
+    Mutli session
+        - Restore same album from two different sessions
+        - Restore same album from two different sessions when restoring is inaccessible for one of them       
+       
+Foto Upload
+    Album state
+        - Upload foto to empty album
+        - Upload foto to non-empty album
+    Capacity
+        - Upload 10 fotos
+        - Upload 100 fotos
+        - Upload 1000 fotos
+    Size
+        - Upload middle foto
+        - Upload small foto
+        - Upload huge foto
+    Type
+        - Upload PNG/JPEG/GIF/TIFF etc file (many tests)
+        - Upload file with non-image extension but image content
+        - Upload file with non-image extension and non-image content
+    Content
+        - Upload corrupted image file
+    Multi loading
+        - Upload invalid and normal foto at once
+        - Upload 2 invalid and 3 normal fotos at once
+    Cancelling
+        - Upload foto and cancel it
+        - Upload multiple fotos and cancel it
+
+Foto Delete
+    Capacity
+        - Delete single of two fotos
+        - Delete all of two fotos
+    Duplicates
+        - Delete one of two fotos with same name
+    Mutli session
+        - Delete same foto from two different sessions
+        - Delete album in one session and foto from album in another one
+
+Foto Restore
+    Accessibility
+        - Delete foto and restore
+        - Delete album, go out of the album return back and check foto disappeared
+    Capacity
+        - Restore one of two deleted fotos
+        - Restore all of two deleted fotos
+    Duplicates
+        - Restore one of two fotos with same name
+        - Restore deleted foto when same name exists
+    Mutli session
+        - Restore same foto from two different sessions
+        - Restore same foto from two different sessions when restoring is inaccessible for one of them       
+
+Foto Edit
+    Description
+        Size
+            - Set middle description
+            - Set one char description
+            - Set description of length 20 (max visible length 20)
+            - Set description of length 21
+            - Set description of length 255 (max length  255)
+            - Set description of length 256
+        Content
+            - Set alpha description
+            - Set digit description
+            - Set symbolic description
+            - Set unicode description
+    Mutli session
+        - Change same description from two different sessions
+
+Foto Move   
+    - Move foto to new album
+    - Move foto to existing album
+    - Move multiple fotos to existing album
+    - Move all fotos to existing album
+    Mutli session
+        - Move same foto from two different sessions
+   
+Foto Set Main
+    - Check main foto is empty if albums have no fotos
+    - Check main foto is cover of first non-empty album
+    - Set non-first foto of first album as main foto
+    - Set foto of non-first album as main foto
+    Mutli session
+        - Set different fotos as main from two different sessions
+
+Foto Set Cover
+    - Check cover is empty if album is empty
+    - Check cover is first foto of album
+    - Set non-first foto as cover
+    Mutli session
+        - Set different fotos as cover from two different sessions
+
+Foto Order
+    - Change order of two fotos in album with 2 fotos
+    - Change order of two fotos in album with 10 fotos
+    - Change order of all fotos in album with 10 fotos
