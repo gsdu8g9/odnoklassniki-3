@@ -1,9 +1,9 @@
 package ru.odnoklassniki.tests.ui.api.locale;
 
-import static ru.odnoklassniki.tests.ui.api.Messages.*;
 import static ru.odnoklassniki.tests.ui.api.Messages.FAILED_READ_PROPERTIES;
 import static ru.odnoklassniki.tests.ui.api.Messages.INVALID_LOCALE;
 import static ru.odnoklassniki.tests.ui.api.Messages.LOCALE_NOT_FOUND;
+import static ru.odnoklassniki.tests.ui.api.Messages.LOG_SET_LOCALE;
 import static ru.odnoklassniki.tests.ui.api.Messages.PROPERTY_UNDEFINED;
 
 import java.io.IOException;
