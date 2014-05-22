@@ -20,6 +20,10 @@
     logging.properties              Selenium logging settings
     testbox,log                     Framework log
     
+    test-output.sample              Sample TestNFG report    
+    output.sample                   Sample test run output
+    testbox.log.sample              Sample test run log
+    
     
  REQUIREMENTS
 ==============
