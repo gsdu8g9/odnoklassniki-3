@@ -5,6 +5,10 @@ import ru.odnoklassniki.tests.common.Loggers;
 import ru.odnoklassniki.tests.ui.api.common.IWIRoad;
 import ru.odnoklassniki.tests.ui.api.common.WIDefaultRoad;
 
+/**
+ * Clickable web element 
+ *
+ */
 public class WIClickable extends WIElement {
 
 	public static class Road extends WIDefaultRoad {
@@ -31,6 +35,9 @@ public class WIClickable extends WIElement {
 		return new Road(this);
 	}
 
+	/**
+	 * Click web element
+	 */
 	public void click() {
 		go();
 		getBrowser().click(getGlobalID());

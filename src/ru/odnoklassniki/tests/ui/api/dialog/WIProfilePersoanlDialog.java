@@ -8,6 +8,10 @@ import ru.odnoklassniki.tests.ui.api.controls.input.WITextInput;
 import ru.odnoklassniki.tests.ui.api.controls.property.WITextProperty;
 import ru.odnoklassniki.tests.ui.api.locale.Text;
 
+/**
+ * Personal Info dialog
+ *
+ */
 public class WIProfilePersoanlDialog extends WIDialog {
 
 	public static class WIGenderInput extends WICheckboxInput {
@@ -57,6 +61,9 @@ public class WIProfilePersoanlDialog extends WIDialog {
 		super(road, Text.TITLE_CHANGE_PERSONAL_INFO);
 	}
 
+	/**
+	 * Save changes
+	 */
 	public void save() {
 		btnSave.click();
 
@@ -70,6 +77,9 @@ public class WIProfilePersoanlDialog extends WIDialog {
 		waitInvisible();
 	}
 
+	/**
+	 * Cancel changes
+	 */
 	public void cancel() {
 		btnCancel.click();
 		waitInvisible();

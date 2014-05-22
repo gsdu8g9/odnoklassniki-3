@@ -12,13 +12,18 @@ import org.w3c.dom.Document;
 
 import ru.odnoklassniki.tests.runner.TestboxException;
 
+/**
+ * LogFactory loads log4j settings and provide helpful functions to create
+ * loggers
+ * 
+ */
 public class LogFactory {
 
 	static {
 		loadConfig();
 	}
 
-	public static void loadConfig() {
+	private static void loadConfig() {
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		try {
 			DocumentBuilder db = dbf.newDocumentBuilder();
@@ -29,10 +34,24 @@ public class LogFactory {
 		}
 	}
 
+	/**
+	 * Create logger by class name
+	 * 
+	 * @param clazz
+	 *            class of object
+	 * @return logger object
+	 */
 	public static Logger getLogger(Class<?> clazz) {
 		return getLogger(clazz.getName());
 	}
 
+	/**
+	 * Create logger with specified name
+	 * 
+	 * @param name
+	 *            string logger name
+	 * @return logger object
+	 */
 	public static Logger getLogger(String name) {
 		return LoggerFactory.getLogger(name);
 	}

@@ -5,6 +5,10 @@ import org.testng.Assert;
 import ru.odnoklassniki.tests.ui.api.common.IWIRoad;
 import ru.odnoklassniki.tests.ui.api.locale.Text;
 
+/**
+ * Text property web object 
+ *
+ */
 public class WITextProperty extends WIProperty<String> {
 
 	public WITextProperty(IWIRoad road, String locator, String name) {
@@ -20,6 +24,9 @@ public class WITextProperty extends WIProperty<String> {
 		return text;
 	}
 
+	/**
+	 * Assert property value is empty
+	 */
 	public void assertEmpty() {
 		Assert.assertEquals(getValue(), "", this + " value");
 	}

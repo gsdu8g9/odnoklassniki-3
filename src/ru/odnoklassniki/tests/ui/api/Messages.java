@@ -3,6 +3,9 @@ package ru.odnoklassniki.tests.ui.api;
 import ru.odnoklassniki.tests.common.IMessage;
 import ru.odnoklassniki.tests.common.Utils;
 
+/**
+ * Messages collection used for tests 
+ */
 public enum Messages implements IMessage {
 
 	INVALID_LOCALE("Invalid browser locale value '%s'"),

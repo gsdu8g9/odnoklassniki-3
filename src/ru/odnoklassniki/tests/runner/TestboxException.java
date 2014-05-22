@@ -5,6 +5,10 @@ import java.util.Collection;
 import ru.odnoklassniki.tests.common.IMessage;
 import ru.odnoklassniki.tests.common.Utils;
 
+/**
+ * Framework exception
+ * 
+ */
 public class TestboxException extends RuntimeException {
 
 	private static final long serialVersionUID = -1199259648444871312L;

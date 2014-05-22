@@ -9,7 +9,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import ru.odnoklassniki.tests.common.Loggers;
-import ru.odnoklassniki.tests.common.Time;
+import ru.odnoklassniki.tests.common.TimeSpan;
 import ru.odnoklassniki.tests.common.Utils;
 import ru.odnoklassniki.tests.ui.Environment;
 import ru.odnoklassniki.tests.ui.api.WIBrowser;
@@ -19,6 +19,7 @@ import ru.odnoklassniki.tests.ui.api.locale.Text;
 
 public class PersonalInfoEditTest {
 
+    // Personal information set 
 	private static enum Data {
 		NAME("Иван", "Петр"),
 		SURNAME("Иванов", "Петров"),
@@ -34,6 +35,7 @@ public class PersonalInfoEditTest {
 			this.values = values;
 		}
 		
+		// Switch old value to new one
 		public String getNewValue(String oldValue) {
 			return values[0].equals(oldValue) ? values[1] : values[0];
 		}
@@ -61,7 +63,7 @@ public class PersonalInfoEditTest {
 		// so make warm up saving and wait a bit
 		d.go();
 		d.save();
-		Utils.pause(Time.Seconds(3), "Warm up edit dialog", Loggers.ui);
+		Utils.pause(TimeSpan.Seconds(3), "Warm up edit dialog", Loggers.ui);
 	}
 
 	@AfterClass()
@@ -69,7 +71,7 @@ public class PersonalInfoEditTest {
 		b.close();
 	}
 	
-	@Test
+	@Test(description="Change name")
 	public void testNameChange() {
 		d.go();
 		
@@ -83,7 +85,7 @@ public class PersonalInfoEditTest {
 		d.inpName.assertValue(newValue);
 	}
 
-	@Test
+	@Test(description="Use digits for name")
 	public void testNameDigits() {
 		String newValue = "1234567890";
 	    		
@@ -95,7 +97,7 @@ public class PersonalInfoEditTest {
 		d.inpName.assertValue(newValue);
 	}
 
-	@Test(dataProvider = "symbols")
+	@Test(description="Use symbols for name", dataProvider = "symbols")
 	public void testNameSymbols(char symbol) {
 		String newValue = "Иван" + symbol;
 		
@@ -107,7 +109,7 @@ public class PersonalInfoEditTest {
 		d.inpName.assertValue(newValue);
 	}
 	
-	@Test
+	@Test(description="Set long name")
 	public void testNameLong() {
 		String original = Utils.fillString(20);
 		String expected = Utils.fillString(16);
@@ -121,7 +123,7 @@ public class PersonalInfoEditTest {
 		d.inpName.assertValue(expected);
 	}
 
-	@Test
+	@Test(description="Change surname")
 	public void testSurameChange() {
 		d.go();
 
@@ -135,7 +137,7 @@ public class PersonalInfoEditTest {
 		d.inpSurname.assertValue(newValue);
 	}
 	
-	@Test
+	@Test(description="User digits for surname")
 	public void testSurnameDigits() {
 		String newValue = "1234567890";
 	    		
@@ -147,7 +149,7 @@ public class PersonalInfoEditTest {
 		d.inpSurname.assertValue(newValue);
 	}
 	
-	@Test(dataProvider = "symbols")
+	@Test(description="Use symbols for surname", dataProvider = "symbols")
 	public void testSurnameSymbols(char symbol) {
 		String newValue = "Иванов" + symbol;
 		
@@ -159,7 +161,7 @@ public class PersonalInfoEditTest {
 		d.inpSurname.assertValue(newValue);
 	}
 	
-	@Test
+	@Test(description="Set long surname")
 	public void testSurnameLong() {
 		String original = Utils.fillString(30);
 		String expected = Utils.fillString(24);
@@ -173,7 +175,7 @@ public class PersonalInfoEditTest {
 		d.inpSurname.assertValue(expected);
 	}
 
-	@Test
+	@Test(description="Change birth day")
 	public void testBirthDayChange() {
 		d.go();
 
@@ -187,7 +189,7 @@ public class PersonalInfoEditTest {
 		d.inpBirthDay.assertValue(newValue);
 	}
 	
-	@Test
+	@Test(description="Change birth month")
 	public void testBirthMonthChange() {
 		d.go();
 
@@ -201,7 +203,7 @@ public class PersonalInfoEditTest {
 		d.inpBirthMonth.assertValue(newValue);
 	}
 	
-	@Test
+	@Test(description="Change birth year")
 	public void testBirthYearChange() {
 		d.go();
 
@@ -215,7 +217,7 @@ public class PersonalInfoEditTest {
 		d.inpBirthYear.assertValue(newValue);
 	}
 	
-	@Test
+	@Test(description="Change gender")
 	public void testGendeChanger() {
 		d.go();
 
@@ -234,7 +236,7 @@ public class PersonalInfoEditTest {
 		d.inpFemale.assertValue(isMale);
 	}
 	
-	@Test
+	@Test(description="Change city")
 	public void testCityChange() {
 		d.go();
 
@@ -248,7 +250,7 @@ public class PersonalInfoEditTest {
 		d.inpCity.assertValue(newValue);
 	}
 
-	@Test
+	@Test(description="Set long city name")
 	public void testCityLong() {
 		String original = Utils.fillString(60);
 		String expected = Utils.fillString(50);
@@ -261,7 +263,7 @@ public class PersonalInfoEditTest {
 		d.cancel();
 	}
 
-	@Test
+	@Test(description="Change birth city")
 	public void testBithCityChange() {
 		d.go();
 
@@ -275,7 +277,7 @@ public class PersonalInfoEditTest {
 		d.inpBirthCity.assertValue(newValue);
 	}
 	
-	@Test
+	@Test(description="Set empty birth city")
 	public void testBirthCityEmpty() {
 		d.go();
 		d.inpBirthCity.setValue("");
@@ -285,7 +287,7 @@ public class PersonalInfoEditTest {
 		d.inpBirthCity.assertValue("");
 	}
 	
-	@Test
+	@Test(description="Set long birth city name")
 	public void testBiirthCityLong() {
 		String original = Utils.fillString(60);
 		String expected = Utils.fillString(50);

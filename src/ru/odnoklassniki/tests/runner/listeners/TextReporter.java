@@ -9,23 +9,27 @@ import org.testng.ITestResult;
 
 import ru.odnoklassniki.tests.common.Loggers;
 
+/**
+ * TestNG listener log test start and completion status into log and console
+ * 
+ */
 public class TextReporter implements ITestListener, IInvokedMethodListener {
 
 	private String getTestName(ITestResult result) {
 		ITestNGMethod method = result.getMethod();
 		return method.getTestClass().getName() + "." + method.getMethodName();
 	}
-	
+
 	@Override
 	public void onStart(ITestContext context) {
 	}
-	
+
 	@Override
 	public void onFinish(ITestContext context) {
 	}
-	
+
 	@Override
-	public void onTestStart(ITestResult result) { 		
+	public void onTestStart(ITestResult result) {
 	}
 
 	@Override

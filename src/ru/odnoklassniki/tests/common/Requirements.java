@@ -1,4 +1,4 @@
-package ru.odnoklassniki.tests.ui.api;
+package ru.odnoklassniki.tests.common;
 
 import static ru.odnoklassniki.tests.ui.api.Messages.ERR_ARGUMENT_IS_EMPTY;
 import static ru.odnoklassniki.tests.ui.api.Messages.ERR_ARGUMENT_IS_NULL;

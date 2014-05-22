@@ -10,19 +10,33 @@ import static ru.odnoklassniki.tests.ui.api.Messages.TEST_EXPECTED_VISIBLE;
 import org.testng.Assert;
 
 import ru.odnoklassniki.tests.common.Loggers;
+import ru.odnoklassniki.tests.common.Requirements;
 import ru.odnoklassniki.tests.common.Utils;
 import ru.odnoklassniki.tests.common.Wait;
-import ru.odnoklassniki.tests.ui.api.Requirements;
 import ru.odnoklassniki.tests.ui.api.WIBrowser;
 import ru.odnoklassniki.tests.ui.api.common.IWIRoad;
 import ru.odnoklassniki.tests.ui.api.common.WIDefaultRoad;
 
 import com.thoughtworks.selenium.SeleniumException;
 
+/**
+ * Base class fro all web elements
+ *
+ */
 public class WIElement implements IWIRoad {
 
+	/**
+	 * Global XPath builder strategy
+	 *
+	 * USE    - use web element and its parent to build XPath
+	 * SKIP   - use parent web element to build XPath
+	 * GLOBAL - don't use parent web element to build XPath
+	 *
+	 */
 	public enum XPathBuilderBehaviour {
-		SKIP, USE, GLOBAL
+		USE, 
+		SKIP, 
+		GLOBAL
 	}
 
 	private class Road extends WIDefaultRoad {
@@ -118,10 +132,18 @@ public class WIElement implements IWIRoad {
 		return null;
 	}
 
+	/**
+	 * Returns web element type name
+	 * @return type name
+	 */
 	public String getType() {
 		return type;
 	}
 
+	/**
+	 * Returns web element name
+	 * @return name
+	 */
 	public String getName() {
 		return name;
 	}
@@ -132,6 +154,10 @@ public class WIElement implements IWIRoad {
 		        + (null == getName() ? getLocalID() : getName()) + "\"";
 	}
 
+	/**
+	 * Checks web element visibility
+	 * @return visibility
+	 */
 	public boolean isVisible() {
 		// Don't use "return isElementPresent && isVisaible" since
 		// isVisible throws an exception if element isn't present
@@ -149,18 +175,27 @@ public class WIElement implements IWIRoad {
 		return false;
 	}
 
+	/**
+	 * Assert web element is visible
+	 */
 	public void assertVisible() {
 		if (!isVisible()) {
 			Assert.fail(TEST_EXPECTED_VISIBLE.getValue(this));
 		}
 	}
 
+	/**
+	 * Assert web element is invisible
+	 */
 	public void assertInvisible() {
 		if (isVisible()) {
 			Assert.fail(TEST_EXPECTED_INVISIBLE.getValue(this));
 		}
 	}
 
+	/**
+	 * Wait web element is visible
+	 */
 	public void waitVisible() {
 		Loggers.ui.info(LOG_ELEMENT_WAIT_VISIBLE.getValue(this));
 		new Wait() {
@@ -172,6 +207,9 @@ public class WIElement implements IWIRoad {
 		Loggers.ui.info(LOG_ELEMENT_VISIBLE.getValue(this));
 	}
 
+	/**
+	 * Wait web element is invisible
+	 */
 	public void waitInvisible() {
 		Loggers.ui.info(LOG_ELEMENT_WAIT_INVISIBLE.getValue(this));
 		new Wait() {

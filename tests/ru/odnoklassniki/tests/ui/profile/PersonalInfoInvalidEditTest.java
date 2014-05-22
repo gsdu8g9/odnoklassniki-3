@@ -46,7 +46,7 @@ public class PersonalInfoInvalidEditTest {
 		d.cancel();
 	}
 	
-	@Test
+	@Test(description="Set empty name")
 	public void testNameEmpty() {
 		d.go();
 		d.inpName.setValue("");
@@ -55,7 +55,7 @@ public class PersonalInfoInvalidEditTest {
 		d.inpName.propError.assertValue(Text.ERR_SPECIFY_NAME);
 	}
 
-	@Test(dataProvider = "symbols")
+	@Test(description="Use restricted synbols for name", dataProvider = "symbols")
 	public void testNameSymbol(char symbol) {
 		d.go();
 		d.inpName.setValue("Иван" + symbol);
@@ -64,7 +64,7 @@ public class PersonalInfoInvalidEditTest {
 		d.inpName.propError.assertValue(Text.ERR_USE_ALPHA_ONLY);
 	}
 
-	@Test
+	@Test(description="Set empty surname")
 	public void testSurameEmpty() {
 		d.go();
 		d.inpSurname.setValue("");
@@ -73,7 +73,7 @@ public class PersonalInfoInvalidEditTest {
 		d.inpSurname.propError.assertValue(Text.ERR_SPECIFY_SURNAME);
 	}
 	
-	@Test(dataProvider = "symbols")
+	@Test(description="Use restricted symbols for surname", dataProvider = "symbols")
 	public void testSurameSymbol(char symbol) {
 		d.go();
 		d.inpSurname.setValue("Иванов" + symbol);
@@ -82,7 +82,7 @@ public class PersonalInfoInvalidEditTest {
 		d.inpSurname.propError.assertValue(Text.ERR_USE_ALPHA_ONLY);
 	}
 	
-	@Test
+	@Test(description="Set empty city")
 	public void testCityEmpty() {
 		d.go();
 		d.inpCity.setValue("");
@@ -91,7 +91,7 @@ public class PersonalInfoInvalidEditTest {
 		d.inpCity.propError.assertValue(Text.ERR_SPECIFY_CITY);
 	}
 	
-	@Test
+	@Test(description="Set unknown city")
 	public void testCityUnknown() {
 		d.go();
 		d.inpCity.setValue("foo");
@@ -100,7 +100,7 @@ public class PersonalInfoInvalidEditTest {
 		d.inpCity.propError.assertValue(Text.ERR_CHOOSE_CITY_FROM_LIST);
 	}
 	
-	@Test
+	@Test(description="Set unknown birth city")
 	public void testBirthCityUnknown() {
 		d.go();
 		d.inpCity.setValue("bar");

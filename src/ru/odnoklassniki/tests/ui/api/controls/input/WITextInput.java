@@ -2,9 +2,13 @@ package ru.odnoklassniki.tests.ui.api.controls.input;
 
 import static ru.odnoklassniki.tests.ui.api.Messages.LOG_TYPE;
 import ru.odnoklassniki.tests.common.Loggers;
-import ru.odnoklassniki.tests.ui.api.Requirements;
+import ru.odnoklassniki.tests.common.Requirements;
 import ru.odnoklassniki.tests.ui.api.common.IWIRoad;
 
+/**
+ * String input web element 
+ *
+ */
 public class WITextInput extends WIInput<String> {
 
 	public WITextInput(IWIRoad road, String locator, String name) {

@@ -49,7 +49,7 @@ public class Utils {
 				delete(file);
 			}
 			if (!file.delete()) {
-				// log.error("Failed delete " + file);
+				throw new TestboxException(FAILED_DELETE_PATH, file);
 			}
 		}
 		if (!folder.delete()) {
@@ -109,8 +109,7 @@ public class Utils {
 		}
 	}
 
-	public static void setText(OutputStream stream, String text)
-	        throws IOException {
+	public static void setText(OutputStream stream, String text) throws IOException {
 		copy(new ByteArrayInputStream(text.getBytes()), stream);
 	}
 
@@ -119,8 +118,7 @@ public class Utils {
 			return null;
 		}
 		try {
-			BufferedReader reader = new BufferedReader(
-			        new InputStreamReader(in));
+			BufferedReader reader = new BufferedReader(new InputStreamReader(in));
 			StringBuilder sb = new StringBuilder();
 			String line;
 			while (null != (line = reader.readLine())) {
@@ -156,16 +154,16 @@ public class Utils {
 		return result;
 	}
 
-	public static void pause(Time interval, Logger logger) {
+	public static void pause(TimeSpan interval, Logger logger) {
 		pause(interval, "", logger);
 	}
 
-	public static void pause(Time interval, String message, Logger logger) {
+	public static void pause(TimeSpan interval, String message, Logger logger) {
 		logger.debug("Wait " + interval + ". " + message);
 		pause(interval);
 	}
 
-	public static void pause(Time interval) {
+	public static void pause(TimeSpan interval) {
 		try {
 			Thread.sleep(interval.toMilliseconds());
 		} catch (InterruptedException e) {
@@ -181,8 +179,7 @@ public class Utils {
 		}
 	}
 
-	public static URI getURI(String protocol, String host, int port,
-	        String path, IMessage errorMessage) {
+	public static URI getURI(String protocol, String host, int port, String path, IMessage errorMessage) {
 		try {
 			return new URI(protocol, null, host, port, path, null, null);
 		} catch (URISyntaxException e) {
@@ -206,7 +203,7 @@ public class Utils {
 		}
 	}
 
-	@SuppressWarnings({"unchecked", "varargs"})
+	@SuppressWarnings({ "unchecked", "varargs" })
 	public static <T> String join(T... values) {
 		return joinWithDelimiter(DEFAULT_ARRAY_DELIMITER, values);
 	}

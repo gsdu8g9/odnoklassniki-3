@@ -3,29 +3,37 @@ package ru.odnoklassniki.tests.common;
 import static ru.odnoklassniki.tests.common.Messages.WAIT_INTERRUPTED;
 import ru.odnoklassniki.tests.runner.TestboxException;
 
+/**
+ * Wait for specified period of time and check condition each specified interval
+ * until returns true
+ * 
+ */
 public abstract class Wait {
 
-	public class WaitTimedOutException extends RuntimeException {
+	public class TimedOutException extends RuntimeException {
 
 		private static final long serialVersionUID = 1L;
 
-		public WaitTimedOutException() {
+		public TimedOutException() {
 			super();
 		}
 
-		public WaitTimedOutException(String message, Throwable cause) {
+		public TimedOutException(String message, Throwable cause) {
 			super(message, cause);
 		}
 
-		public WaitTimedOutException(String message) {
+		public TimedOutException(String message) {
 			super(message);
 		}
 
-		public WaitTimedOutException(Throwable cause) {
+		public TimedOutException(Throwable cause) {
 			super(cause);
 		}
 
 	}
+
+	public static final TimeSpan DEFAULT_TIMEOUT = TimeSpan.Seconds(30);
+	public static final TimeSpan DEFAULT_INTERVAL = TimeSpan.Milliseconds(500);
 
 	public Wait() {
 	}
@@ -36,24 +44,35 @@ public abstract class Wait {
 
 	public abstract boolean until();
 
-	public static final Time DEFAULT_TIMEOUT = Time.Seconds(30);
-
-	public static final Time DEFAULT_INTERVAL = Time.Milliseconds(500);
-
+	/**
+	 * Wait condition is true for default interval and raise exception if
+	 * condition is false
+	 * 
+	 * @param message
+	 *            exception message
+	 */
 	public void wait(String message) {
 		wait(message, DEFAULT_TIMEOUT, DEFAULT_INTERVAL);
 	}
 
-	public void wait(String message, Time timeout) {
+	/**
+	 * Wait condition is true for specified interval and raise exception if
+	 * condition is false
+	 * 
+	 * @param message
+	 *            exception message
+	 * @param timeout
+	 *            time interval
+	 */
+	public void wait(String message, TimeSpan timeout) {
 		wait(message, timeout, DEFAULT_INTERVAL);
 	}
 
-	public void wait(String message, Time timeout, Time interval) {
+	public void wait(String message, TimeSpan timeout, TimeSpan interval) {
 		wait(message, timeout.toMilliseconds(), interval.toMilliseconds());
 	}
 
-	private void wait(String message, long timeoutInMilliseconds,
-	        long intervalInMilliseconds) {
+	private void wait(String message, long timeoutInMilliseconds, long intervalInMilliseconds) {
 		long start = System.currentTimeMillis();
 		long end = start + timeoutInMilliseconds;
 		while (System.currentTimeMillis() < end) {
@@ -65,7 +84,7 @@ public abstract class Wait {
 				throw new TestboxException(WAIT_INTERRUPTED, e);
 			}
 		}
-		throw new WaitTimedOutException(message);
+		throw new TimedOutException(message);
 	}
 
 }

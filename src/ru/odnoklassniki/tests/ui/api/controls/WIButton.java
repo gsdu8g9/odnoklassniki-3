@@ -10,6 +10,10 @@ import ru.odnoklassniki.tests.ui.api.common.IWIRoad;
 import ru.odnoklassniki.tests.ui.api.common.WIDefaultRoad;
 import ru.odnoklassniki.tests.ui.api.locale.Text;
 
+/**
+ * Button control web element
+ *
+ */
 public class WIButton extends WIElement {
 
 	public static class Road extends WIDefaultRoad {
@@ -46,12 +50,15 @@ public class WIButton extends WIElement {
 
 	}
 
-	public static final String WI_BUTTON_TYPE = "button";
+	private static final String WI_BUTTON_TYPE = "button";
 
 	public WIButton(IWIRoad road, String locator, String name) {
 		super(road, locator, name, WI_BUTTON_TYPE);
 	}
 
+	/**
+	 * Click button
+	 */
 	public void click() {
 		Loggers.ui.info(LOG_CLICK.getValue(this));
 		if (isVisible()) {

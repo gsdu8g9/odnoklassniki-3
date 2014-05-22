@@ -2,14 +2,18 @@ package ru.odnoklassniki.tests.ui.api.pages;
 
 import java.util.Calendar;
 
+import ru.odnoklassniki.tests.common.Requirements;
 import ru.odnoklassniki.tests.common.Utils;
-import ru.odnoklassniki.tests.ui.api.Requirements;
 import ru.odnoklassniki.tests.ui.api.common.IWIRoad;
 import ru.odnoklassniki.tests.ui.api.controls.WIMenuItem;
 import ru.odnoklassniki.tests.ui.api.controls.WIPage;
 import ru.odnoklassniki.tests.ui.api.dialog.WIProfilePersoanlDialog;
 import ru.odnoklassniki.tests.ui.api.locale.Text;
 
+/**
+ * User profile page
+ *
+ */
 public class WIProfilePage extends WIPage {
 
 	public final WIMenuItem mnuPersonalInfo = WIMenuItem.Link(this,

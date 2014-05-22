@@ -2,37 +2,77 @@ package ru.odnoklassniki.tests.common;
 
 import java.text.DecimalFormat;
 
-public class Time {
+/**
+ * TimeSpan object is wrapper for time interval
+ * 
+ */
+public class TimeSpan {
 
 	private static final DecimalFormat DF00 = new DecimalFormat("00");
 	private static final DecimalFormat DF000 = new DecimalFormat("000");
 
 	private long milliseconds;
 
-	public static Time Milliseconds(long value) {
-		return new Time(value);
+	/**
+	 * Create time interval in milliseconds
+	 * 
+	 * @param value
+	 *            milliseconds
+	 * @return TimeSpan object
+	 */
+	public static TimeSpan Milliseconds(long value) {
+		return new TimeSpan(value);
 	}
 
-	public static Time Seconds(long value) {
-		return new Time(value * 1000);
+	/**
+	 * Create time interval in seconds
+	 * 
+	 * @param value
+	 *            seconds
+	 * @return TimeSpan object
+	 */
+	public static TimeSpan Seconds(long value) {
+		return new TimeSpan(value * 1000);
 	}
 
-	public static Time Minutes(long value) {
-		return new Time(value * 1000 * 60);
+	/**
+	 * Create time interval in minutes
+	 * 
+	 * @param value
+	 *            minutes
+	 * @return TimeSpan object
+	 */
+	public static TimeSpan Minutes(long value) {
+		return new TimeSpan(value * 1000 * 60);
 	}
 
-	private Time(long milliseconds) {
+	private TimeSpan(long milliseconds) {
 		this.milliseconds = milliseconds;
 	}
 
+	/**
+	 * Convert to milliseconds
+	 * 
+	 * @return time interval in milliseconds
+	 */
 	public long toMilliseconds() {
 		return milliseconds;
 	}
 
+	/**
+	 * Convert to seconds
+	 * 
+	 * @return time interval in seconds
+	 */
 	public long toSeconds() {
 		return toMilliseconds() / 1000;
 	}
 
+	/**
+	 * Convert to minutes
+	 * 
+	 * @return time interval in minutes
+	 */
 	public long toMinutes() {
 		return toSeconds() / 60;
 	}

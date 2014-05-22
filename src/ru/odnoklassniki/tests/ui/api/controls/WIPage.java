@@ -2,6 +2,10 @@ package ru.odnoklassniki.tests.ui.api.controls;
 
 import ru.odnoklassniki.tests.ui.api.common.IWIRoad;
 
+/**
+ * Page web element
+ *
+ */
 public class WIPage extends WIElement {
 
 	public static final String WI_PAGE_TYPE = "page";

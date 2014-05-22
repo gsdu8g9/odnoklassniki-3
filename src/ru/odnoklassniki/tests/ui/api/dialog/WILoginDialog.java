@@ -1,15 +1,19 @@
 package ru.odnoklassniki.tests.ui.api.dialog;
 
 import static ru.odnoklassniki.tests.common.Loggers.ui;
-import static ru.odnoklassniki.tests.common.Time.Seconds;
+import static ru.odnoklassniki.tests.common.TimeSpan.Seconds;
 import static ru.odnoklassniki.tests.ui.api.locale.Text.BTN_LOGIN;
+import ru.odnoklassniki.tests.common.Requirements;
 import ru.odnoklassniki.tests.common.Utils;
-import ru.odnoklassniki.tests.ui.api.Requirements;
 import ru.odnoklassniki.tests.ui.api.common.IWIRoad;
 import ru.odnoklassniki.tests.ui.api.controls.WIButton;
 import ru.odnoklassniki.tests.ui.api.controls.input.WITextInput;
 import ru.odnoklassniki.tests.ui.api.locale.LocaleManager;
 
+/**
+ * Login dialog
+ * 
+ */
 public class WILoginDialog extends WIDialog {
 
 	// TODO Need label oriented xpath
@@ -23,11 +27,15 @@ public class WILoginDialog extends WIDialog {
 		super(road, "//*[@class='anonym_login']", "Login");
 	}
 
+	/**
+	 * Login using specified credentials
+	 * 
+	 * @param name
+	 *            name
+	 * @param password
+	 *            password
+	 */
 	public void login(String name, String password) {
-		loginSuccessful(name, password);
-	}
-
-	public void loginSuccessful(String name, String password) {
 		Requirements.notNull(name, "name");
 		Requirements.notNull(password, "password");
 
@@ -41,7 +49,7 @@ public class WILoginDialog extends WIDialog {
 		// After login locale can be changed depends on user's settings
 		LocaleManager.autoDetect(getBrowser());
 
-		// Login is successful if page shows username property
+		// Assume login is successful if page shows user name property
 		getBrowser().getGlobalContainer().proUsername.waitVisible();
 	}
 

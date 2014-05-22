@@ -1,10 +1,9 @@
 package ru.odnoklassniki.tests.ui.api.selenium;
 
 import java.io.File;
-import java.net.URL;
 
+import ru.odnoklassniki.tests.common.Requirements;
 import ru.odnoklassniki.tests.common.Utils;
-import ru.odnoklassniki.tests.ui.api.Requirements;
 
 import com.thoughtworks.selenium.DefaultSelenium;
 
@@ -27,11 +26,6 @@ public class DefaultSelenium2 extends DefaultSelenium implements Selenium2 {
 		// Wrap commandProcessor to log all interaction with Selenium RC on
 		// client side
 		commandProcessor = new LogggedCommandProcessor(commandProcessor);
-	}
-
-	public void open(URL url) {
-		Requirements.notNull(url, "url");
-		open(url.toString());
 	}
 
 	@Override

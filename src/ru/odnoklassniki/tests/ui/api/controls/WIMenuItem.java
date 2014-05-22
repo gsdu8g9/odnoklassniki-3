@@ -3,6 +3,10 @@ package ru.odnoklassniki.tests.ui.api.controls;
 import ru.odnoklassniki.tests.ui.api.common.IWIRoad;
 import ru.odnoklassniki.tests.ui.api.locale.Text;
 
+/**
+ * Menu web element
+ *
+ */
 public class WIMenuItem extends WIClickable {
 
 	public static final String WI_MENU_ITEM_TYPE = "menu";

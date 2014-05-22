@@ -1,5 +1,11 @@
 package ru.odnoklassniki.tests.ui.api.locale;
 
+/**
+ * Text used by tests
+ * 
+ * Each enum value must have corresponding entries localize property files  
+ *
+ */
 public enum Text {
 
 	JANUARY,

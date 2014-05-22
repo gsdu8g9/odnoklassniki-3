@@ -1,5 +1,8 @@
 package ru.odnoklassniki.tests.common;
 
+/**
+ * Messages collection used for framework 
+ */
 public enum Messages implements IMessage {
 
 	FAILED_READ_LOG_CONFIG("Failed read log config %s"),

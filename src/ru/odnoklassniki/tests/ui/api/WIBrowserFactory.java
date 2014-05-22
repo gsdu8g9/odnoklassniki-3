@@ -9,6 +9,7 @@ import org.openqa.selenium.server.RemoteControlConfiguration;
 import org.openqa.selenium.server.SeleniumServer;
 
 import ru.odnoklassniki.tests.common.Loggers;
+import ru.odnoklassniki.tests.common.Requirements;
 import ru.odnoklassniki.tests.common.Utils;
 import ru.odnoklassniki.tests.runner.Testbox;
 import ru.odnoklassniki.tests.runner.TestboxException;

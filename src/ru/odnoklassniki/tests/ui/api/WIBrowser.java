@@ -2,13 +2,13 @@ package ru.odnoklassniki.tests.ui.api;
 
 import ru.odnoklassniki.tests.ui.api.common.IWIRoad;
 import ru.odnoklassniki.tests.ui.api.dialog.WILoginDialog;
-import ru.odnoklassniki.tests.ui.api.pages.WIGlobalContainer;
+import ru.odnoklassniki.tests.ui.api.pages.WIHomePage;
 import ru.odnoklassniki.tests.ui.api.pages.WIProfilePage;
 import ru.odnoklassniki.tests.ui.api.selenium.DefaultSelenium2;
 
 public class WIBrowser extends DefaultSelenium2 implements IWIRoad {
 
-	private WIGlobalContainer cntGlobal;
+	private WIHomePage cntGlobal;
 
 	private WILoginDialog dlgLogin;
 
@@ -39,8 +39,8 @@ public class WIBrowser extends DefaultSelenium2 implements IWIRoad {
 		        : dlgLogin;
 	}
 
-	public WIGlobalContainer getGlobalContainer() {
-		return null == cntGlobal ? (cntGlobal = new WIGlobalContainer(this))
+	public WIHomePage getGlobalContainer() {
+		return null == cntGlobal ? (cntGlobal = new WIHomePage(this))
 		        : cntGlobal;
 	}
 

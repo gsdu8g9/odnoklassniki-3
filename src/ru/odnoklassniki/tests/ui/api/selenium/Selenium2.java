@@ -1,7 +1,6 @@
 package ru.odnoklassniki.tests.ui.api.selenium;
 
 import java.io.File;
-import java.net.URL;
 
 import com.thoughtworks.selenium.Selenium;
 
@@ -10,8 +9,6 @@ import com.thoughtworks.selenium.Selenium;
  * 
  */
 public interface Selenium2 extends Selenium {
-
-	void open(URL url);
 
 	/**
 	 * Switch on/off highlighting of all HTML elements during execution of all

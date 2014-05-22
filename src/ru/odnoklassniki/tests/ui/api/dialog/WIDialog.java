@@ -4,6 +4,10 @@ import ru.odnoklassniki.tests.ui.api.common.IWIRoad;
 import ru.odnoklassniki.tests.ui.api.controls.WIElement;
 import ru.odnoklassniki.tests.ui.api.locale.Text;
 
+/**
+ * Dialog web element
+ *
+ */
 public class WIDialog extends WIElement {
 
 	public static final String WI_DIALOG_TYPE = "dialog";
