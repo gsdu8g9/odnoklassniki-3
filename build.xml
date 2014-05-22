@@ -6,7 +6,9 @@
 	<property name="tests" location="tests" />
 	<property name="lib" location="lib" />
 
-	<property name="browser" value="firefox"/>
+	<property name="browser" value="firefox" />
+    <property name="proxyHost" value="" />
+	<property name="proxyPort" value="" />
 	
 	<property name="testng.report.dir" location="test-output" />
 
@@ -58,6 +60,8 @@
     	    <classfileset dir="${bin}" includes="**/*.class" />
     		<jvmarg value="-Djava.util.logging.config.file=logging.properties" />
             <jvmarg value="-Dselenium.browser=*${browser}" />
+            <jvmarg value="-Dhttp.proxyHost=${proxyHost}" />
+            <jvmarg value="-Dhttp.proxyPort=${proxyPort}" />
             <sysproperty key="org.uncommons.reportng.title" value="Odnoklassniki Test Report"/>
     	</testng>
     </target>

@@ -33,12 +33,13 @@
 
  RUNNING
 =========
-    Run ant from root folder
+    Run ant from root folder using one of commands
     
     Commands:
         ant
         ant -Dbrowser=firefox
         ant -Dbrowser=googlechrome
+        ant -DproxyHost=HOST -DproxyPort=PORT
     
     Output:
         Buildfile: E:\Work\odnoklassniki\build.xml
@@ -67,15 +68,9 @@
         Total time: 3 minutes 3 seconds
 
 
- REPORT 
-=========
-    test-output/html/index.html
-
-    
- ANT TASKS
-===========
-    all         Compile and run tests
-    compile     Compile tests
-    test        Run tests
-    selenium    Run Selenium RC only (debugging)
-             
+    Report:
+        test-output/html/index.html
+       
+    Log:
+        testbox,log
+        
